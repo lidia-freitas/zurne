@@ -15,7 +15,6 @@ namespace Models
         {
             PessoaFisica pf = new PessoaFisica(nome, cpf, email, end);
             this.PessoaFisica = pf;
-
         }
     }
 }

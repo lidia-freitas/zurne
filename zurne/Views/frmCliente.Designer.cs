@@ -31,17 +31,31 @@
             this.rbPessoaFisica = new System.Windows.Forms.RadioButton();
             this.rbPessoaJuridica = new System.Windows.Forms.RadioButton();
             this.gbPessoaFiscia = new System.Windows.Forms.GroupBox();
+            this.btnSalvarPessoaFisica = new System.Windows.Forms.Button();
+            this.btnCancelarFrmPJ = new System.Windows.Forms.Button();
+            this.textEndereco_PF = new System.Windows.Forms.TextBox();
+            this.textEmail_PF = new System.Windows.Forms.TextBox();
+            this.textCpf_PF = new System.Windows.Forms.TextBox();
+            this.lbEndereco_PF = new System.Windows.Forms.Label();
+            this.lbEmail_PF = new System.Windows.Forms.Label();
+            this.lbCpf_PF = new System.Windows.Forms.Label();
+            this.textNome_PF = new System.Windows.Forms.TextBox();
+            this.lbNome_PF = new System.Windows.Forms.Label();
             this.gbPessoaJuridica = new System.Windows.Forms.GroupBox();
-            this.lbNome = new System.Windows.Forms.Label();
-            this.textNome = new System.Windows.Forms.TextBox();
-            this.lbCpf = new System.Windows.Forms.Label();
-            this.lbEmail = new System.Windows.Forms.Label();
-            this.lbEndereco = new System.Windows.Forms.Label();
-            this.textCpf = new System.Windows.Forms.TextBox();
-            this.textEmail = new System.Windows.Forms.TextBox();
-            this.textEndereco = new System.Windows.Forms.TextBox();
-            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnCancelarFrmPF = new System.Windows.Forms.Button();
+            this.btnSalvarPessoaJuridica = new System.Windows.Forms.Button();
+            this.textEndereco_PJ = new System.Windows.Forms.TextBox();
+            this.textEmail_PJ = new System.Windows.Forms.TextBox();
+            this.textContato_PJ = new System.Windows.Forms.TextBox();
+            this.textCnpj_PJ = new System.Windows.Forms.TextBox();
+            this.textRazaoSocial_PJ = new System.Windows.Forms.TextBox();
+            this.lbEndereco_PJ = new System.Windows.Forms.Label();
+            this.lbEmail_PJ = new System.Windows.Forms.Label();
+            this.lbContato_PJ = new System.Windows.Forms.Label();
+            this.lbCnpj_PJ = new System.Windows.Forms.Label();
+            this.lbRazaoSocial_PJ = new System.Windows.Forms.Label();
             this.gbPessoaFiscia.SuspendLayout();
+            this.gbPessoaJuridica.SuspendLayout();
             this.SuspendLayout();
             // 
             // rbPessoaFisica
@@ -54,7 +68,7 @@
             this.rbPessoaFisica.TabStop = true;
             this.rbPessoaFisica.Text = "Pessoa Física";
             this.rbPessoaFisica.UseVisualStyleBackColor = true;
-            this.rbPessoaFisica.CheckedChanged += new System.EventHandler(this.rbPessoaFisica_CheckedChanged);
+            this.rbPessoaFisica.CheckedChanged += new System.EventHandler(this.mostraFormPessoaFisica);
             // 
             // rbPessoaJuridica
             // 
@@ -66,22 +80,23 @@
             this.rbPessoaJuridica.TabStop = true;
             this.rbPessoaJuridica.Text = "Pessoa Jurídica";
             this.rbPessoaJuridica.UseVisualStyleBackColor = true;
-            this.rbPessoaJuridica.CheckedChanged += new System.EventHandler(this.rbPessoaJuridica_CheckedChanged);
+            this.rbPessoaJuridica.CheckedChanged += new System.EventHandler(this.mostraFormPessoaJuridica);
             // 
             // gbPessoaFiscia
             // 
             this.gbPessoaFiscia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbPessoaFiscia.Controls.Add(this.btnSalvar);
-            this.gbPessoaFiscia.Controls.Add(this.textEndereco);
-            this.gbPessoaFiscia.Controls.Add(this.textEmail);
-            this.gbPessoaFiscia.Controls.Add(this.textCpf);
-            this.gbPessoaFiscia.Controls.Add(this.lbEndereco);
-            this.gbPessoaFiscia.Controls.Add(this.lbEmail);
-            this.gbPessoaFiscia.Controls.Add(this.lbCpf);
-            this.gbPessoaFiscia.Controls.Add(this.textNome);
-            this.gbPessoaFiscia.Controls.Add(this.lbNome);
+            this.gbPessoaFiscia.Controls.Add(this.btnSalvarPessoaFisica);
+            this.gbPessoaFiscia.Controls.Add(this.btnCancelarFrmPJ);
+            this.gbPessoaFiscia.Controls.Add(this.textEndereco_PF);
+            this.gbPessoaFiscia.Controls.Add(this.textEmail_PF);
+            this.gbPessoaFiscia.Controls.Add(this.textCpf_PF);
+            this.gbPessoaFiscia.Controls.Add(this.lbEndereco_PF);
+            this.gbPessoaFiscia.Controls.Add(this.lbEmail_PF);
+            this.gbPessoaFiscia.Controls.Add(this.lbCpf_PF);
+            this.gbPessoaFiscia.Controls.Add(this.textNome_PF);
+            this.gbPessoaFiscia.Controls.Add(this.lbNome_PF);
             this.gbPessoaFiscia.Location = new System.Drawing.Point(12, 60);
             this.gbPessoaFiscia.Name = "gbPessoaFiscia";
             this.gbPessoaFiscia.Size = new System.Drawing.Size(1120, 550);
@@ -89,7 +104,92 @@
             this.gbPessoaFiscia.TabStop = false;
             this.gbPessoaFiscia.Text = "Pessoa Fisica";
             this.gbPessoaFiscia.Visible = false;
-            this.gbPessoaFiscia.Enter += new System.EventHandler(this.gbPessoalFiscia_Enter);
+            // 
+            // btnSalvarPessoaFisica
+            // 
+            this.btnSalvarPessoaFisica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalvarPessoaFisica.Location = new System.Drawing.Point(1039, 521);
+            this.btnSalvarPessoaFisica.Name = "btnSalvarPessoaFisica";
+            this.btnSalvarPessoaFisica.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvarPessoaFisica.TabIndex = 8;
+            this.btnSalvarPessoaFisica.Text = "Salvar";
+            this.btnSalvarPessoaFisica.UseVisualStyleBackColor = true;
+            this.btnSalvarPessoaFisica.Click += new System.EventHandler(this.salvarPessoaFisica);
+            // 
+            // btnCancelarFrmPJ
+            // 
+            this.btnCancelarFrmPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarFrmPJ.Location = new System.Drawing.Point(958, 521);
+            this.btnCancelarFrmPJ.Name = "btnCancelarFrmPJ";
+            this.btnCancelarFrmPJ.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelarFrmPJ.TabIndex = 11;
+            this.btnCancelarFrmPJ.Text = "Cancelar";
+            this.btnCancelarFrmPJ.UseVisualStyleBackColor = true;
+            this.btnCancelarFrmPJ.Click += new System.EventHandler(this.cancelar);
+            // 
+            // textEndereco_PF
+            // 
+            this.textEndereco_PF.Location = new System.Drawing.Point(28, 310);
+            this.textEndereco_PF.Name = "textEndereco_PF";
+            this.textEndereco_PF.Size = new System.Drawing.Size(595, 20);
+            this.textEndereco_PF.TabIndex = 7;
+            // 
+            // textEmail_PF
+            // 
+            this.textEmail_PF.Location = new System.Drawing.Point(28, 222);
+            this.textEmail_PF.Name = "textEmail_PF";
+            this.textEmail_PF.Size = new System.Drawing.Size(191, 20);
+            this.textEmail_PF.TabIndex = 6;
+            // 
+            // textCpf_PF
+            // 
+            this.textCpf_PF.Location = new System.Drawing.Point(25, 137);
+            this.textCpf_PF.Name = "textCpf_PF";
+            this.textCpf_PF.Size = new System.Drawing.Size(138, 20);
+            this.textCpf_PF.TabIndex = 5;
+            // 
+            // lbEndereco_PF
+            // 
+            this.lbEndereco_PF.AutoSize = true;
+            this.lbEndereco_PF.Location = new System.Drawing.Point(25, 293);
+            this.lbEndereco_PF.Name = "lbEndereco_PF";
+            this.lbEndereco_PF.Size = new System.Drawing.Size(53, 13);
+            this.lbEndereco_PF.TabIndex = 4;
+            this.lbEndereco_PF.Text = "Endereço";
+            // 
+            // lbEmail_PF
+            // 
+            this.lbEmail_PF.AutoSize = true;
+            this.lbEmail_PF.Location = new System.Drawing.Point(25, 205);
+            this.lbEmail_PF.Name = "lbEmail_PF";
+            this.lbEmail_PF.Size = new System.Drawing.Size(35, 13);
+            this.lbEmail_PF.TabIndex = 3;
+            this.lbEmail_PF.Text = "E-mail";
+            // 
+            // lbCpf_PF
+            // 
+            this.lbCpf_PF.AutoSize = true;
+            this.lbCpf_PF.Location = new System.Drawing.Point(25, 120);
+            this.lbCpf_PF.Name = "lbCpf_PF";
+            this.lbCpf_PF.Size = new System.Drawing.Size(27, 13);
+            this.lbCpf_PF.TabIndex = 2;
+            this.lbCpf_PF.Text = "CPF";
+            // 
+            // textNome_PF
+            // 
+            this.textNome_PF.Location = new System.Drawing.Point(25, 70);
+            this.textNome_PF.Name = "textNome_PF";
+            this.textNome_PF.Size = new System.Drawing.Size(369, 20);
+            this.textNome_PF.TabIndex = 1;
+            // 
+            // lbNome_PF
+            // 
+            this.lbNome_PF.AutoSize = true;
+            this.lbNome_PF.Location = new System.Drawing.Point(22, 41);
+            this.lbNome_PF.Name = "lbNome_PF";
+            this.lbNome_PF.Size = new System.Drawing.Size(35, 13);
+            this.lbNome_PF.TabIndex = 0;
+            this.lbNome_PF.Text = "Nome";
             // 
             // gbPessoaJuridica
             // 
@@ -97,102 +197,143 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbPessoaJuridica.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.gbPessoaJuridica.Controls.Add(this.btnCancelarFrmPF);
+            this.gbPessoaJuridica.Controls.Add(this.btnSalvarPessoaJuridica);
+            this.gbPessoaJuridica.Controls.Add(this.textEndereco_PJ);
+            this.gbPessoaJuridica.Controls.Add(this.textEmail_PJ);
+            this.gbPessoaJuridica.Controls.Add(this.textContato_PJ);
+            this.gbPessoaJuridica.Controls.Add(this.textCnpj_PJ);
+            this.gbPessoaJuridica.Controls.Add(this.textRazaoSocial_PJ);
+            this.gbPessoaJuridica.Controls.Add(this.lbEndereco_PJ);
+            this.gbPessoaJuridica.Controls.Add(this.lbEmail_PJ);
+            this.gbPessoaJuridica.Controls.Add(this.lbContato_PJ);
+            this.gbPessoaJuridica.Controls.Add(this.lbCnpj_PJ);
+            this.gbPessoaJuridica.Controls.Add(this.lbRazaoSocial_PJ);
             this.gbPessoaJuridica.Location = new System.Drawing.Point(12, 60);
             this.gbPessoaJuridica.Name = "gbPessoaJuridica";
             this.gbPessoaJuridica.Size = new System.Drawing.Size(1120, 550);
             this.gbPessoaJuridica.TabIndex = 0;
             this.gbPessoaJuridica.TabStop = false;
             this.gbPessoaJuridica.Text = "Pessoa Juridica";
-            this.gbPessoaJuridica.Enter += new System.EventHandler(this.gbPessoaJuridica_Enter);
             // 
-            // lbNome
+            // btnCancelarFrmPF
             // 
-            this.lbNome.AutoSize = true;
-            this.lbNome.Location = new System.Drawing.Point(22, 41);
-            this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(35, 13);
-            this.lbNome.TabIndex = 0;
-            this.lbNome.Text = "Nome";
+            this.btnCancelarFrmPF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarFrmPF.Location = new System.Drawing.Point(958, 521);
+            this.btnCancelarFrmPF.Name = "btnCancelarFrmPF";
+            this.btnCancelarFrmPF.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelarFrmPF.TabIndex = 12;
+            this.btnCancelarFrmPF.Text = "Cancelar";
+            this.btnCancelarFrmPF.UseVisualStyleBackColor = true;
+            this.btnCancelarFrmPF.Click += new System.EventHandler(this.cancelar);
             // 
-            // textNome
+            // btnSalvarPessoaJuridica
             // 
-            this.textNome.Location = new System.Drawing.Point(25, 70);
-            this.textNome.Name = "textNome";
-            this.textNome.Size = new System.Drawing.Size(369, 20);
-            this.textNome.TabIndex = 1;
+            this.btnSalvarPessoaJuridica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalvarPessoaJuridica.Location = new System.Drawing.Point(1039, 521);
+            this.btnSalvarPessoaJuridica.Name = "btnSalvarPessoaJuridica";
+            this.btnSalvarPessoaJuridica.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvarPessoaJuridica.TabIndex = 10;
+            this.btnSalvarPessoaJuridica.Text = "Salvar";
+            this.btnSalvarPessoaJuridica.UseVisualStyleBackColor = true;
+            this.btnSalvarPessoaJuridica.Click += new System.EventHandler(this.salvarPessoaJuridica);
             // 
-            // lbCpf
+            // textEndereco_PJ
             // 
-            this.lbCpf.AutoSize = true;
-            this.lbCpf.Location = new System.Drawing.Point(25, 120);
-            this.lbCpf.Name = "lbCpf";
-            this.lbCpf.Size = new System.Drawing.Size(27, 13);
-            this.lbCpf.TabIndex = 2;
-            this.lbCpf.Text = "CPF";
+            this.textEndereco_PJ.Location = new System.Drawing.Point(25, 465);
+            this.textEndereco_PJ.Name = "textEndereco_PJ";
+            this.textEndereco_PJ.Size = new System.Drawing.Size(465, 20);
+            this.textEndereco_PJ.TabIndex = 9;
             // 
-            // lbEmail
+            // textEmail_PJ
             // 
-            this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(25, 205);
-            this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(35, 13);
-            this.lbEmail.TabIndex = 3;
-            this.lbEmail.Text = "E-mail";
+            this.textEmail_PJ.Location = new System.Drawing.Point(25, 364);
+            this.textEmail_PJ.Name = "textEmail_PJ";
+            this.textEmail_PJ.Size = new System.Drawing.Size(157, 20);
+            this.textEmail_PJ.TabIndex = 8;
             // 
-            // lbEndereco
+            // textContato_PJ
             // 
-            this.lbEndereco.AutoSize = true;
-            this.lbEndereco.Location = new System.Drawing.Point(25, 293);
-            this.lbEndereco.Name = "lbEndereco";
-            this.lbEndereco.Size = new System.Drawing.Size(53, 13);
-            this.lbEndereco.TabIndex = 4;
-            this.lbEndereco.Text = "Endereço";
+            this.textContato_PJ.Location = new System.Drawing.Point(25, 248);
+            this.textContato_PJ.Name = "textContato_PJ";
+            this.textContato_PJ.Size = new System.Drawing.Size(263, 20);
+            this.textContato_PJ.TabIndex = 7;
             // 
-            // textCpf
+            // textCnpj_PJ
             // 
-            this.textCpf.Location = new System.Drawing.Point(25, 137);
-            this.textCpf.Name = "textCpf";
-            this.textCpf.Size = new System.Drawing.Size(138, 20);
-            this.textCpf.TabIndex = 5;
+            this.textCnpj_PJ.Location = new System.Drawing.Point(25, 148);
+            this.textCnpj_PJ.Name = "textCnpj_PJ";
+            this.textCnpj_PJ.Size = new System.Drawing.Size(194, 20);
+            this.textCnpj_PJ.TabIndex = 6;
             // 
-            // textEmail
+            // textRazaoSocial_PJ
             // 
-            this.textEmail.Location = new System.Drawing.Point(28, 222);
-            this.textEmail.Name = "textEmail";
-            this.textEmail.Size = new System.Drawing.Size(191, 20);
-            this.textEmail.TabIndex = 6;
+            this.textRazaoSocial_PJ.Location = new System.Drawing.Point(25, 70);
+            this.textRazaoSocial_PJ.Name = "textRazaoSocial_PJ";
+            this.textRazaoSocial_PJ.Size = new System.Drawing.Size(369, 20);
+            this.textRazaoSocial_PJ.TabIndex = 5;
             // 
-            // textEndereco
+            // lbEndereco_PJ
             // 
-            this.textEndereco.Location = new System.Drawing.Point(28, 310);
-            this.textEndereco.Name = "textEndereco";
-            this.textEndereco.Size = new System.Drawing.Size(595, 20);
-            this.textEndereco.TabIndex = 7;
+            this.lbEndereco_PJ.AutoSize = true;
+            this.lbEndereco_PJ.Location = new System.Drawing.Point(22, 437);
+            this.lbEndereco_PJ.Name = "lbEndereco_PJ";
+            this.lbEndereco_PJ.Size = new System.Drawing.Size(53, 13);
+            this.lbEndereco_PJ.TabIndex = 4;
+            this.lbEndereco_PJ.Text = "Endereço";
             // 
-            // btnSalvar
+            // lbEmail_PJ
             // 
-            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvar.Location = new System.Drawing.Point(1039, 521);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 8;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.lbEmail_PJ.AutoSize = true;
+            this.lbEmail_PJ.Location = new System.Drawing.Point(22, 333);
+            this.lbEmail_PJ.Name = "lbEmail_PJ";
+            this.lbEmail_PJ.Size = new System.Drawing.Size(35, 13);
+            this.lbEmail_PJ.TabIndex = 3;
+            this.lbEmail_PJ.Text = "E-mail";
+            // 
+            // lbContato_PJ
+            // 
+            this.lbContato_PJ.AutoSize = true;
+            this.lbContato_PJ.Location = new System.Drawing.Point(22, 222);
+            this.lbContato_PJ.Name = "lbContato_PJ";
+            this.lbContato_PJ.Size = new System.Drawing.Size(44, 13);
+            this.lbContato_PJ.TabIndex = 2;
+            this.lbContato_PJ.Text = "Contato";
+            // 
+            // lbCnpj_PJ
+            // 
+            this.lbCnpj_PJ.AutoSize = true;
+            this.lbCnpj_PJ.Location = new System.Drawing.Point(22, 121);
+            this.lbCnpj_PJ.Name = "lbCnpj_PJ";
+            this.lbCnpj_PJ.Size = new System.Drawing.Size(34, 13);
+            this.lbCnpj_PJ.TabIndex = 1;
+            this.lbCnpj_PJ.Text = "CNPJ";
+            // 
+            // lbRazaoSocial_PJ
+            // 
+            this.lbRazaoSocial_PJ.AutoSize = true;
+            this.lbRazaoSocial_PJ.Location = new System.Drawing.Point(22, 41);
+            this.lbRazaoSocial_PJ.Name = "lbRazaoSocial_PJ";
+            this.lbRazaoSocial_PJ.Size = new System.Drawing.Size(70, 13);
+            this.lbRazaoSocial_PJ.TabIndex = 0;
+            this.lbRazaoSocial_PJ.Text = "Razão Social";
             // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1147, 628);
-            this.Controls.Add(this.gbPessoaFiscia);
             this.Controls.Add(this.rbPessoaJuridica);
             this.Controls.Add(this.rbPessoaFisica);
             this.Controls.Add(this.gbPessoaJuridica);
+            this.Controls.Add(this.gbPessoaFiscia);
             this.Name = "frmCliente";
             this.Text = "Cliente";
-            this.Load += new System.EventHandler(this.frmCliente_Load);
+            this.Load += new System.EventHandler(this.carregarCliente);
             this.gbPessoaFiscia.ResumeLayout(false);
             this.gbPessoaFiscia.PerformLayout();
+            this.gbPessoaJuridica.ResumeLayout(false);
+            this.gbPessoaJuridica.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,14 +345,27 @@
         private System.Windows.Forms.RadioButton rbPessoaJuridica;
         private System.Windows.Forms.GroupBox gbPessoaFiscia;
         private System.Windows.Forms.GroupBox gbPessoaJuridica;
-        private System.Windows.Forms.TextBox textNome;
-        private System.Windows.Forms.Label lbNome;
-        private System.Windows.Forms.TextBox textEndereco;
-        private System.Windows.Forms.TextBox textEmail;
-        private System.Windows.Forms.TextBox textCpf;
-        private System.Windows.Forms.Label lbEndereco;
-        private System.Windows.Forms.Label lbEmail;
-        private System.Windows.Forms.Label lbCpf;
-        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.TextBox textNome_PF;
+        private System.Windows.Forms.Label lbNome_PF;
+        private System.Windows.Forms.TextBox textEndereco_PF;
+        private System.Windows.Forms.TextBox textEmail_PF;
+        private System.Windows.Forms.TextBox textCpf_PF;
+        private System.Windows.Forms.Label lbEndereco_PF;
+        private System.Windows.Forms.Label lbEmail_PF;
+        private System.Windows.Forms.Label lbCpf_PF;
+        private System.Windows.Forms.Button btnSalvarPessoaFisica;
+        private System.Windows.Forms.Label lbRazaoSocial_PJ;
+        private System.Windows.Forms.Label lbEmail_PJ;
+        private System.Windows.Forms.Label lbContato_PJ;
+        private System.Windows.Forms.Label lbCnpj_PJ;
+        private System.Windows.Forms.Label lbEndereco_PJ;
+        private System.Windows.Forms.TextBox textEndereco_PJ;
+        private System.Windows.Forms.TextBox textEmail_PJ;
+        private System.Windows.Forms.TextBox textContato_PJ;
+        private System.Windows.Forms.TextBox textCnpj_PJ;
+        private System.Windows.Forms.TextBox textRazaoSocial_PJ;
+        private System.Windows.Forms.Button btnSalvarPessoaJuridica;
+        private System.Windows.Forms.Button btnCancelarFrmPJ;
+        private System.Windows.Forms.Button btnCancelarFrmPF;
     }
 }

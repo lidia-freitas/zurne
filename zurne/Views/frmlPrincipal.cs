@@ -24,7 +24,7 @@ namespace Views
 
         private void abrirFormCliente(object sender, EventArgs e)
         {
-            frmCliente frmCliente = new frmCliente();
+            frmCliente frmCliente = new frmCliente(null, null);
             frmCliente.MdiParent = this;
             frmCliente.Show();
             frmCliente.WindowState = FormWindowState.Maximized;

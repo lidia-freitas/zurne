@@ -7,12 +7,12 @@ using Models;
 
 namespace Controllers
 {
-    class ClienteController
+    public class ClienteController
     {
 
         private static List<Cliente> listaClientes = new List<Cliente>();
 
-        private Cliente Buscar(int id)
+        public Cliente Buscar(int? id)
         {
             foreach (Cliente cli in listaClientes)
             {
