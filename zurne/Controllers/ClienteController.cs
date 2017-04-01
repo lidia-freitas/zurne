@@ -10,9 +10,9 @@ namespace Controllers
     public class ClienteController
     {
 
-        private static List<Cliente> listaClientes = new List<Cliente>();
+        private static List<Cliente> listaClientes = new List<Cliente>();              
 
-        public Cliente Buscar(int? id)
+        public static Cliente Buscar(int? id)
         {
             foreach (Cliente cli in listaClientes)
             {
@@ -25,12 +25,12 @@ namespace Controllers
             return null;
         }
 
-        public List<Cliente> Listar()
+        public static List<Cliente> Listar()
         {
             return listaClientes;
         }
 
-        public void CadastrarPf(string nome, string cpf, string email, string endereco)
+        public static void CadastrarPf(string nome, string cpf, string email, string endereco)
         {
             PessoaFisica pf = new PessoaFisica (nome, cpf, email, endereco);
 
@@ -39,7 +39,7 @@ namespace Controllers
             listaClientes.Add(cli);
         }
         
-        public void CadastrarPj(string rz, string cnpj, string contato, string email, string endereco)
+        public static void CadastrarPj(string rz, string cnpj, string contato, string email, string endereco)
         {
             PessoaJuridica pj = new PessoaJuridica (rz, cnpj, contato, email, endereco);
 
@@ -48,7 +48,7 @@ namespace Controllers
             listaClientes.Add(cli);
         }
 
-        public void Remover(int id)
+        public static void Remover(int id)
         {
             foreach (Cliente cli in listaClientes)
             {
@@ -59,7 +59,7 @@ namespace Controllers
             }
         }
 
-        public void EditarPf(int id, string nome, string cpf, string email, string end)
+        public static void EditarPf(int id, string nome, string cpf, string email, string end)
         {
             Cliente cli = Buscar(id);
 
@@ -72,7 +72,7 @@ namespace Controllers
             }
         }
         
-        public void EditarPj(int id, string rz, string cnpj, string contato, string email, string endereco)
+        public static void EditarPj(int id, string rz, string cnpj, string contato, string email, string endereco)
         {
             Cliente cli = Buscar(id);
 
@@ -86,5 +86,6 @@ namespace Controllers
             }
         }
 
+        
     }
 }

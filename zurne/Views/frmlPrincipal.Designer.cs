@@ -55,13 +55,12 @@
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
             resources.ApplyResources(this.clienteToolStripMenuItem, "clienteToolStripMenuItem");
-            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.abrirFormCliente);
+            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.listarClientes);
             // 
             // funcionárioToolStripMenuItem
             // 
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
             resources.ApplyResources(this.funcionárioToolStripMenuItem, "funcionárioToolStripMenuItem");
-            this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.abrirFormFuncionario);
             // 
             // frmPrincipal
             // 
@@ -72,7 +71,6 @@
             this.MainMenuStrip = this.menuPrincipal;
             this.Name = "frmPrincipal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuPrincipal.ResumeLayout(false);
             this.menuPrincipal.PerformLayout();
             this.ResumeLayout(false);

@@ -51,11 +51,11 @@ namespace Views
 
         private void carregarPessoaFisica()
         {
-            ClienteController cliController = new ClienteController();
+            //ClienteController cliController = new ClienteController();
             PessoaFisica pf = new PessoaFisica();
             Cliente cli = new Cliente(pf);
 
-            cli = cliController.Buscar(clienteId);
+            cli = ClienteController.Buscar(clienteId);
 
             if (cli != null)
             {
@@ -73,11 +73,12 @@ namespace Views
 
         private void carregarPessoaJuridica()
         {
-            ClienteController cliController = new ClienteController();
+            //ClienteController cliController = new ClienteController();
+
             PessoaJuridica pj = new PessoaJuridica();
             Cliente cli = new Cliente(pj);
 
-            cli = cliController.Buscar(clienteId);
+            cli = ClienteController.Buscar(clienteId);
 
             if(cli != null)
             {
@@ -105,24 +106,21 @@ namespace Views
             gbPessoaFiscia.Visible = false;
             gbPessoaJuridica.Visible = true;
         }
-       
-
+    
         private void salvarPessoaFisica(object sender, EventArgs e)
         {
-            ClienteController cliController = new ClienteController();            
-
-            cliController.CadastrarPf(textNome_PF.Text, textCpf_PF.Text, textEmail_PF.Text, textEndereco_PF.Text);
-
+            ClienteController.CadastrarPf(textNome_PF.Text, textCpf_PF.Text, textEmail_PF.Text, textEndereco_PF.Text);
+                      
             MessageBox.Show("Cliente cadastrado com sucesso!");
 
-            limparCampos();
+            limparCampos();           
+
         }
 
         private void salvarPessoaJuridica(object sender, EventArgs e)
         {
-            ClienteController cliController = new ClienteController();
 
-            cliController.CadastrarPj(textRazaoSocial_PJ.Text, textCnpj_PJ.Text, textContato_PJ.Text, textEmail_PJ.Text, textEndereco_PJ.Text );
+            ClienteController.CadastrarPj(textRazaoSocial_PJ.Text, textCnpj_PJ.Text, textContato_PJ.Text, textEmail_PJ.Text, textEndereco_PJ.Text );
 
             MessageBox.Show("Cliente cadastrado com sucesso!");
 
@@ -146,9 +144,15 @@ namespace Views
 
         private void cancelar(object sender, EventArgs e)
         {
+            listaCliente listaCliente = new listaCliente();
+
+            listaCliente.MdiParent = this.MdiParent;
+
+            listaCliente.Show();
+            listaCliente.WindowState = FormWindowState.Maximized;
+
             this.Close();
         }
-
-        
+                
     }
 }
