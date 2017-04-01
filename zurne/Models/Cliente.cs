@@ -12,7 +12,7 @@ namespace Models
         public PessoaFisica PessoaFisica;
         public PessoaJuridica PessoaJuridica;
 
-        public Cliente (PessoaFisica pf)
+        public Cliente(PessoaFisica pf)
         {
             this.PessoaFisica = pf;
         }
@@ -21,7 +21,5 @@ namespace Models
         {
             this.PessoaJuridica = pj;
         }
-
     }
-
 }

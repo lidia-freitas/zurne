@@ -8,19 +8,16 @@ namespace Models
 {
     public class PessoaFisica : Pessoa
     {
-        public string Nome{ get; set; }
+
+        public string Nome { get; set; }
         public string CPF { get; set; }
-       
-      
-        public PessoaFisica(string nome, string cpf, string email, string endereco) 
-            :base(email, endereco)
+
+
+        public PessoaFisica(string nome, string cpf, string email, string endereco)
+            : base(email, endereco)
         {
-
             this.Nome = nome;
-            this.CPF = cpf;     
-
-
+            this.CPF = cpf;
         }
-
     }
 }

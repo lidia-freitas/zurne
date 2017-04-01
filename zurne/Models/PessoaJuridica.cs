@@ -19,7 +19,7 @@ namespace Models
             this.RazaoSocial = rz;
             this.CNPJ = cnpj;
             this.Contato = contato;
-            
+
         }
     }
 }
