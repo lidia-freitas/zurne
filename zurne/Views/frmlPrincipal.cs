@@ -21,5 +21,18 @@ namespace Views
         {
 
         }
+
+        private void abrirFormCliente(object sender, EventArgs e)
+        {
+            frmCliente frmCliente = new frmCliente();
+            frmCliente.MdiParent = this;
+            frmCliente.Show();
+            frmCliente.WindowState = FormWindowState.Maximized;
+        }
+
+        private void abrirFormFuncionario(object sender, EventArgs e)
+        {
+
+        }
     }
 }
