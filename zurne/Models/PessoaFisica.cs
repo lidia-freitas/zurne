@@ -10,11 +10,17 @@ namespace Models
     {
         public string Nome{ get; set; }
         public string CPF { get; set; }
-
-        public PessoaFisica(string nome, string cpf)
+       
+      
+        public PessoaFisica(string nome, string cpf, string email, string endereco) 
+            :base(email, endereco)
         {
-            this.Nome = Nome;
-            this.CPF = CPF;
+
+            this.Nome = nome;
+            this.CPF = cpf;     
+
+
         }
+
     }
 }
