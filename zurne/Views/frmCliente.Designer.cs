@@ -32,7 +32,7 @@
             this.rbPessoaJuridica = new System.Windows.Forms.RadioButton();
             this.gbPessoaFiscia = new System.Windows.Forms.GroupBox();
             this.btnSalvarPessoaFisica = new System.Windows.Forms.Button();
-            this.btnCancelarFrmPJ = new System.Windows.Forms.Button();
+            this.btnVoltarFrmPJ = new System.Windows.Forms.Button();
             this.textEndereco_PF = new System.Windows.Forms.TextBox();
             this.textEmail_PF = new System.Windows.Forms.TextBox();
             this.textCpf_PF = new System.Windows.Forms.TextBox();
@@ -42,7 +42,7 @@
             this.textNome_PF = new System.Windows.Forms.TextBox();
             this.lbNome_PF = new System.Windows.Forms.Label();
             this.gbPessoaJuridica = new System.Windows.Forms.GroupBox();
-            this.btnCancelarFrmPF = new System.Windows.Forms.Button();
+            this.btnVoltarFrmPF = new System.Windows.Forms.Button();
             this.btnSalvarPessoaJuridica = new System.Windows.Forms.Button();
             this.textEndereco_PJ = new System.Windows.Forms.TextBox();
             this.textEmail_PJ = new System.Windows.Forms.TextBox();
@@ -88,7 +88,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbPessoaFiscia.Controls.Add(this.btnSalvarPessoaFisica);
-            this.gbPessoaFiscia.Controls.Add(this.btnCancelarFrmPJ);
+            this.gbPessoaFiscia.Controls.Add(this.btnVoltarFrmPJ);
             this.gbPessoaFiscia.Controls.Add(this.textEndereco_PF);
             this.gbPessoaFiscia.Controls.Add(this.textEmail_PF);
             this.gbPessoaFiscia.Controls.Add(this.textCpf_PF);
@@ -116,16 +116,16 @@
             this.btnSalvarPessoaFisica.UseVisualStyleBackColor = true;
             this.btnSalvarPessoaFisica.Click += new System.EventHandler(this.salvarPessoaFisica);
             // 
-            // btnCancelarFrmPJ
+            // btnVoltarFrmPJ
             // 
-            this.btnCancelarFrmPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarFrmPJ.Location = new System.Drawing.Point(958, 521);
-            this.btnCancelarFrmPJ.Name = "btnCancelarFrmPJ";
-            this.btnCancelarFrmPJ.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelarFrmPJ.TabIndex = 11;
-            this.btnCancelarFrmPJ.Text = "Cancelar";
-            this.btnCancelarFrmPJ.UseVisualStyleBackColor = true;
-            this.btnCancelarFrmPJ.Click += new System.EventHandler(this.cancelar);
+            this.btnVoltarFrmPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVoltarFrmPJ.Location = new System.Drawing.Point(958, 521);
+            this.btnVoltarFrmPJ.Name = "btnVoltarFrmPJ";
+            this.btnVoltarFrmPJ.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltarFrmPJ.TabIndex = 11;
+            this.btnVoltarFrmPJ.Text = "Voltar";
+            this.btnVoltarFrmPJ.UseVisualStyleBackColor = true;
+            this.btnVoltarFrmPJ.Click += new System.EventHandler(this.voltar);
             // 
             // textEndereco_PF
             // 
@@ -197,7 +197,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbPessoaJuridica.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.gbPessoaJuridica.Controls.Add(this.btnCancelarFrmPF);
+            this.gbPessoaJuridica.Controls.Add(this.btnVoltarFrmPF);
             this.gbPessoaJuridica.Controls.Add(this.btnSalvarPessoaJuridica);
             this.gbPessoaJuridica.Controls.Add(this.textEndereco_PJ);
             this.gbPessoaJuridica.Controls.Add(this.textEmail_PJ);
@@ -216,16 +216,16 @@
             this.gbPessoaJuridica.TabStop = false;
             this.gbPessoaJuridica.Text = "Pessoa Juridica";
             // 
-            // btnCancelarFrmPF
+            // btnVoltarFrmPF
             // 
-            this.btnCancelarFrmPF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarFrmPF.Location = new System.Drawing.Point(958, 521);
-            this.btnCancelarFrmPF.Name = "btnCancelarFrmPF";
-            this.btnCancelarFrmPF.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelarFrmPF.TabIndex = 12;
-            this.btnCancelarFrmPF.Text = "Cancelar";
-            this.btnCancelarFrmPF.UseVisualStyleBackColor = true;
-            this.btnCancelarFrmPF.Click += new System.EventHandler(this.cancelar);
+            this.btnVoltarFrmPF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVoltarFrmPF.Location = new System.Drawing.Point(958, 521);
+            this.btnVoltarFrmPF.Name = "btnVoltarFrmPF";
+            this.btnVoltarFrmPF.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltarFrmPF.TabIndex = 12;
+            this.btnVoltarFrmPF.Text = "Voltar";
+            this.btnVoltarFrmPF.UseVisualStyleBackColor = true;
+            this.btnVoltarFrmPF.Click += new System.EventHandler(this.voltar);
             // 
             // btnSalvarPessoaJuridica
             // 
@@ -325,8 +325,8 @@
             this.ClientSize = new System.Drawing.Size(1147, 628);
             this.Controls.Add(this.rbPessoaJuridica);
             this.Controls.Add(this.rbPessoaFisica);
-            this.Controls.Add(this.gbPessoaJuridica);
             this.Controls.Add(this.gbPessoaFiscia);
+            this.Controls.Add(this.gbPessoaJuridica);
             this.Name = "frmCliente";
             this.Text = "Cliente";
             this.Load += new System.EventHandler(this.carregarCliente);
@@ -365,7 +365,7 @@
         private System.Windows.Forms.TextBox textCnpj_PJ;
         private System.Windows.Forms.TextBox textRazaoSocial_PJ;
         private System.Windows.Forms.Button btnSalvarPessoaJuridica;
-        private System.Windows.Forms.Button btnCancelarFrmPJ;
-        private System.Windows.Forms.Button btnCancelarFrmPF;
+        private System.Windows.Forms.Button btnVoltarFrmPJ;
+        private System.Windows.Forms.Button btnVoltarFrmPF;
     }
 }

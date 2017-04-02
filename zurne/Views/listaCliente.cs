@@ -42,7 +42,6 @@ namespace Views
 
         private void editarCliente(object sender, EventArgs e)
         {
-            MessageBox.Show(idSelecionado.ToString());
             frmCliente frmCliente = new frmCliente(idSelecionado, "F");
 
             frmCliente.MdiParent = this.MdiParent;

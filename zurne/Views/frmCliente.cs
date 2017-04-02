@@ -102,23 +102,65 @@ namespace Views
     
         private void salvarPessoaFisica(object sender, EventArgs e)
         {
-            ClienteController.CadastrarPf(textNome_PF.Text, textCpf_PF.Text, textEmail_PF.Text, textEndereco_PF.Text);
-                      
-            MessageBox.Show("Cliente cadastrado com sucesso!");
+            try
+            {
+                if (string.IsNullOrEmpty(textNome_PF.Text) || string.IsNullOrEmpty(textCpf_PF.Text) || 
+                    string.IsNullOrEmpty(textEmail_PF.Text) || string.IsNullOrEmpty(textEndereco_PF.Text))
+                {
+                    MessageBox.Show("Todos campos são obrigatórios");
+                }
+                else
+                {
+                    if (clienteId.HasValue)
+                    {
+                        ClienteController.EditarPf(clienteId, textNome_PF.Text, textCpf_PF.Text, textEmail_PF.Text, textEndereco_PF.Text);
+                        MessageBox.Show("Cliente atualizado com sucesso!");
+                    }
+                    else
+                    {
+                        ClienteController.CadastrarPf(textNome_PF.Text, textCpf_PF.Text, textEmail_PF.Text, textEndereco_PF.Text);
+                        MessageBox.Show("Cliente cadastrado com sucesso!");
+                    }
 
-            limparCampos();           
-
+                    limparCampos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERRO");
+                throw;
+            }        
         }
 
         private void salvarPessoaJuridica(object sender, EventArgs e)
         {
-
-            ClienteController.CadastrarPj(textRazaoSocial_PJ.Text, textCnpj_PJ.Text, textContato_PJ.Text, textEmail_PJ.Text, textEndereco_PJ.Text );
-
-            MessageBox.Show("Cliente cadastrado com sucesso!");
-
-            limparCampos();
-
+            try
+            {
+                if (string.IsNullOrEmpty(textRazaoSocial_PJ.Text) || string.IsNullOrEmpty(textCnpj_PJ.Text) || string.IsNullOrEmpty(textContato_PJ.Text) ||
+                    string.IsNullOrEmpty(textEmail_PJ.Text) || string.IsNullOrEmpty(textEndereco_PJ.Text) )
+                {
+                    MessageBox.Show("Todos campos são obrigatórios");
+                }
+                else
+                {
+                    if (clienteId.HasValue)
+                    {
+                        ClienteController.CadastrarPj(textRazaoSocial_PJ.Text, textCnpj_PJ.Text, textContato_PJ.Text, textEmail_PJ.Text, textEndereco_PJ.Text);
+                        MessageBox.Show("Cliente cadastrado com sucesso!");
+                    }
+                    else
+                    {
+                        ClienteController.EditarPj(clienteId, textRazaoSocial_PJ.Text, textCnpj_PJ.Text, textContato_PJ.Text, textEmail_PJ.Text, textEndereco_PJ.Text);
+                        MessageBox.Show("Cliente cadastrado com sucesso!");
+                    }
+                    limparCampos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERRO");
+                throw;
+            }
         }
 
         private void limparCampos()
@@ -135,7 +177,7 @@ namespace Views
             textEndereco_PF.Clear();
         }
 
-        private void cancelar(object sender, EventArgs e)
+        private void voltar(object sender, EventArgs e)
         {
             listaCliente listaCliente = new listaCliente();
 
@@ -146,6 +188,5 @@ namespace Views
 
             this.Close();
         }
-                
     }
 }

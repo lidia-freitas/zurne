@@ -54,7 +54,7 @@ namespace Controllers
         public static void CadastrarPf(string nome, string cpf, string email, string endereco)
         {
             PessoaFisica pf = new PessoaFisica (null, nome, cpf, email, endereco);
-            pf.Id = listaPF.Count() + 1;
+            pf.Id = listaPF.Count();
             listaPF.Add(pf);
         }
         
@@ -87,7 +87,7 @@ namespace Controllers
             }
         }
 
-        public static void EditarPf(int id, string nome, string tipo, string cpf, string email, string end)
+        public static void EditarPf(int? id, string nome, string cpf, string email, string end)
         {
             PessoaFisica pf = BuscarPF(id);
 
@@ -100,7 +100,7 @@ namespace Controllers
             }
         }
         
-        public static void EditarPj(int id, string razaoSocial, string tipo, string cnpj, string contato, string email, string endereco)
+        public static void EditarPj(int? id, string razaoSocial, string cnpj, string contato, string email, string endereco)
         {
             PessoaJuridica pj = BuscarPJ(id);
 
