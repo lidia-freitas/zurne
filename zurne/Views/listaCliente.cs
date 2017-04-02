@@ -15,7 +15,8 @@ namespace Views
 {
     public partial class listaCliente : Form
     {
-        public DataGridView clientesDataGrid { get; set; }
+        public DataGridView clientesDataGrid { get; set; }   
+        private int idSelecionado { get; set; }     
 
         public listaCliente()
         {
@@ -24,8 +25,8 @@ namespace Views
 
         private void listaClientesLoad(object sender, EventArgs e)
         {
-            dataGridClientes.DataSource = null;
-            dataGridClientes.DataSource = ClienteController.Listar();
+            dataGridClientesPF.DataSource = null;
+            dataGridClientesPF.DataSource = ClienteController.ListarPF();            
         }
 
         private void cadastrarCliente(object sender, EventArgs e)
@@ -37,16 +38,30 @@ namespace Views
             frmCliente.WindowState = FormWindowState.Maximized;
             this.Close();
         }
+                          
 
         private void editarCliente(object sender, EventArgs e)
         {
-            frmCliente frmCliente = new frmCliente(0, 1);
+            MessageBox.Show(idSelecionado.ToString());
+            frmCliente frmCliente = new frmCliente(idSelecionado, "F");
 
             frmCliente.MdiParent = this.MdiParent;
-            
+
             frmCliente.Show();
             frmCliente.WindowState = FormWindowState.Maximized;
             this.Close();
-        }        
+        }
+
+        private void removerCliente(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void selecionarCliente(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            idSelecionado = Convert.ToInt32(((DataGridView)sender).Rows[e.RowIndex].Cells[2].Value);
+        }
     }        
 }

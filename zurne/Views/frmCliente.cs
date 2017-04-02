@@ -15,9 +15,9 @@ namespace Views
     public partial class frmCliente : Form
     {
         public int? clienteId;
-        public int? clienteTipo;
+        public string clienteTipo;
 
-        public frmCliente(int? _idCliente, int? _tipoCliente)
+        public frmCliente(int? _idCliente, string _tipoCliente)
         {
             InitializeComponent();
 
@@ -25,21 +25,19 @@ namespace Views
             {
                 clienteId = _idCliente;                
             }
-
-            if (_tipoCliente.HasValue)
-            {                
-                clienteTipo = _tipoCliente;
-            }
+                           
+            clienteTipo = _tipoCliente;
+            
         }
 
         private void carregarCliente(object sender, EventArgs e)
         {
             if (clienteId.HasValue)
             {
-                if (clienteTipo == 0) {
+                if (clienteTipo == "F") {
                     carregarPessoaFisica();
                 }
-                else if (clienteTipo == 1) {
+                else if (clienteTipo == "J") {
                     carregarPessoaJuridica();
                 }
             }
@@ -51,18 +49,15 @@ namespace Views
 
         private void carregarPessoaFisica()
         {
-            //ClienteController cliController = new ClienteController();
-            PessoaFisica pf = new PessoaFisica();
-            Cliente cli = new Cliente(pf);
-
-            cli = ClienteController.Buscar(clienteId);
+            PessoaFisica cli = new PessoaFisica();
+            cli = ClienteController.BuscarPF(clienteId);
 
             if (cli != null)
             {
-                textNome_PF.Text = cli.PessoaFisica.Nome;
-                textCpf_PF.Text = cli.PessoaFisica.CPF;
-                textEmail_PF.Text = cli.PessoaFisica.Email;
-                textEndereco_PF.Text = cli.PessoaFisica.Endereco;
+                textNome_PF.Text = cli.Nome;
+                textCpf_PF.Text = cli.CPF;
+                textEmail_PF.Text = cli.Email;
+                textEndereco_PF.Text = cli.Endereco;
             }
 
             rbPessoaFisica.Checked = true;
@@ -73,20 +68,18 @@ namespace Views
 
         private void carregarPessoaJuridica()
         {
-            //ClienteController cliController = new ClienteController();
 
-            PessoaJuridica pj = new PessoaJuridica();
-            Cliente cli = new Cliente(pj);
+            PessoaJuridica cli = new PessoaJuridica();
 
-            cli = ClienteController.Buscar(clienteId);
+            cli = ClienteController.BuscarPJ(clienteId);
 
             if(cli != null)
             {
-                textRazaoSocial_PJ.Text = cli.PessoaJuridica.RazaoSocial;
-                textCnpj_PJ.Text = cli.PessoaJuridica.CNPJ;
-                textContato_PJ.Text = cli.PessoaJuridica.Contato;
-                textEmail_PJ.Text = cli.PessoaJuridica.Email;
-                textEndereco_PF.Text = cli.PessoaJuridica.Endereco;
+                textRazaoSocial_PJ.Text = cli.RazaoSocial;
+                textCnpj_PJ.Text = cli.CNPJ;
+                textContato_PJ.Text = cli.Contato;
+                textEmail_PJ.Text = cli.Email;
+                textEndereco_PF.Text = cli.Endereco;
             }
 
             rbPessoaFisica.Checked = true;

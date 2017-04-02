@@ -9,12 +9,12 @@ namespace Controllers
 {
     public class FuncionarioController
     {
-        private static List<Funcionario> listaFuncionarios = new List<Funcionario>();
+        private static List<PessoaFisica> listaFuncionarios = new List<PessoaFisica>();
 
-        private Funcionario Buscar(int id) {
-            foreach (Funcionario func in listaFuncionarios)
+        private PessoaFisica Buscar(int id) {
+            foreach (PessoaFisica func in listaFuncionarios)
             {
-                if (func.ID == id)
+                if (func.Id == id)
                 {
                     return func;
                 }
@@ -23,23 +23,22 @@ namespace Controllers
             return null;
         }
 
-        public List<Funcionario> Listar()
+        public List<PessoaFisica> Listar()
         {
             return listaFuncionarios;
         }
 
-        public void Cadastrar(string nome, string cpf, string email, string end)
+        public void Cadastrar(string nome, string tipo, string cpf, string email, string endereco)
         {
-            Funcionario func = new Funcionario(nome, cpf, email, end);
-
+            PessoaFisica func = new PessoaFisica(null, nome, cpf, email, endereco);
             listaFuncionarios.Add(func);
         }
 
         public void Remover(int id)
         {
-            foreach (Funcionario func in listaFuncionarios)
+            foreach (PessoaFisica func in listaFuncionarios)
             {
-                if(func.ID == id)
+                if(func.Id == id)
                 {
                     listaFuncionarios.Remove(func);
                 }
@@ -48,14 +47,14 @@ namespace Controllers
 
         public void Editar(int id, string nome, string cpf, string email, string end)
         {
-            Funcionario func = Buscar(id);
+            PessoaFisica func = Buscar(id);
 
             if(func != null)
             {
-                func.PessoaFisica.Nome = nome;
-                func.PessoaFisica.CPF = cpf;
-                func.PessoaFisica.Email = email;
-                func.PessoaFisica.Endereco = end;
+                func.Nome = nome;
+                func.CPF = cpf;
+                func.Email = email;
+                func.Endereco = end;
             }
         }
 

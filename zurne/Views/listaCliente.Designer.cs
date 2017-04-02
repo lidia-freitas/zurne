@@ -28,75 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dataGridClientes = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridClientes)).BeginInit();
+            this.btnCadastrarCliente = new System.Windows.Forms.Button();
+            this.dataGridClientesPF = new System.Windows.Forms.DataGridView();
+            this.btnEditarCliente = new System.Windows.Forms.Button();
+            this.btnRemoverCliente = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridClientesPF)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnCadastrarCliente
             // 
-            this.button1.Location = new System.Drawing.Point(21, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Novo";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.cadastrarCliente);
+            this.btnCadastrarCliente.Location = new System.Drawing.Point(21, 22);
+            this.btnCadastrarCliente.Name = "btnCadastrarCliente";
+            this.btnCadastrarCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnCadastrarCliente.TabIndex = 0;
+            this.btnCadastrarCliente.Text = "Novo";
+            this.btnCadastrarCliente.UseVisualStyleBackColor = true;
+            this.btnCadastrarCliente.Click += new System.EventHandler(this.cadastrarCliente);
             // 
-            // button2
+            // dataGridClientesPF
             // 
-            this.button2.Location = new System.Drawing.Point(118, 22);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.editarCliente);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(219, 22);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Remover";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // dataGridClientes
-            // 
-            this.dataGridClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridClientesPF.AllowUserToAddRows = false;
+            this.dataGridClientesPF.AllowUserToDeleteRows = false;
+            this.dataGridClientesPF.AllowUserToOrderColumns = true;
+            this.dataGridClientesPF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridClientes.Location = new System.Drawing.Point(12, 134);
-            this.dataGridClientes.Name = "dataGridClientes";
-            this.dataGridClientes.Size = new System.Drawing.Size(1122, 495);
-            this.dataGridClientes.TabIndex = 3;
+            this.dataGridClientesPF.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridClientesPF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridClientesPF.Location = new System.Drawing.Point(12, 94);
+            this.dataGridClientesPF.MultiSelect = false;
+            this.dataGridClientesPF.Name = "dataGridClientesPF";
+            this.dataGridClientesPF.ReadOnly = true;
+            this.dataGridClientesPF.Size = new System.Drawing.Size(1122, 535);
+            this.dataGridClientesPF.TabIndex = 3;
+            this.dataGridClientesPF.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.selecionarCliente);
+            // 
+            // btnEditarCliente
+            // 
+            this.btnEditarCliente.Location = new System.Drawing.Point(115, 22);
+            this.btnEditarCliente.Name = "btnEditarCliente";
+            this.btnEditarCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnEditarCliente.TabIndex = 4;
+            this.btnEditarCliente.Text = "Editar";
+            this.btnEditarCliente.UseVisualStyleBackColor = true;
+            this.btnEditarCliente.Click += new System.EventHandler(this.editarCliente);
+            // 
+            // btnRemoverCliente
+            // 
+            this.btnRemoverCliente.Location = new System.Drawing.Point(211, 22);
+            this.btnRemoverCliente.Name = "btnRemoverCliente";
+            this.btnRemoverCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoverCliente.TabIndex = 5;
+            this.btnRemoverCliente.Text = "Remover";
+            this.btnRemoverCliente.UseVisualStyleBackColor = true;
+            this.btnRemoverCliente.Click += new System.EventHandler(this.removerCliente);
             // 
             // listaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1146, 641);
-            this.Controls.Add(this.dataGridClientes);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRemoverCliente);
+            this.Controls.Add(this.btnEditarCliente);
+            this.Controls.Add(this.dataGridClientesPF);
+            this.Controls.Add(this.btnCadastrarCliente);
             this.Name = "listaCliente";
             this.Text = "Lista de Clientes";
             this.Load += new System.EventHandler(this.listaClientesLoad);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridClientesPF)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridClientes;
+        private System.Windows.Forms.Button btnCadastrarCliente;
+        private System.Windows.Forms.DataGridView dataGridClientesPF;
+        private System.Windows.Forms.Button btnEditarCliente;
+        private System.Windows.Forms.Button btnRemoverCliente;
     }
 }

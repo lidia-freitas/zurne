@@ -10,79 +10,107 @@ namespace Controllers
     public class ClienteController
     {
 
-        private static List<Cliente> listaClientes = new List<Cliente>();              
+        private static List<PessoaFisica> listaPF = new List<PessoaFisica>();
 
-        public static Cliente Buscar(int? id)
+        private static List<PessoaJuridica> listaPJ = new List<PessoaJuridica>();
+
+
+        public static PessoaFisica BuscarPF(int? id)
         {
-            foreach (Cliente cli in listaClientes)
+            foreach (PessoaFisica pf in listaPF)
             {
-                if (cli.ID == id)
+                if (pf.Id == id)
                 {
-                    return cli;
+                    return pf;
                 }
             }
 
             return null;
         }
 
-        public static List<Cliente> Listar()
+        public static PessoaJuridica BuscarPJ(int? id)
         {
-            return listaClientes;
+            foreach (PessoaJuridica pj in listaPJ)
+            {
+                if (pj.Id == id)
+                {
+                    return pj;
+                }
+            }
+
+            return null;
+        }
+
+        public static List<PessoaFisica> ListarPF()
+        {
+            return listaPF;
+        }
+
+        public static List<PessoaJuridica> ListarPJ()
+        {
+            return listaPJ;
         }
 
         public static void CadastrarPf(string nome, string cpf, string email, string endereco)
         {
-            PessoaFisica pf = new PessoaFisica (nome, cpf, email, endereco);
-
-            Cliente cli = new Cliente(pf);
-
-            listaClientes.Add(cli);
+            PessoaFisica pf = new PessoaFisica (null, nome, cpf, email, endereco);
+            pf.Id = listaPF.Count() + 1;
+            listaPF.Add(pf);
         }
         
-        public static void CadastrarPj(string rz, string cnpj, string contato, string email, string endereco)
+        public static void CadastrarPj(string razaoSocial, string cnpj, string contato, string email, string endereco)
         {
-            PessoaJuridica pj = new PessoaJuridica (rz, cnpj, contato, email, endereco);
-
-            Cliente cli = new Cliente(pj);
-
-            listaClientes.Add(cli);
+            PessoaJuridica pj = new PessoaJuridica(null, razaoSocial, cnpj, contato, email, endereco);
+            pj.Id = listaPJ.Count() + 1;
+            listaPJ.Add(pj);
         }
 
-        public static void Remover(int id)
+        public static void RemoverPF(int id)
         {
-            foreach (Cliente cli in listaClientes)
+            foreach (PessoaFisica pf in listaPF)
             {
-                if (cli.ID == id)
+                if (pf.Id == id)
                 {
-                    listaClientes.Remove(cli);
+                    listaPF.Remove(pf);
                 }
             }
         }
 
-        public static void EditarPf(int id, string nome, string cpf, string email, string end)
+        public static void RemoverPJ(int id)
         {
-            Cliente cli = Buscar(id);
-
-            if (cli != null)
+            foreach (PessoaJuridica pj in listaPJ)
             {
-                cli.PessoaFisica.Nome = nome;
-                cli.PessoaFisica.CPF = cpf;
-                cli.PessoaFisica.Email = email;
-                cli.PessoaFisica.Endereco = end;
+                if (pj.Id == id)
+                {
+                    listaPJ.Remove(pj);
+                }
+            }
+        }
+
+        public static void EditarPf(int id, string nome, string tipo, string cpf, string email, string end)
+        {
+            PessoaFisica pf = BuscarPF(id);
+
+            if (pf != null)
+            {
+                pf.Nome = nome;
+                pf.CPF = cpf;
+                pf.Email = email;
+                pf.Endereco = end;
             }
         }
         
-        public static void EditarPj(int id, string rz, string cnpj, string contato, string email, string endereco)
+        public static void EditarPj(int id, string razaoSocial, string tipo, string cnpj, string contato, string email, string endereco)
         {
-            Cliente cli = Buscar(id);
+            PessoaJuridica pj = BuscarPJ(id);
 
-            if (cli != null)
+            if (pj != null)
             {
-                cli.PessoaJuridica.RazaoSocial = rz;
-                cli.PessoaJuridica.CNPJ = cnpj;
-                cli.PessoaJuridica.Email = email;
-                cli.PessoaJuridica.Endereco = endereco;
-                cli.PessoaJuridica.Contato = contato;
+                pj.RazaoSocial = razaoSocial;
+                pj.CNPJ = cnpj;
+                pj.Email = email;
+                pj.Endereco = endereco;
+                pj.Contato = contato;
             }
         }
 

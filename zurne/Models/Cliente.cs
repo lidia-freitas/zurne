@@ -8,7 +8,7 @@ namespace Models
 {
     public class Cliente
     {
-        public int ID;
+        public int ID;        
         public PessoaFisica PessoaFisica;
         public PessoaJuridica PessoaJuridica;
 
