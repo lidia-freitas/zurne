@@ -14,32 +14,48 @@ namespace Controllers
 
         private static List<PessoaJuridica> listaPJ = new List<PessoaJuridica>();
 
+        private static List<Cliente> listaClientes = new List<Cliente>();
 
-        public static PessoaFisica BuscarPF(int? id)
+
+        public static int BuscarPF(int id)
         {
-            foreach (PessoaFisica pf in listaPF)
+            foreach (Cliente cliente in listaClientes)
             {
-                if (pf.Id == id)
+                if (cliente.PessoaFisica.Id == id)
                 {
-                    return pf;
+                    return cliente.PessoaFisica.Id;
+                }
+            }            
+
+            return 100000;
+        }
+
+        public static int BuscarPJ(int id)
+        {
+            foreach (Cliente cliente in listaClientes)
+            {
+                if (cliente.PessoaJuridica.Id == id)
+                {
+                    return cliente.PessoaJuridica.Id;
+                }
+            }
+
+            return 1000000;
+        }
+
+        public static Cliente BuscarCliente(int id)
+        {
+            foreach (Cliente  cli in listaClientes)
+            {
+                if(cli.ID == id)
+                {
+                    return cli;
                 }
             }
 
             return null;
         }
 
-        public static PessoaJuridica BuscarPJ(int? id)
-        {
-            foreach (PessoaJuridica pj in listaPJ)
-            {
-                if (pj.Id == id)
-                {
-                    return pj;
-                }
-            }
-
-            return null;
-        }
 
         public static List<PessoaFisica> ListarPF()
         {
@@ -51,69 +67,96 @@ namespace Controllers
             return listaPJ;
         }
 
-        public static void CadastrarPf(string nome, string cpf, string email, string endereco)
+        public static List<Cliente> ListarClientes()
         {
-            PessoaFisica pf = new PessoaFisica (null, nome, cpf, email, endereco);
-            pf.Id = listaPF.Count();
-            listaPF.Add(pf);
-        }
-        
-        public static void CadastrarPj(string razaoSocial, string cnpj, string contato, string email, string endereco)
-        {
-            PessoaJuridica pj = new PessoaJuridica(null, razaoSocial, cnpj, contato, email, endereco);
-            pj.Id = listaPJ.Count() + 1;
-            listaPJ.Add(pj);
+            return listaClientes;
         }
 
-        public static void RemoverPF(int id)
-        {
-            foreach (PessoaFisica pf in listaPF)
+  
+        public static void CadastrarCliente(Cliente cli)
+        {            
+            cli.ID = listaClientes.Count() + 1;
+
+            if (cli.PessoaFisica != null){
+                cli.PessoaFisica.Id = listaPF.Count() + 1;
+                listaPF.Add(cli.PessoaFisica);
+            }
+
+            if(cli.PessoaJuridica != null)
             {
-                if (pf.Id == id)
+                cli.PessoaJuridica.Id = listaPJ.Count() + 1;
+                listaPJ.Add(cli.PessoaJuridica);
+            }
+            
+            listaClientes.Add(cli);
+        }
+
+
+        //public static void EditarPf(int? id, string nome, string cpf, string email, string end)
+        //{
+        //    PessoaFisica pf = BuscarPF(id);
+
+        //    if (pf != null)
+        //    {
+        //        pf.Nome = nome;
+        //        pf.CPF = cpf;
+        //        pf.Email = email;
+        //        pf.Endereco = end;
+        //    }
+        //}
+        
+        //public static void EditarPj(int? id, string razaoSocial, string cnpj, string contato, string email, string endereco)
+        //{
+        //    PessoaJuridica pj = BuscarPJ(id);
+
+        //    if (pj != null)
+        //    {
+        //        pj.RazaoSocial = razaoSocial;
+        //        pj.CNPJ = cnpj;
+        //        pj.Email = email;
+        //        pj.Endereco = endereco;
+        //        pj.Contato = contato;
+        //    }
+        //}
+
+        public static void EditarCliente(Cliente cli)
+        {
+            
+            
+        }
+
+
+        //public static void RemoverPF(int? id)
+        //{
+        //    foreach (PessoaFisica pf in listaPF)
+        //    {
+        //        if (pf.Id == id)
+        //        {
+        //            listaPF.Remove(pf);
+        //        }
+        //    }
+        //}
+        
+        //public static void RemoverPJ(int? id)
+        //{
+        //    foreach (PessoaJuridica pj in listaPJ)
+        //    {
+        //        if (pj.Id == id)
+        //        {
+        //            listaPJ.Remove(pj);
+        //        }
+        //    }
+        //}
+
+        public static void removerCliente(int id)
+        {
+            foreach (Cliente cli in listaClientes)
+            {
+                if (cli.ID == id)
                 {
-                    listaPF.Remove(pf);
+                    listaClientes.Remove(cli);
                 }
             }
         }
-
-        public static void RemoverPJ(int id)
-        {
-            foreach (PessoaJuridica pj in listaPJ)
-            {
-                if (pj.Id == id)
-                {
-                    listaPJ.Remove(pj);
-                }
-            }
-        }
-
-        public static void EditarPf(int? id, string nome, string cpf, string email, string end)
-        {
-            PessoaFisica pf = BuscarPF(id);
-
-            if (pf != null)
-            {
-                pf.Nome = nome;
-                pf.CPF = cpf;
-                pf.Email = email;
-                pf.Endereco = end;
-            }
-        }
-        
-        public static void EditarPj(int? id, string razaoSocial, string cnpj, string contato, string email, string endereco)
-        {
-            PessoaJuridica pj = BuscarPJ(id);
-
-            if (pj != null)
-            {
-                pj.RazaoSocial = razaoSocial;
-                pj.CNPJ = cnpj;
-                pj.Email = email;
-                pj.Endereco = endereco;
-                pj.Contato = contato;
-            }
-        }
-
-        
     }
 }

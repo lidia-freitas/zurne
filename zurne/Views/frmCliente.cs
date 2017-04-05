@@ -14,78 +14,56 @@ namespace Views
 {
     public partial class frmCliente : Form
     {
-        public int? clienteId;
+        public int clienteId;
         public string clienteTipo;
+        public Cliente clienteEdicao;
 
-        public frmCliente(int? _idCliente, string _tipoCliente)
+        public frmCliente()
+        {
+            InitializeComponent();
+            limparCampos();            
+        }
+
+        public frmCliente(int _idCliente, string _tipoCliente)
         {
             InitializeComponent();
 
-            if (_idCliente.HasValue)
-            {
-                clienteId = _idCliente;                
-            }
-                           
+            clienteId = _idCliente;
             clienteTipo = _tipoCliente;
-            
+            carregarCliente();
         }
 
-        private void carregarCliente(object sender, EventArgs e)
-        {
-            if (clienteId.HasValue)
+        private void carregarCliente()
+        {            
+            clienteEdicao = ClienteController.BuscarCliente(clienteId);
+
+            switch (clienteTipo)
             {
-                if (clienteTipo == "F") {
-                    carregarPessoaFisica();
-                }
-                else if (clienteTipo == "J") {
-                    carregarPessoaJuridica();
-                }
+                case "PF":
+                    textNome_PF.Text = clienteEdicao.PessoaFisica.Nome;
+                    textCpf_PF.Text = clienteEdicao.PessoaFisica.CPF;
+                    textEmail_PF.Text = clienteEdicao.PessoaFisica.Email;
+                    textEndereco_PF.Text = clienteEdicao.PessoaFisica.Endereco;
+
+                    rbPessoaFisica.Checked = true;
+                    rbPessoaJuridica.Checked = false;
+                    gbPessoaFiscia.Visible = true;
+                    gbPessoaJuridica.Visible = false;
+                    break;
+
+                case "PJ":
+                    textRazaoSocial_PJ.Text = clienteEdicao.PessoaJuridica.RazaoSocial;
+                    textCnpj_PJ.Text = clienteEdicao.PessoaJuridica.CNPJ;
+                    textContato_PJ.Text = clienteEdicao.PessoaJuridica.Contato;
+                    textEmail_PJ.Text = clienteEdicao.PessoaJuridica.Email;
+                    textEndereco_PF.Text = clienteEdicao.PessoaJuridica.Endereco;
+
+                    rbPessoaFisica.Checked = true;
+                    rbPessoaJuridica.Checked = false;
+                    gbPessoaFiscia.Visible = true;
+                    gbPessoaJuridica.Visible = false;
+                    break;
             }
-            else
-            {
-                limparCampos();
-            }
-        }
-
-        private void carregarPessoaFisica()
-        {
-            PessoaFisica cli = new PessoaFisica();
-            cli = ClienteController.BuscarPF(clienteId);
-
-            if (cli != null)
-            {
-                textNome_PF.Text = cli.Nome;
-                textCpf_PF.Text = cli.CPF;
-                textEmail_PF.Text = cli.Email;
-                textEndereco_PF.Text = cli.Endereco;
-            }
-
-            rbPessoaFisica.Checked = true;
-            rbPessoaJuridica.Checked = false;
-            gbPessoaFiscia.Visible = true;
-            gbPessoaJuridica.Visible = false;
-        }
-
-        private void carregarPessoaJuridica()
-        {
-
-            PessoaJuridica cli = new PessoaJuridica();
-
-            cli = ClienteController.BuscarPJ(clienteId);
-
-            if(cli != null)
-            {
-                textRazaoSocial_PJ.Text = cli.RazaoSocial;
-                textCnpj_PJ.Text = cli.CNPJ;
-                textContato_PJ.Text = cli.Contato;
-                textEmail_PJ.Text = cli.Email;
-                textEndereco_PF.Text = cli.Endereco;
-            }
-
-            rbPessoaFisica.Checked = true;
-            rbPessoaJuridica.Checked = false;
-            gbPessoaFiscia.Visible = true;
-            gbPessoaJuridica.Visible = false;
         }
 
         private void mostraFormPessoaFisica(object sender, EventArgs e)
@@ -99,67 +77,71 @@ namespace Views
             gbPessoaFiscia.Visible = false;
             gbPessoaJuridica.Visible = true;
         }
-    
-        private void salvarPessoaFisica(object sender, EventArgs e)
+      
+        private void salvarCliente(Object sender, EventArgs e)
         {
-            try
+            if (gbPessoaFiscia.Visible == true)
             {
-                if (string.IsNullOrEmpty(textNome_PF.Text) || string.IsNullOrEmpty(textCpf_PF.Text) || 
+                if (string.IsNullOrEmpty(textNome_PF.Text) || string.IsNullOrEmpty(textCpf_PF.Text) ||
                     string.IsNullOrEmpty(textEmail_PF.Text) || string.IsNullOrEmpty(textEndereco_PF.Text))
                 {
                     MessageBox.Show("Todos campos são obrigatórios");
                 }
                 else
                 {
-                    if (clienteId.HasValue)
+                    if (clienteEdicao != null)
                     {
-                        ClienteController.EditarPf(clienteId, textNome_PF.Text, textCpf_PF.Text, textEmail_PF.Text, textEndereco_PF.Text);
-                        MessageBox.Show("Cliente atualizado com sucesso!");
+                        ClienteController.EditarCliente(clienteEdicao);
                     }
                     else
                     {
-                        ClienteController.CadastrarPf(textNome_PF.Text, textCpf_PF.Text, textEmail_PF.Text, textEndereco_PF.Text);
-                        MessageBox.Show("Cliente cadastrado com sucesso!");
-                    }
+                        Cliente clienteCadatro = new Cliente();
+                        PessoaFisica pf = new PessoaFisica();
 
-                    limparCampos();
+                        pf.Nome = textNome_PF.Text;
+                        pf.CPF = textCpf_PF.Text;
+                        pf.Email = textEmail_PF.Text;
+                        pf.Endereco = textEndereco_PF.Text;
+
+                        clienteCadatro.PessoaFisica = pf;
+
+                        ClienteController.CadastrarCliente(clienteCadatro);
+                        MessageBox.Show("Cliente cadastrado com sucesso!");
+                        limparCampos();
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "ERRO");
-                throw;
-            }        
-        }
-
-        private void salvarPessoaJuridica(object sender, EventArgs e)
-        {
-            try
+            else
             {
                 if (string.IsNullOrEmpty(textRazaoSocial_PJ.Text) || string.IsNullOrEmpty(textCnpj_PJ.Text) || string.IsNullOrEmpty(textContato_PJ.Text) ||
-                    string.IsNullOrEmpty(textEmail_PJ.Text) || string.IsNullOrEmpty(textEndereco_PJ.Text) )
+                    string.IsNullOrEmpty(textEmail_PJ.Text) || string.IsNullOrEmpty(textEndereco_PJ.Text))
                 {
                     MessageBox.Show("Todos campos são obrigatórios");
                 }
                 else
-                {
-                    if (clienteId.HasValue)
-                    {
-                        ClienteController.CadastrarPj(textRazaoSocial_PJ.Text, textCnpj_PJ.Text, textContato_PJ.Text, textEmail_PJ.Text, textEndereco_PJ.Text);
-                        MessageBox.Show("Cliente cadastrado com sucesso!");
-                    }
+                { 
+                    if (clienteEdicao != null)
+                        {
+                            ClienteController.EditarCliente(clienteEdicao);
+                        }
                     else
                     {
-                        ClienteController.EditarPj(clienteId, textRazaoSocial_PJ.Text, textCnpj_PJ.Text, textContato_PJ.Text, textEmail_PJ.Text, textEndereco_PJ.Text);
+                        Cliente clienteCadastro = new Cliente();
+                        PessoaJuridica pj = new PessoaJuridica();
+
+                        pj.RazaoSocial = textRazaoSocial_PJ.Text;
+                        pj.CNPJ = textCnpj_PJ.Text;
+                        pj.Contato = textContato_PJ.Text;
+                        pj.Email = textEmail_PJ.Text;
+                        pj.Endereco = textEndereco_PJ.Text;
+
+                        clienteCadastro.PessoaJuridica = pj;
+                        ClienteController.CadastrarCliente(clienteCadastro);
+
                         MessageBox.Show("Cliente cadastrado com sucesso!");
+                        limparCampos();
                     }
-                    limparCampos();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "ERRO");
-                throw;
             }
         }
 

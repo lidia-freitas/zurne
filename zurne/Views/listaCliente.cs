@@ -15,8 +15,10 @@ namespace Views
 {
     public partial class listaCliente : Form
     {
-        public DataGridView clientesDataGrid { get; set; }   
-        private int idSelecionado { get; set; }     
+
+        private int idSelecionado { get; set; }
+        public string tipoPessoaSelecionada { get; set; }
+
 
         public listaCliente()
         {
@@ -25,24 +27,31 @@ namespace Views
 
         private void listaClientesLoad(object sender, EventArgs e)
         {
-            dataGridClientesPF.DataSource = null;
-            dataGridClientesPF.DataSource = ClienteController.ListarPF();            
+            dataGridClientesPF.DataSource = ClienteController.ListarPF();
+            dataGridClientesPJ.DataSource = ClienteController.ListarPJ();
+            
+
+
+            //MessageBox.Show(dataGridClientesPF.FirstDisplayedCell.ColumnIndex.ToString());
+            //MessageBox.Show(dataGridClientesPJ.FirstDisplayedCell.ColumnIndex.ToString());
+
+            //dataGridClientesPF.FirstDisplayedCell = dataGridClientesPF.CurrentCell;
+            // dataGridClientesPJ.FirstDisplayedCell = dataGridClientesPJ.CurrentCell;
         }
 
         private void cadastrarCliente(object sender, EventArgs e)
         {
-            frmCliente frmCliente = new frmCliente(null, null);            
+            frmCliente frmCliente = new frmCliente();            
             frmCliente.MdiParent = this.MdiParent;
             
             frmCliente.Show();
             frmCliente.WindowState = FormWindowState.Maximized;
             this.Close();
-        }
-                          
+        }                          
 
         private void editarCliente(object sender, EventArgs e)
         {
-            frmCliente frmCliente = new frmCliente(idSelecionado, "F");
+            frmCliente frmCliente = new frmCliente(idSelecionado, tipoPessoaSelecionada);
 
             frmCliente.MdiParent = this.MdiParent;
 
@@ -55,12 +64,23 @@ namespace Views
         {
 
         }
-
-       
-
-        private void selecionarCliente(object sender, DataGridViewCellMouseEventArgs e)
+      
+        private void selecionarClientePJ(object sender, DataGridViewCellMouseEventArgs e)
         {
-            idSelecionado = Convert.ToInt32(((DataGridView)sender).Rows[e.RowIndex].Cells[2].Value);
+            //int idPF = Convert.ToInt32(((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value);
+            //idSelecionado = ClienteController.BuscarPJ(idPF);            
+
+            tipoPessoaSelecionada = "PJ";
+            idSelecionado = Convert.ToInt32(((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value);
         }
+
+        private void selecionarClientePF(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //int idPJ = Convert.ToInt32(((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value);
+            //idSelecionado = ClienteController.BuscarPJ(idPJ);
+          
+            idSelecionado = Convert.ToInt32(((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value);
+            tipoPessoaSelecionada = "PF";
+        }        
     }        
 }

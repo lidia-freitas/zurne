@@ -8,18 +8,11 @@ namespace Models
 {
     public class Cliente
     {
-        public int ID;        
+        public int ID;
         public PessoaFisica PessoaFisica;
         public PessoaJuridica PessoaJuridica;
 
-        public Cliente(PessoaFisica pf)
-        {
-            this.PessoaFisica = pf;
-        }
+        public Cliente() { }
 
-        public Cliente(PessoaJuridica pj)
-        {
-            this.PessoaJuridica = pj;
-        }
     }
 }

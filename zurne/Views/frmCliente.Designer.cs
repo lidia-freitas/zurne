@@ -114,7 +114,7 @@
             this.btnSalvarPessoaFisica.TabIndex = 8;
             this.btnSalvarPessoaFisica.Text = "Salvar";
             this.btnSalvarPessoaFisica.UseVisualStyleBackColor = true;
-            this.btnSalvarPessoaFisica.Click += new System.EventHandler(this.salvarPessoaFisica);
+            this.btnSalvarPessoaFisica.Click += new System.EventHandler(this.salvarCliente);
             // 
             // btnVoltarFrmPJ
             // 
@@ -236,7 +236,7 @@
             this.btnSalvarPessoaJuridica.TabIndex = 10;
             this.btnSalvarPessoaJuridica.Text = "Salvar";
             this.btnSalvarPessoaJuridica.UseVisualStyleBackColor = true;
-            this.btnSalvarPessoaJuridica.Click += new System.EventHandler(this.salvarPessoaJuridica);
+            this.btnSalvarPessoaJuridica.Click += new System.EventHandler(this.salvarCliente);
             // 
             // textEndereco_PJ
             // 
@@ -329,7 +329,6 @@
             this.Controls.Add(this.gbPessoaJuridica);
             this.Name = "frmCliente";
             this.Text = "Cliente";
-            this.Load += new System.EventHandler(this.carregarCliente);
             this.gbPessoaFiscia.ResumeLayout(false);
             this.gbPessoaFiscia.PerformLayout();
             this.gbPessoaJuridica.ResumeLayout(false);
