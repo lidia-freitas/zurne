@@ -49,7 +49,7 @@ namespace Controllers
 
         public void Editar(int id, string tipo, string marcamodelo, int ano, string placa, string renavam)
         {
-            Veiculo vei = Buscar(id)
+            Veiculo vei = Buscar(id);
 
             if (vei != null) 
             {
