@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="Cliente.cs" />
     <Compile Include="Funcionario.cs" />
+    <Compile Include="IPessoa.cs" />
+    <Compile Include="Pessoa.cs" />
     <Compile Include="PessoaFisica.cs" />
     <Compile Include="PessoaJuridica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
