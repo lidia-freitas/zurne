@@ -16,7 +16,10 @@ namespace Models
             get
             {
                 return CPF;
-            }            
+            }
+            set {
+                this.CPF = CPF;
+            }   
         }
 
         public string Nomenclatura
@@ -24,7 +27,11 @@ namespace Models
             get
             {
                 return Nome;
-            }           
+            }
+            set
+            {
+                this.Nome = Nome;
+            }
         }
 
         public PessoaFisica(string nome, string cpf, string email, string endereco)

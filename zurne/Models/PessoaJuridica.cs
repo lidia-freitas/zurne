@@ -17,6 +17,10 @@ namespace Models
             {
                 return CNPJ;
             }
+            set
+            {
+                this.CNPJ = CNPJ;
+            }
            
         }
 
@@ -25,6 +29,10 @@ namespace Models
             get
             {
                 return RazaoSocial;
+            }
+            set
+            {
+                this.RazaoSocial = RazaoSocial;
             }
             
         }

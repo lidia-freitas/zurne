@@ -8,7 +8,7 @@ namespace Models
 {
     public interface IPessoa
     {
-        string Documento{ get;}
-        string Nomenclatura { get;}
+        string Documento{ get; set; }
+        string Nomenclatura { get; set; }
     }
 }
