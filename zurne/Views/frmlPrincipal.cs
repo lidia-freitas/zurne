@@ -30,5 +30,13 @@ namespace Views
             listaCliente.Show();
             listaCliente.WindowState = FormWindowState.Maximized;
         }
+
+        private void listarFuncionarios(object sender, EventArgs e)
+        {
+            listaFuncionario listaFuncionario = new listaFuncionario();
+            listaFuncionario.MdiParent = this;
+            listaFuncionario.Show();
+            listaFuncionario.WindowState = FormWindowState.Maximized;
+        }
     }
 }

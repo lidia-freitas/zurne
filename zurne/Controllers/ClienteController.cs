@@ -9,10 +9,9 @@ namespace Controllers
 {
     public class ClienteController
     {
-
         private static List<Cliente> listaClientes = new List<Cliente>();
               
-        public static Cliente BuscarCliente(int? id)
+        public static Cliente BuscarCliente(int id)
         {
             foreach (Cliente cli in listaClientes)
             {
@@ -46,7 +45,7 @@ namespace Controllers
             cli.Pessoa.Email = email; 
         }
 
-        public static void removerCliente(int id)
+        public static void RemoverCliente(int id)
         {
             Cliente cli = BuscarCliente(id);
 

@@ -305,8 +305,8 @@
             this.ClientSize = new System.Drawing.Size(1147, 628);
             this.Controls.Add(this.rbPessoaJuridica);
             this.Controls.Add(this.rbPessoaFisica);
-            this.Controls.Add(this.gbPessoaJuridica);
             this.Controls.Add(this.gbPessoaFiscia);
+            this.Controls.Add(this.gbPessoaJuridica);
             this.Name = "frmCliente";
             this.Text = "Cliente";
             this.gbPessoaFiscia.ResumeLayout(false);

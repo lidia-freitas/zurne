@@ -8,12 +8,11 @@ namespace Models
 {
     public class Cliente
     {
-        public int Id;
+        public int Id { get; set; }
         public readonly IPessoa Pessoa;
 
         public Cliente(IPessoa p) {
             Pessoa = p;
         }
-
     }
 }

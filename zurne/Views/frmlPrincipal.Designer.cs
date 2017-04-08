@@ -61,6 +61,7 @@
             // 
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
             resources.ApplyResources(this.funcionárioToolStripMenuItem, "funcionárioToolStripMenuItem");
+            this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.listarFuncionarios);
             // 
             // frmPrincipal
             // 

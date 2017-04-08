@@ -8,12 +8,12 @@ namespace Models
 {
     public class Funcionario
     {
-        public int ID { get; set; }
-        public PessoaFisica PessoaFisica;
-
-        public Funcionario(PessoaFisica pf)
+        public int Id { get; set; }
+        public readonly IPessoa Pessoa;
+        
+        public Funcionario(IPessoa p)
         {
-            this.PessoaFisica = pf;
+            this.Pessoa = p;
         }
     }
 }

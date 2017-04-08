@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Models;
 using Controllers;
     
-
 namespace Views
 {
     public partial class listaCliente : Form
@@ -97,7 +96,7 @@ namespace Views
             }
 
             int cliId = Convert.ToInt32(idSelecionado);            
-            ClienteController.removerCliente(cliId);
+            ClienteController.RemoverCliente(cliId);
 
             dataGridClientes.DataSource = null;
             dataGridClientes.DataSource = serializeClientes(listaClientesGrid);

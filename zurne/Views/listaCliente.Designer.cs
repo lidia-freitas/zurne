@@ -37,7 +37,7 @@
             // 
             // btnCadastrarCliente
             // 
-            this.btnCadastrarCliente.Location = new System.Drawing.Point(21, 22);
+            this.btnCadastrarCliente.Location = new System.Drawing.Point(14, 22);
             this.btnCadastrarCliente.Name = "btnCadastrarCliente";
             this.btnCadastrarCliente.Size = new System.Drawing.Size(75, 23);
             this.btnCadastrarCliente.TabIndex = 0;
@@ -55,17 +55,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridClientes.Location = new System.Drawing.Point(12, 94);
+            this.dataGridClientes.Location = new System.Drawing.Point(12, 77);
             this.dataGridClientes.MultiSelect = false;
             this.dataGridClientes.Name = "dataGridClientes";
             this.dataGridClientes.ReadOnly = true;
-            this.dataGridClientes.Size = new System.Drawing.Size(1122, 535);
+            this.dataGridClientes.Size = new System.Drawing.Size(1122, 552);
             this.dataGridClientes.TabIndex = 3;
             this.dataGridClientes.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.selecionarCliente);
             // 
             // btnEditarCliente
             // 
-            this.btnEditarCliente.Location = new System.Drawing.Point(115, 22);
+            this.btnEditarCliente.Location = new System.Drawing.Point(108, 22);
             this.btnEditarCliente.Name = "btnEditarCliente";
             this.btnEditarCliente.Size = new System.Drawing.Size(75, 23);
             this.btnEditarCliente.TabIndex = 4;
@@ -75,7 +75,7 @@
             // 
             // btnRemoverCliente
             // 
-            this.btnRemoverCliente.Location = new System.Drawing.Point(211, 22);
+            this.btnRemoverCliente.Location = new System.Drawing.Point(204, 22);
             this.btnRemoverCliente.Name = "btnRemoverCliente";
             this.btnRemoverCliente.Size = new System.Drawing.Size(75, 23);
             this.btnRemoverCliente.TabIndex = 5;

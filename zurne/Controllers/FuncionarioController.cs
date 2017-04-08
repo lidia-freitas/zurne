@@ -9,56 +9,46 @@ namespace Controllers
 {
     public class FuncionarioController
     {
-        //private static List<PessoaFisica> listaFuncionarios = new List<PessoaFisica>();
+        private static List<Funcionario> listaFuncionarios = new List<Funcionario>();
 
-        //private PessoaFisica Buscar(int id) {
-        //    foreach (PessoaFisica func in listaFuncionarios)
-        //    {
-        //        if (func.Id == id)
-        //        {
-        //            return func;
-        //        }
-        //    }
+        public static Funcionario BuscarFuncionario(int id)
+        {
+            foreach (Funcionario func in listaFuncionarios)
+            {
+                if (func.Id == id)
+                {
+                    return func;
+                }
+            }
 
-        //    return null;
-        //}
+            return null;
+        }
 
-        //public List<PessoaFisica> Listar()
-        //{
-        //    return listaFuncionarios;
-        //}
+        public static List<Funcionario> ListarFuncionarios()
+        {
+            return listaFuncionarios;
+        }
 
-        //public void Cadastrar(string nome, string tipo, string cpf, string email, string endereco)
-        //{
-        //    PessoaFisica func = new PessoaFisica(null, nome, cpf, email, endereco);
-        //    listaFuncionarios.Add(func);
-        //}
+        public static void CadastrarFuncionario(Funcionario func)
+        {
+            func.Id = listaFuncionarios.Count();
+            listaFuncionarios.Add(func);
+        }
 
-        //public void Remover(int id)
-        //{
-        //    foreach (PessoaFisica func in listaFuncionarios)
-        //    {
-        //        if(func.Id == id)
-        //        {
-        //            listaFuncionarios.Remove(func);
-        //        }
-        //    }
-        //}
+        public static void EditarFuncionario(int id, string nomenclatura, string documento, string email, string endereco)
+        {
+            Funcionario func = BuscarFuncionario(id);
 
-        //public void Editar(int id, string nome, string cpf, string email, string end)
-        //{
-        //    PessoaFisica func = Buscar(id);
+            func.Pessoa.Nomenclatura = nomenclatura;
+            func.Pessoa.Documento = documento;
+            func.Pessoa.Endereco = endereco;
+            func.Pessoa.Email = email;
+        }
 
-        //    if(func != null)
-        //    {
-        //        func.Nome = nome;
-        //        func.CPF = cpf;
-        //        func.Email = email;
-        //        func.Endereco = end;
-        //    }
-        //}
-
+        public static void RemoverFuncionario(int id)
+        {
+            Funcionario func = BuscarFuncionario(id);
+            listaFuncionarios.Remove(func);
+        }
     }
-
-
 }
