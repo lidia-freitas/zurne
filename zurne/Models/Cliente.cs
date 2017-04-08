@@ -8,11 +8,12 @@ namespace Models
 {
     public class Cliente
     {
-        public int ID;
-        public PessoaFisica PessoaFisica;
-        public PessoaJuridica PessoaJuridica;
+        public int Id;
+        public readonly IPessoa Pessoa;
 
-        public Cliente() { }
+        public Cliente(IPessoa p) {
+            Pessoa = p;
+        }
 
     }
 }

@@ -6,24 +6,40 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class PessoaFisica
-    {
-        public int Id { get; set; }
+    public class PessoaFisica : Pessoa, IPessoa
+    {        
         public string Nome { get; set; }
         public string CPF { get; set; }
-        public string Email { get; set; }
-        public string Endereco { get; set; }
 
-        public PessoaFisica() { }
-
-        public PessoaFisica(int id, string nome, string cpf, string email, string endereco)
-            
+        public PessoaFisica(string nome, string cpf, string email, string endereco)
+            : base(email, endereco)
         {
-            this.Id = id;
             this.Nome = nome;
-            this.CPF = cpf;
-            this.Email = email;
-            this.Endereco = endereco;
+            this.CPF = cpf;           
         }
+
+        public string Documento
+        {
+            get
+            {
+                return CPF;
+            }
+            set
+            {
+                this.CPF = value;
+            }    
+        }
+
+        public string Nomenclatura
+        {
+            get
+            {
+                return Nome;
+            }
+            set {
+                this.Nome = value;
+            }            
+        }
+
     }
 }

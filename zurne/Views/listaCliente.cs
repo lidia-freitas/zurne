@@ -15,28 +15,51 @@ namespace Views
 {
     public partial class listaCliente : Form
     {
+        private string idSelecionado;
+        private string tipoSelecionado;
 
-        private int idSelecionado { get; set; }
-        public string tipoPessoaSelecionada { get; set; }
+        private List<Cliente> listaClientesGrid = ClienteController.ListarClientes();
 
 
         public listaCliente()
         {
             InitializeComponent();
-        }        
+        }
 
-        private void listaClientesLoad(object sender, EventArgs e)
+        private void listarClientes(object sender, EventArgs e)
         {
-            dataGridClientesPF.DataSource = ClienteController.ListarPF();
-            dataGridClientesPJ.DataSource = ClienteController.ListarPJ();
-            
+            limparSelecao();
+            dataGridClientes.DataSource = null;
+            dataGridClientes.DataSource = serializeClientes(listaClientesGrid);
+        }
 
+        private DataTable serializeClientes(List<Cliente> listaClientes)
+        {
+            DataTable customTable = new DataTable("listaClientes");
 
-            //MessageBox.Show(dataGridClientesPF.FirstDisplayedCell.ColumnIndex.ToString());
-            //MessageBox.Show(dataGridClientesPJ.FirstDisplayedCell.ColumnIndex.ToString());
+            customTable.Columns.Add(new DataColumn("Id"));
+            customTable.Columns.Add(new DataColumn("Nome/Razão Social"));
+            customTable.Columns.Add(new DataColumn("CPF/CNPJ"));
+            customTable.Columns.Add(new DataColumn("E-mail"));
+            customTable.Columns.Add(new DataColumn("Endereço"));
 
-            //dataGridClientesPF.FirstDisplayedCell = dataGridClientesPF.CurrentCell;
-            // dataGridClientesPJ.FirstDisplayedCell = dataGridClientesPJ.CurrentCell;
+            foreach (Cliente cli in listaClientes)
+            {
+
+                customTable.AcceptChanges();
+
+                DataRow row = customTable.NewRow();
+                row[0] = cli.Id;
+                row[1] = cli.Pessoa.Nomenclatura;
+                row[2] = cli.Pessoa.Documento;
+                row[3] = cli.Pessoa.Email;
+                row[4] = cli.Pessoa.Endereco;
+
+                customTable.Rows.Add(row);
+            }
+
+            return customTable;
+
         }
 
         private void cadastrarCliente(object sender, EventArgs e)
@@ -51,8 +74,13 @@ namespace Views
 
         private void editarCliente(object sender, EventArgs e)
         {
-            frmCliente frmCliente = new frmCliente(idSelecionado, tipoPessoaSelecionada);
+            if (idSelecionado == null)
+            {
+                MessageBox.Show("Por favor, selecione um cliente na lista");
+                return;
+            } 
 
+            frmCliente frmCliente = new frmCliente(idSelecionado, tipoSelecionado);
             frmCliente.MdiParent = this.MdiParent;
 
             frmCliente.Show();
@@ -62,25 +90,43 @@ namespace Views
 
         private void removerCliente(object sender, EventArgs e)
         {
+            if (idSelecionado == null)
+            {
+                MessageBox.Show("Por favor, selecione um cliente na lista");
+                return;
+            }
 
-        }
-      
-        private void selecionarClientePJ(object sender, DataGridViewCellMouseEventArgs e)
+            int cliId = Convert.ToInt32(idSelecionado);            
+            ClienteController.removerCliente(cliId);
+
+            dataGridClientes.DataSource = null;
+            dataGridClientes.DataSource = serializeClientes(listaClientesGrid);
+
+            MessageBox.Show("O cliente foi removido com sucesso!");
+
+            limparSelecao();
+        }     
+
+        private void limparSelecao()
         {
-            //int idPF = Convert.ToInt32(((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value);
-            //idSelecionado = ClienteController.BuscarPJ(idPF);            
-
-            tipoPessoaSelecionada = "PJ";
-            idSelecionado = Convert.ToInt32(((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value);
+            idSelecionado = null;
+            tipoSelecionado = null;
         }
 
-        private void selecionarClientePF(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            //int idPJ = Convert.ToInt32(((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value);
-            //idSelecionado = ClienteController.BuscarPJ(idPJ);
-          
-            idSelecionado = Convert.ToInt32(((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value);
-            tipoPessoaSelecionada = "PF";
-        }        
+        private void selecionarCliente(object sender, DataGridViewCellMouseEventArgs e)
+        {               
+            idSelecionado = ((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value.ToString();
+            Cliente cli = ClienteController.BuscarCliente(Convert.ToInt32(idSelecionado));
+
+            if (cli.Pessoa is PessoaFisica)
+            {
+                tipoSelecionado = "PF";
+            }
+            else
+            {
+                tipoSelecionado = "PJ";
+            }
+        }      
     }        
 }
+ 

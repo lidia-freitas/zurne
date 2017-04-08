@@ -46,12 +46,10 @@
             this.btnSalvarPessoaJuridica = new System.Windows.Forms.Button();
             this.textEndereco_PJ = new System.Windows.Forms.TextBox();
             this.textEmail_PJ = new System.Windows.Forms.TextBox();
-            this.textContato_PJ = new System.Windows.Forms.TextBox();
             this.textCnpj_PJ = new System.Windows.Forms.TextBox();
             this.textRazaoSocial_PJ = new System.Windows.Forms.TextBox();
             this.lbEndereco_PJ = new System.Windows.Forms.Label();
             this.lbEmail_PJ = new System.Windows.Forms.Label();
-            this.lbContato_PJ = new System.Windows.Forms.Label();
             this.lbCnpj_PJ = new System.Windows.Forms.Label();
             this.lbRazaoSocial_PJ = new System.Windows.Forms.Label();
             this.gbPessoaFiscia.SuspendLayout();
@@ -201,12 +199,10 @@
             this.gbPessoaJuridica.Controls.Add(this.btnSalvarPessoaJuridica);
             this.gbPessoaJuridica.Controls.Add(this.textEndereco_PJ);
             this.gbPessoaJuridica.Controls.Add(this.textEmail_PJ);
-            this.gbPessoaJuridica.Controls.Add(this.textContato_PJ);
             this.gbPessoaJuridica.Controls.Add(this.textCnpj_PJ);
             this.gbPessoaJuridica.Controls.Add(this.textRazaoSocial_PJ);
             this.gbPessoaJuridica.Controls.Add(this.lbEndereco_PJ);
             this.gbPessoaJuridica.Controls.Add(this.lbEmail_PJ);
-            this.gbPessoaJuridica.Controls.Add(this.lbContato_PJ);
             this.gbPessoaJuridica.Controls.Add(this.lbCnpj_PJ);
             this.gbPessoaJuridica.Controls.Add(this.lbRazaoSocial_PJ);
             this.gbPessoaJuridica.Location = new System.Drawing.Point(12, 60);
@@ -240,24 +236,17 @@
             // 
             // textEndereco_PJ
             // 
-            this.textEndereco_PJ.Location = new System.Drawing.Point(25, 465);
+            this.textEndereco_PJ.Location = new System.Drawing.Point(25, 337);
             this.textEndereco_PJ.Name = "textEndereco_PJ";
             this.textEndereco_PJ.Size = new System.Drawing.Size(465, 20);
             this.textEndereco_PJ.TabIndex = 9;
             // 
             // textEmail_PJ
             // 
-            this.textEmail_PJ.Location = new System.Drawing.Point(25, 364);
+            this.textEmail_PJ.Location = new System.Drawing.Point(25, 236);
             this.textEmail_PJ.Name = "textEmail_PJ";
             this.textEmail_PJ.Size = new System.Drawing.Size(157, 20);
             this.textEmail_PJ.TabIndex = 8;
-            // 
-            // textContato_PJ
-            // 
-            this.textContato_PJ.Location = new System.Drawing.Point(25, 248);
-            this.textContato_PJ.Name = "textContato_PJ";
-            this.textContato_PJ.Size = new System.Drawing.Size(263, 20);
-            this.textContato_PJ.TabIndex = 7;
             // 
             // textCnpj_PJ
             // 
@@ -276,7 +265,7 @@
             // lbEndereco_PJ
             // 
             this.lbEndereco_PJ.AutoSize = true;
-            this.lbEndereco_PJ.Location = new System.Drawing.Point(22, 437);
+            this.lbEndereco_PJ.Location = new System.Drawing.Point(22, 309);
             this.lbEndereco_PJ.Name = "lbEndereco_PJ";
             this.lbEndereco_PJ.Size = new System.Drawing.Size(53, 13);
             this.lbEndereco_PJ.TabIndex = 4;
@@ -285,20 +274,11 @@
             // lbEmail_PJ
             // 
             this.lbEmail_PJ.AutoSize = true;
-            this.lbEmail_PJ.Location = new System.Drawing.Point(22, 333);
+            this.lbEmail_PJ.Location = new System.Drawing.Point(22, 205);
             this.lbEmail_PJ.Name = "lbEmail_PJ";
             this.lbEmail_PJ.Size = new System.Drawing.Size(35, 13);
             this.lbEmail_PJ.TabIndex = 3;
             this.lbEmail_PJ.Text = "E-mail";
-            // 
-            // lbContato_PJ
-            // 
-            this.lbContato_PJ.AutoSize = true;
-            this.lbContato_PJ.Location = new System.Drawing.Point(22, 222);
-            this.lbContato_PJ.Name = "lbContato_PJ";
-            this.lbContato_PJ.Size = new System.Drawing.Size(44, 13);
-            this.lbContato_PJ.TabIndex = 2;
-            this.lbContato_PJ.Text = "Contato";
             // 
             // lbCnpj_PJ
             // 
@@ -325,8 +305,8 @@
             this.ClientSize = new System.Drawing.Size(1147, 628);
             this.Controls.Add(this.rbPessoaJuridica);
             this.Controls.Add(this.rbPessoaFisica);
-            this.Controls.Add(this.gbPessoaFiscia);
             this.Controls.Add(this.gbPessoaJuridica);
+            this.Controls.Add(this.gbPessoaFiscia);
             this.Name = "frmCliente";
             this.Text = "Cliente";
             this.gbPessoaFiscia.ResumeLayout(false);
@@ -355,12 +335,10 @@
         private System.Windows.Forms.Button btnSalvarPessoaFisica;
         private System.Windows.Forms.Label lbRazaoSocial_PJ;
         private System.Windows.Forms.Label lbEmail_PJ;
-        private System.Windows.Forms.Label lbContato_PJ;
         private System.Windows.Forms.Label lbCnpj_PJ;
         private System.Windows.Forms.Label lbEndereco_PJ;
         private System.Windows.Forms.TextBox textEndereco_PJ;
         private System.Windows.Forms.TextBox textEmail_PJ;
-        private System.Windows.Forms.TextBox textContato_PJ;
         private System.Windows.Forms.TextBox textCnpj_PJ;
         private System.Windows.Forms.TextBox textRazaoSocial_PJ;
         private System.Windows.Forms.Button btnSalvarPessoaJuridica;

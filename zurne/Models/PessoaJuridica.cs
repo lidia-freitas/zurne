@@ -6,25 +6,42 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class PessoaJuridica
+    public class PessoaJuridica : Pessoa, IPessoa
     {
-        public int Id { get; set; }
         public string RazaoSocial { get; set; }
         public string CNPJ { get; set; }
-        public string Contato { get; set; }
-        public string Email { get; set; }
-        public string Endereco { get; set; }
 
-        public PessoaJuridica() { }
-
-        public PessoaJuridica(int id, string rasaoSocial, string cnpj, string contato, string email, string endereco)
+        public PessoaJuridica(string rasaoSocial, string cnpj, string email, string endereco)
+            : base(email, endereco)
         {
-            this.Id = Id;
             this.RazaoSocial = rasaoSocial;
             this.CNPJ = cnpj;
-            this.Contato = contato;
-            this.Email = email;
-            this.Endereco = endereco;
         }
+
+        public string Documento
+        {
+            get
+            {
+                return CNPJ;
+            }
+            set {
+                this.CNPJ = value;
+            }
+            
+        }
+
+        public string Nomenclatura      
+        {
+            get
+            {
+                return RazaoSocial;
+            }
+            set {
+                this.RazaoSocial = value;
+            }
+        }
+                
     }
 }
+
+
