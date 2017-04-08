@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models;
+using Models.DAL;
+using System.Data.Entity;
 
 namespace Controllers
 {
@@ -22,12 +24,23 @@ namespace Controllers
                 }
             }
 
-            return null;
+            //foreach (Cliente cli in listaClientes)
+            //{
+            //    if(cli.ID == id)
+            //    {
+            //        return cli;
+            //    }
+            //}
+
+            //return null;
         }
 
         public static List<Cliente> ListarClientes()
         {
-            return listaClientes;
+
+            return contexto.Cliente.ToList();
+
+            //return listaClientes;
         }
   
         public static void CadastrarCliente(Cliente cli)
