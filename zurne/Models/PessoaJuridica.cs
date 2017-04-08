@@ -11,38 +11,36 @@ namespace Models
         public string RazaoSocial { get; set; }
         public string CNPJ { get; set; }
 
+        public PessoaJuridica(string rasaoSocial, string cnpj, string email, string endereco)
+            : base(email, endereco)
+        {
+            this.RazaoSocial = rasaoSocial;
+            this.CNPJ = cnpj;
+        }
+
         public string Documento
         {
             get
             {
                 return CNPJ;
             }
-            set
-            {
-                this.CNPJ = CNPJ;
+            set {
+                this.CNPJ = value;
             }
-           
+            
         }
 
-        public string Nomenclatura
+        public string Nomenclatura      
         {
             get
             {
                 return RazaoSocial;
             }
-            set
-            {
-                this.RazaoSocial = RazaoSocial;
+            set {
+                this.RazaoSocial = value;
             }
-            
         }
-
-        public PessoaJuridica(string rasaoSocial, string cnpj, string email, string endereco)
-            : base (email, endereco)
-        {
-            this.RazaoSocial = rasaoSocial;
-            this.CNPJ = cnpj;            
-        }
+                
     }
 }
 

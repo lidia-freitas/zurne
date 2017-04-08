@@ -12,11 +12,11 @@ namespace Controllers
 
         private static List<Cliente> listaClientes = new List<Cliente>();
               
-        public static Cliente BuscarCliente(int id)
+        public static Cliente BuscarCliente(int? id)
         {
             foreach (Cliente cli in listaClientes)
             {
-                if(cli.ID == id)
+                if(cli.Id == id)
                 {
                     return cli;
                 }
@@ -32,28 +32,25 @@ namespace Controllers
   
         public static void CadastrarCliente(Cliente cli)
         {            
-            cli.ID = listaClientes.Count() + 1;
+            cli.Id = listaClientes.Count();
             listaClientes.Add(cli);
         }
    
-        public static void EditarCliente(Cliente cli)
+        public static void EditarCliente(int id, string nomenclatura, string documento, string email, string endereco)
         {
-            Cliente c = BuscarCliente(cli.ID);
+            Cliente cli = BuscarCliente(id);
 
-            c.Pessoa.Nomenclatura = cli.Pessoa.Nomenclatura;
-            c.Pessoa.Documento = cli.Pessoa.Documento;
-            
+            cli.Pessoa.Nomenclatura = nomenclatura;
+            cli.Pessoa.Documento = documento;
+            cli.Pessoa.Endereco = endereco;
+            cli.Pessoa.Email = email; 
         }
 
         public static void removerCliente(int id)
         {
-            foreach (Cliente cli in listaClientes)
-            {
-                if (cli.ID == id)
-                {
-                    listaClientes.Remove(cli);
-                }
-            }
+            Cliente cli = BuscarCliente(id);
+
+            listaClientes.Remove(cli);
         }
     }
 }

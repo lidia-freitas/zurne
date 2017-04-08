@@ -10,5 +10,7 @@ namespace Models
     {
         string Documento{ get; set; }
         string Nomenclatura { get; set; }
+        string Email { get; set; }
+        string Endereco { get; set; }
     }
 }

@@ -11,15 +11,23 @@ namespace Models
         public string Nome { get; set; }
         public string CPF { get; set; }
 
-        string IPessoa.Documento
+        public PessoaFisica(string nome, string cpf, string email, string endereco)
+            : base(email, endereco)
+        {
+            this.Nome = nome;
+            this.CPF = cpf;           
+        }
+
+        public string Documento
         {
             get
             {
                 return CPF;
             }
-            set {
-                this.CPF = CPF;
-            }   
+            set
+            {
+                this.CPF = value;
+            }    
         }
 
         public string Nomenclatura
@@ -28,17 +36,10 @@ namespace Models
             {
                 return Nome;
             }
-            set
-            {
-                this.Nome = Nome;
-            }
+            set {
+                this.Nome = value;
+            }            
         }
 
-        public PessoaFisica(string nome, string cpf, string email, string endereco)
-            : base(email, endereco)
-        {            
-            this.Nome = nome;
-            this.CPF = cpf;
-        }        
     }
 }

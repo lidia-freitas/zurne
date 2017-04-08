@@ -14,8 +14,8 @@ namespace Views
 {
     public partial class frmCliente : Form
     {
-        public int clienteId;
-        public Cliente clienteEdicao;
+        private string idSelecionado;
+        private string tipoSelecionado;
 
         public frmCliente()
         {
@@ -23,117 +23,147 @@ namespace Views
             limparCampos();            
         }
 
-        public frmCliente(int _idCliente)
+        public frmCliente(string _idCliente, string _tipoCliente)
         {
             InitializeComponent();
 
-            clienteId = _idCliente;
+            idSelecionado = _idCliente;
+            tipoSelecionado = _tipoCliente;
+
             carregarCliente();
         }
 
         private void carregarCliente()
-        {            
-            clienteEdicao = ClienteController.BuscarCliente(clienteId);
+        {
+            int cliId = Convert.ToInt32(idSelecionado);         
+            Cliente cli = ClienteController.BuscarCliente(cliId);
+            rbPessoaFisica.Visible = false;
+            rbPessoaJuridica.Visible = false;
 
-            //switch (clienteTipo)
-            //{
-            //    case "PF":
-            //        textNome_PF.Text = clienteEdicao.Pessoa.Nomenclatura;
-            //        textCpf_PF.Text = clienteEdicao.Pessoa.Documento;
-            //       // textEmail_PF.Text = clienteEdicao.Pessoa.Email;
-            //        //textEndereco_PF.Text = clienteEdicao.Pessoa.Endereco;
+            switch (tipoSelecionado)
+            {
+                case "PF":
+                    textNome_PF.Text = cli.Pessoa.Nomenclatura;
+                    textCpf_PF.Text = cli.Pessoa.Documento;
+                    textEmail_PF.Text = cli.Pessoa.Email;
+                    textEndereco_PF.Text = cli.Pessoa.Endereco;
+                    
+                    gbPessoaFiscia.Visible = true;
+                    gbPessoaJuridica.Visible = false;
+                    break;
 
-            //        rbPessoaFisica.Checked = true;
-            //        rbPessoaJuridica.Checked = false;
-            //        gbPessoaFiscia.Visible = true;
-            //        gbPessoaJuridica.Visible = false;
-            //        break;
-
-            //    case "PJ":
-            //        textRazaoSocial_PJ.Text = clienteEdicao.Pessoa.Nomenclatura;
-            //        textCnpj_PJ.Text = clienteEdicao.Pessoa.Documento;
-            //        //textContato_PJ.Text = clienteEdicao.PessoaJuridica.Contato;
-            //       // textEmail_PJ.Text = clienteEdicao.Pessoa.Email;
-            //       // textEndereco_PF.Text = clienteEdicao.Pessoa.Endereco;
-
-            //        rbPessoaFisica.Checked = true;
-            //        rbPessoaJuridica.Checked = false;
-            //        gbPessoaFiscia.Visible = true;
-            //        gbPessoaJuridica.Visible = false;
-            //        break;
-            //}
+                case "PJ":
+                    textRazaoSocial_PJ.Text = cli.Pessoa.Nomenclatura;
+                    textCnpj_PJ.Text = cli.Pessoa.Documento;                    
+                    textEmail_PJ.Text = cli.Pessoa.Email;
+                    textEndereco_PJ.Text = cli.Pessoa.Endereco;
+                    
+                    gbPessoaFiscia.Visible = false;
+                    gbPessoaJuridica.Visible = true;
+                    break;
+            }
         }
 
         private void mostraFormPessoaFisica(object sender, EventArgs e)
         {
             gbPessoaFiscia.Visible = true;
             gbPessoaJuridica.Visible = false;
+            tipoSelecionado = "PF";
         }
 
         private void mostraFormPessoaJuridica(object sender, EventArgs e)
         {
             gbPessoaFiscia.Visible = false;
             gbPessoaJuridica.Visible = true;
+            tipoSelecionado = "PJ";
         }
       
         private void salvarCliente(Object sender, EventArgs e)
         {
-            if (gbPessoaFiscia.Visible == true)
-            {
-                if (string.IsNullOrEmpty(textNome_PF.Text) || string.IsNullOrEmpty(textCpf_PF.Text) ||
-                    string.IsNullOrEmpty(textEmail_PF.Text) || string.IsNullOrEmpty(textEndereco_PF.Text))
-                {
-                    MessageBox.Show("Todos campos são obrigatórios");
-                }
-                else
-                {
-                    if (clienteEdicao != null)
-                    {
-                        ClienteController.EditarCliente(clienteEdicao);
-                    }
-                    else
-                    {
-                        PessoaFisica pf = new PessoaFisica(textNome_PF.Text, textCpf_PF.Text,textEmail_PF.Text, textEndereco_PF.Text);
-                        Cliente clienteCadatro = new Cliente(pf);                        
+            bool formularioValido = false;
 
-                        ClienteController.CadastrarCliente(clienteCadatro);
-                        MessageBox.Show("Cliente cadastrado com sucesso!");
-                        limparCampos();
+            switch (tipoSelecionado)
+            {
+                case "PF":
+                    if (string.IsNullOrEmpty(textNome_PF.Text) || string.IsNullOrEmpty(textCpf_PF.Text) ||
+                    string.IsNullOrEmpty(textEmail_PF.Text) || string.IsNullOrEmpty(textEndereco_PF.Text))
+                    {
+                        MessageBox.Show("Todos campos são obrigatórios");
+                        return;
                     }
-                }
+
+                    formularioValido = true;
+                    break;
+
+                case "PJ":
+                    if (string.IsNullOrEmpty(textRazaoSocial_PJ.Text) || string.IsNullOrEmpty(textCnpj_PJ.Text) ||
+                    string.IsNullOrEmpty(textEmail_PJ.Text) || string.IsNullOrEmpty(textEndereco_PJ.Text))
+                    {
+                        MessageBox.Show("Todos campos são obrigatórios");
+                        return;
+                    }
+
+                    formularioValido = true;
+                    break;
+            }
+
+            if (!formularioValido) return;
+
+            if (idSelecionado == null)
+            {
+                cadastrarCliente();
             }
             else
             {
-                if (string.IsNullOrEmpty(textRazaoSocial_PJ.Text) || string.IsNullOrEmpty(textCnpj_PJ.Text) || string.IsNullOrEmpty(textContato_PJ.Text) ||
-                    string.IsNullOrEmpty(textEmail_PJ.Text) || string.IsNullOrEmpty(textEndereco_PJ.Text))
-                {
-                    MessageBox.Show("Todos campos são obrigatórios");
-                }
-                else
-                { 
-                    if (clienteEdicao != null)
-                        {
-                            ClienteController.EditarCliente(clienteEdicao);
-                        }
-                    else
-                    {
-                        PessoaJuridica pj = new PessoaJuridica(textRazaoSocial_PJ.Text, textCnpj_PJ.Text, textEmail_PJ.Text, textEndereco_PJ.Text);
-                        Cliente clienteCadastro = new Cliente(pj);
-
-                        ClienteController.CadastrarCliente(clienteCadastro);
-
-                        MessageBox.Show("Cliente cadastrado com sucesso!");
-                        limparCampos();
-                    }
-                }
-            }
+                editarCliente();
+            }   
         }
 
+        private void cadastrarCliente()
+        {
+            switch (tipoSelecionado)
+            {
+                case "PF":
+                    PessoaFisica pf = new PessoaFisica(textNome_PF.Text, textCpf_PF.Text, textEmail_PF.Text, textEndereco_PF.Text);
+                    Cliente clientePF = new Cliente(pf);
+
+                    ClienteController.CadastrarCliente(clientePF);
+                    break;
+
+                case "PJ":
+                    PessoaJuridica pj = new PessoaJuridica(textRazaoSocial_PJ.Text, textCnpj_PJ.Text, textEmail_PJ.Text, textEndereco_PJ.Text);
+                    Cliente clientePJ = new Cliente(pj);
+
+                    ClienteController.CadastrarCliente(clientePJ);
+                    break;   
+            }
+
+            MessageBox.Show("Cliente cadastrado com sucesso!");
+            limparCampos();
+        }
+
+        private void editarCliente()
+        {
+            int cliId = Convert.ToInt32(idSelecionado);
+
+            switch (tipoSelecionado)
+            {
+                case "PF":
+                    ClienteController.EditarCliente(cliId, textNome_PF.Text, textCpf_PF.Text, textEmail_PF.Text, textEndereco_PF.Text);
+                    break;
+
+                case "PJ":
+                    ClienteController.EditarCliente(cliId, textRazaoSocial_PJ.Text, textCnpj_PJ.Text, textEmail_PJ.Text, textEndereco_PJ.Text);
+                    break;
+            }
+
+            MessageBox.Show("Cliente editado com sucesso!");
+        }
+        
         private void limparCampos()
         {
             textRazaoSocial_PJ.Clear(); 
             textCnpj_PJ.Clear();
-            textContato_PJ.Clear();
             textEmail_PJ.Clear();
             textEndereco_PJ.Clear();
 
@@ -146,12 +176,10 @@ namespace Views
         private void voltar(object sender, EventArgs e)
         {
             listaCliente listaCliente = new listaCliente();
-
             listaCliente.MdiParent = this.MdiParent;
 
             listaCliente.Show();
             listaCliente.WindowState = FormWindowState.Maximized;
-
             this.Close();
         }
     }

@@ -9,7 +9,7 @@ namespace Models
     public abstract class Pessoa
     {
         public string Email { get; set; }
-        protected string Endereco { get; set; }
+        public string Endereco { get; set; }
 
         public Pessoa(string email, string endereco)
         {
