@@ -37,7 +37,7 @@
             this.textEmail_PF = new System.Windows.Forms.TextBox();
             this.textEndereco_PF = new System.Windows.Forms.TextBox();
             this.btnSalvarPessoaFisica = new System.Windows.Forms.Button();
-            this.btnVoltarFrmPJ = new System.Windows.Forms.Button();
+            this.btnVoltarFrmPF = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbNome_PF
@@ -115,23 +115,23 @@
             this.btnSalvarPessoaFisica.UseVisualStyleBackColor = true;
             this.btnSalvarPessoaFisica.Click += new System.EventHandler(this.salvarFuncionario);
             // 
-            // btnVoltarFrmPJ
+            // btnVoltarFrmPF
             // 
-            this.btnVoltarFrmPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVoltarFrmPJ.Location = new System.Drawing.Point(1054, 605);
-            this.btnVoltarFrmPJ.Name = "btnVoltarFrmPJ";
-            this.btnVoltarFrmPJ.Size = new System.Drawing.Size(75, 23);
-            this.btnVoltarFrmPJ.TabIndex = 9;
-            this.btnVoltarFrmPJ.Text = "Voltar";
-            this.btnVoltarFrmPJ.UseVisualStyleBackColor = true;
-            this.btnVoltarFrmPJ.Click += new System.EventHandler(this.voltar);
+            this.btnVoltarFrmPF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVoltarFrmPF.Location = new System.Drawing.Point(1054, 605);
+            this.btnVoltarFrmPF.Name = "btnVoltarFrmPF";
+            this.btnVoltarFrmPF.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltarFrmPF.TabIndex = 9;
+            this.btnVoltarFrmPF.Text = "Voltar";
+            this.btnVoltarFrmPF.UseVisualStyleBackColor = true;
+            this.btnVoltarFrmPF.Click += new System.EventHandler(this.voltar);
             // 
             // frmFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1222, 640);
-            this.Controls.Add(this.btnVoltarFrmPJ);
+            this.Controls.Add(this.btnVoltarFrmPF);
             this.Controls.Add(this.btnSalvarPessoaFisica);
             this.Controls.Add(this.textEndereco_PF);
             this.Controls.Add(this.textEmail_PF);
@@ -159,6 +159,6 @@
         private System.Windows.Forms.TextBox textEmail_PF;
         private System.Windows.Forms.TextBox textEndereco_PF;
         private System.Windows.Forms.Button btnSalvarPessoaFisica;
-        private System.Windows.Forms.Button btnVoltarFrmPJ;
+        private System.Windows.Forms.Button btnVoltarFrmPF;
     }
 }

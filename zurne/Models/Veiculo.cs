@@ -6,23 +6,22 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-   public class Veiculo
+   public abstract class Veiculo
     {
-
-        public int ID;
-        public string Tipo { get; set; }
-        public string MarcaModelo { get; set; }
+        public int Id;
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public string Cor { get; set; }
         public int Ano { get; set; }
-        public string Placa { get; set; }
-        public string Renavam { get; set; }
 
-        public Veiculo (string tipo, string marcamodelo, int ano, string placa, string renavam)
+
+
+        public Veiculo (string marca, string modelo, string cor, int ano)
         {
-            this.Tipo = tipo;
-            this.MarcaModelo = marcamodelo;
+            this.Marca = marca;
+            this.Modelo = modelo;
+            this.Cor = cor;
             this.Ano = ano;
-            this.Placa = placa;
-            this.Renavam = renavam;
         }
 
     }

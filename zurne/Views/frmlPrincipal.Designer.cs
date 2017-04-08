@@ -32,7 +32,8 @@
             this.menuPrincipal = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.funcionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.veículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,8 @@
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clienteToolStripMenuItem,
-            this.funcionárioToolStripMenuItem});
+            this.funcionarioToolStripMenuItem,
+            this.veículoToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             resources.ApplyResources(this.cadastrosToolStripMenuItem, "cadastrosToolStripMenuItem");
             // 
@@ -57,11 +59,17 @@
             resources.ApplyResources(this.clienteToolStripMenuItem, "clienteToolStripMenuItem");
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.listarClientes);
             // 
-            // funcionárioToolStripMenuItem
+            // funcionarioToolStripMenuItem
             // 
-            this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
-            resources.ApplyResources(this.funcionárioToolStripMenuItem, "funcionárioToolStripMenuItem");
-            this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.listarFuncionarios);
+            this.funcionarioToolStripMenuItem.Name = "funcionarioToolStripMenuItem";
+            resources.ApplyResources(this.funcionarioToolStripMenuItem, "funcionarioToolStripMenuItem");
+            this.funcionarioToolStripMenuItem.Click += new System.EventHandler(this.listarFuncionarios);
+            // 
+            // veículoToolStripMenuItem
+            // 
+            this.veículoToolStripMenuItem.Name = "veículoToolStripMenuItem";
+            resources.ApplyResources(this.veículoToolStripMenuItem, "veículoToolStripMenuItem");
+            this.veículoToolStripMenuItem.Click += new System.EventHandler(this.listarVeiculos);
             // 
             // frmPrincipal
             // 
@@ -84,7 +92,8 @@
         private System.Windows.Forms.MenuStrip menuPrincipal;
         private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem funcionárioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem funcionarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem veículoToolStripMenuItem;
     }
 }
 

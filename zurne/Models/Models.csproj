@@ -43,9 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Automovel.cs" />
+    <Compile Include="Bicicleta.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Funcionario.cs" />
+    <Compile Include="ILicenciamento.cs" />
     <Compile Include="IPessoa.cs" />
+    <Compile Include="Motocicleta.cs" />
     <Compile Include="Pessoa.cs" />
     <Compile Include="PessoaFisica.cs" />
     <Compile Include="PessoaJuridica.cs" />

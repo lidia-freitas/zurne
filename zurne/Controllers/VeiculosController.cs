@@ -11,54 +11,52 @@ namespace Controllers
     {
         private static List<Veiculo> listaVeiculos = new List<Veiculo>();
 
-        private Veiculo Buscar(int id)
+        public static Veiculo BuscarVeiculo(int id)
         {
             foreach (Veiculo vei in listaVeiculos)
             {
-                if (vei.ID == id)
+                if (vei.Id == id)
                 {
                     return vei;
                 }
             }
+
             return null;
         }
 
-        public List<Veiculo> Listar()
+        public static List<Veiculo> ListarVeiculos()
         {
-            return listaVeiculos;
-        
+            return listaVeiculos;        
         }
 
-        public void CadastrarVeiculo(string tipo, string marcamodelo, int ano, string placa, string renavam)
+        public static void CadastrarVeiculo(string tipo, string marcamodelo, int ano, string placa, string renavam)
         {
-            Veiculo vei = new Veiculo(tipo, marcamodelo, ano, placa, renavam);
-            listaVeiculos.Add(vei);
+           // Veiculo vei = new Veiculo(tipo, marcamodelo, ano, placa, renavam);
+
+          //vei.Id = listaVeiculos.Count();
+           // listaVeiculos.Add(vei);
 
         }
 
-        public void Remover (int id)
+        public static void EditarVeiculo(int id, string tipo, string marca, string modelo, int ano, string placa, string renavam)
         {
-            foreach (Veiculo vei in listaVeiculos)
-            {
-                if (vei.ID == id)
-                {
-                    listaVeiculos.Remove(vei);
-                }              
-            }
-        }
-
-        public void Editar(int id, string tipo, string marcamodelo, int ano, string placa, string renavam)
-        {
-            Veiculo vei = Buscar(id);
+            Veiculo vei = BuscarVeiculo(id);
 
             if (vei != null) 
             {
-                vei.Tipo = tipo;
-                vei.MarcaModelo = marcamodelo;
+
+                vei.Marca = marca;
+                vei.Modelo = modelo;
                 vei.Ano = ano;
-                vei.Placa = placa;
-                vei.Renavam = renavam;
+                //vei.Placa = placa;
+                //vei.Renavam = renavam;
             }
+        }
+
+        public static void RemoverVeiculo(int id)
+        {
+            Veiculo vei = BuscarVeiculo(id);
+            listaVeiculos.Remove(vei);            
         }
     }
 }

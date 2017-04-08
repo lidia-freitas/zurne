@@ -65,6 +65,12 @@
     <Compile Include="frmlPrincipal.Designer.cs">
       <DependentUpon>frmlPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVeiculo.Designer.cs">
+      <DependentUpon>frmVeiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="listaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     </Compile>
     <Compile Include="listaFuncionario.Designer.cs">
       <DependentUpon>listaFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="listaVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="listaVeiculo.Designer.cs">
+      <DependentUpon>listaVeiculo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,11 +103,17 @@
     <EmbeddedResource Include="frmlPrincipal.resx">
       <DependentUpon>frmlPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVeiculo.resx">
+      <DependentUpon>frmVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="listaCliente.resx">
       <DependentUpon>listaCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="listaFuncionario.resx">
       <DependentUpon>listaFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listaVeiculo.resx">
+      <DependentUpon>listaVeiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -38,5 +38,13 @@ namespace Views
             listaFuncionario.Show();
             listaFuncionario.WindowState = FormWindowState.Maximized;
         }
+
+        private void listarVeiculos(object sender, EventArgs e)
+        {
+            listaVeiculo listaVeiculo = new listaVeiculo();
+            listaVeiculo.MdiParent = this;
+            listaVeiculo.Show();
+            listaVeiculo.WindowState = FormWindowState.Maximized;
+        }
     }
 }
