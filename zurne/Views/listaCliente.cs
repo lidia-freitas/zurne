@@ -19,7 +19,6 @@ namespace Views
 
         private List<Cliente> listaClientesGrid = ClienteController.ListarClientes();
 
-
         public listaCliente()
         {
             InitializeComponent();

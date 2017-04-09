@@ -133,6 +133,24 @@
   <data name="funcionarioToolStripMenuItem.Text" xml:space="preserve">
     <value>Funcionário</value>
   </data>
+  <data name="automóvelToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="automóvelToolStripMenuItem.Text" xml:space="preserve">
+    <value>Automóvel</value>
+  </data>
+  <data name="motocicletaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="motocicletaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Motocicleta</value>
+  </data>
+  <data name="bicicletaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="bicicletaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Bicicleta</value>
+  </data>
   <data name="veículoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 22</value>
   </data>
@@ -204,6 +222,24 @@
     <value>veículoToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;veículoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;automóvelToolStripMenuItem.Name" xml:space="preserve">
+    <value>automóvelToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;automóvelToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;motocicletaToolStripMenuItem.Name" xml:space="preserve">
+    <value>motocicletaToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;motocicletaToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bicicletaToolStripMenuItem.Name" xml:space="preserve">
+    <value>bicicletaToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;bicicletaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

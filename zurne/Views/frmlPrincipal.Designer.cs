@@ -34,6 +34,9 @@
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.veículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.automóvelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.motocicletaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bicicletaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,9 +70,30 @@
             // 
             // veículoToolStripMenuItem
             // 
+            this.veículoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.automóvelToolStripMenuItem,
+            this.motocicletaToolStripMenuItem,
+            this.bicicletaToolStripMenuItem});
             this.veículoToolStripMenuItem.Name = "veículoToolStripMenuItem";
             resources.ApplyResources(this.veículoToolStripMenuItem, "veículoToolStripMenuItem");
-            this.veículoToolStripMenuItem.Click += new System.EventHandler(this.listarVeiculos);
+            // 
+            // automóvelToolStripMenuItem
+            // 
+            this.automóvelToolStripMenuItem.Name = "automóvelToolStripMenuItem";
+            resources.ApplyResources(this.automóvelToolStripMenuItem, "automóvelToolStripMenuItem");
+            this.automóvelToolStripMenuItem.Click += new System.EventHandler(this.listarAutomoveis);
+            // 
+            // motocicletaToolStripMenuItem
+            // 
+            this.motocicletaToolStripMenuItem.Name = "motocicletaToolStripMenuItem";
+            resources.ApplyResources(this.motocicletaToolStripMenuItem, "motocicletaToolStripMenuItem");
+            this.motocicletaToolStripMenuItem.Click += new System.EventHandler(this.listarMotocicletas);
+            // 
+            // bicicletaToolStripMenuItem
+            // 
+            this.bicicletaToolStripMenuItem.Name = "bicicletaToolStripMenuItem";
+            resources.ApplyResources(this.bicicletaToolStripMenuItem, "bicicletaToolStripMenuItem");
+            this.bicicletaToolStripMenuItem.Click += new System.EventHandler(this.listarBicicletas);
             // 
             // frmPrincipal
             // 
@@ -94,6 +118,9 @@
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem funcionarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem veículoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem automóvelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem motocicletaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bicicletaToolStripMenuItem;
     }
 }
 

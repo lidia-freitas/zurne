@@ -8,13 +8,12 @@ namespace Models
 {
    public abstract class Veiculo
     {
-        public int Id;
+        public int Id { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public string Cor { get; set; }
         public int Ano { get; set; }
-
-
+        
 
         public Veiculo (string marca, string modelo, string cor, int ano)
         {

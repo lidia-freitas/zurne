@@ -8,38 +8,16 @@ namespace Models
 {
     public class Motocicleta : Veiculo, ILicenciamento
     {
+        public int Id { get; set; }
         public int Cilindradas { get; set; }
+        public string Placa { get; set; }
+        public string Renavam { get; set; }
 
-        public Motocicleta(int Cilindradas, string marca, string modelo, string cor, int ano)
+        public Motocicleta(int cilindradas, string marca, string modelo, string cor, int ano)
             : base(marca, modelo, cor, ano)
-        {
-        }
-
-        public string Placa
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public string Renavam
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        {            
+            this.Cilindradas = cilindradas;
+        }    
 
         
 

@@ -47,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAutomovel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAutomovel.Designer.cs">
+      <DependentUpon>frmAutomovel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBicicleta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBicicleta.Designer.cs">
+      <DependentUpon>frmBicicleta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,11 +77,23 @@
     <Compile Include="frmlPrincipal.Designer.cs">
       <DependentUpon>frmlPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVeiculo.cs">
+    <Compile Include="frmMotocicleta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVeiculo.Designer.cs">
-      <DependentUpon>frmVeiculo.cs</DependentUpon>
+    <Compile Include="frmMotocicleta.Designer.cs">
+      <DependentUpon>frmMotocicleta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="listaAutomovel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="listaAutomovel.Designer.cs">
+      <DependentUpon>listaAutomovel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="listaBicicleta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="listaBicicleta.Designer.cs">
+      <DependentUpon>listaBicicleta.cs</DependentUpon>
     </Compile>
     <Compile Include="listaCliente.cs">
       <SubType>Form</SubType>
@@ -83,14 +107,20 @@
     <Compile Include="listaFuncionario.Designer.cs">
       <DependentUpon>listaFuncionario.cs</DependentUpon>
     </Compile>
-    <Compile Include="listaVeiculo.cs">
+    <Compile Include="listaMotocicleta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="listaVeiculo.Designer.cs">
-      <DependentUpon>listaVeiculo.cs</DependentUpon>
+    <Compile Include="listaMotocicleta.Designer.cs">
+      <DependentUpon>listaMotocicleta.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAutomovel.resx">
+      <DependentUpon>frmAutomovel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBicicleta.resx">
+      <DependentUpon>frmBicicleta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCliente.resx">
       <DependentUpon>frmCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,8 +133,14 @@
     <EmbeddedResource Include="frmlPrincipal.resx">
       <DependentUpon>frmlPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVeiculo.resx">
-      <DependentUpon>frmVeiculo.cs</DependentUpon>
+    <EmbeddedResource Include="frmMotocicleta.resx">
+      <DependentUpon>frmMotocicleta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listaAutomovel.resx">
+      <DependentUpon>listaAutomovel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listaBicicleta.resx">
+      <DependentUpon>listaBicicleta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="listaCliente.resx">
       <DependentUpon>listaCliente.cs</DependentUpon>
@@ -112,8 +148,8 @@
     <EmbeddedResource Include="listaFuncionario.resx">
       <DependentUpon>listaFuncionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="listaVeiculo.resx">
-      <DependentUpon>listaVeiculo.cs</DependentUpon>
+    <EmbeddedResource Include="listaMotocicleta.resx">
+      <DependentUpon>listaMotocicleta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

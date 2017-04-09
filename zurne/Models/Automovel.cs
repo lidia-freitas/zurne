@@ -8,40 +8,15 @@ namespace Models
 {
     public class Automovel : Veiculo, ILicenciamento
     {
+        public int Id { get; set; }
         public double Potencia { get; set; }
+        public string Placa { get; set; }
+        public string Renavam { get; set; }
 
-        public Automovel(double Potencia, string marca, string modelo, string cor, int ano)
+        public Automovel(double potencia, string marca, string modelo, string cor, int ano)
            : base(marca, modelo, cor, ano)
-        {
+        {            
+            this.Potencia = potencia;
         }
-
-        public string Placa
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public string Renavam
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-       
-
     }
 }

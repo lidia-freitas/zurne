@@ -39,12 +39,29 @@ namespace Views
             listaFuncionario.WindowState = FormWindowState.Maximized;
         }
 
-        private void listarVeiculos(object sender, EventArgs e)
+        private void listarAutomoveis(object sender, EventArgs e)
         {
-            listaVeiculo listaVeiculo = new listaVeiculo();
-            listaVeiculo.MdiParent = this;
-            listaVeiculo.Show();
-            listaVeiculo.WindowState = FormWindowState.Maximized;
+            listaAutomovel listaAutomovel = new listaAutomovel();
+            listaAutomovel.MdiParent = this;
+            listaAutomovel.Show();
+            listaAutomovel.WindowState = FormWindowState.Maximized;
         }
+
+        private void listarMotocicletas(object sender, EventArgs e)
+        {
+            listaMotocicleta listaMotocicleta = new listaMotocicleta();
+            listaMotocicleta.MdiParent = this;
+            listaMotocicleta.Show();
+            listaMotocicleta.WindowState = FormWindowState.Maximized;
+        }
+
+        private void listarBicicletas(object sender, EventArgs e)
+        {
+            listaBicicleta listaBicicleta = new listaBicicleta();
+            listaBicicleta.MdiParent = this;
+            listaBicicleta.Show();
+            listaBicicleta.WindowState = FormWindowState.Maximized;
+        }
+
     }
 }
