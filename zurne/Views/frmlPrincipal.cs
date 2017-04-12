@@ -62,6 +62,13 @@ namespace Views
             listaBicicleta.Show();
             listaBicicleta.WindowState = FormWindowState.Maximized;
         }
-
+        
+        private void gerarOrcamento(object sender, ToolStripItemClickedEventArgs e)
+        {
+            frmOrcamento frmOrcamento = new frmOrcamento();
+            frmOrcamento.MdiParent = this;
+            frmOrcamento.Show();
+            frmOrcamento.WindowState = FormWindowState.Maximized;
+        }
     }
 }

@@ -37,15 +37,18 @@
             this.automóvelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.motocicletaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bicicletaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orçamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuPrincipal
             // 
             this.menuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrosToolStripMenuItem});
+            this.cadastrosToolStripMenuItem,
+            this.orçamentoToolStripMenuItem});
             resources.ApplyResources(this.menuPrincipal, "menuPrincipal");
             this.menuPrincipal.Name = "menuPrincipal";
+            this.menuPrincipal.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.gerarOrcamento);
             // 
             // cadastrosToolStripMenuItem
             // 
@@ -95,6 +98,11 @@
             resources.ApplyResources(this.bicicletaToolStripMenuItem, "bicicletaToolStripMenuItem");
             this.bicicletaToolStripMenuItem.Click += new System.EventHandler(this.listarBicicletas);
             // 
+            // orçamentoToolStripMenuItem
+            // 
+            this.orçamentoToolStripMenuItem.Name = "orçamentoToolStripMenuItem";
+            resources.ApplyResources(this.orçamentoToolStripMenuItem, "orçamentoToolStripMenuItem");
+            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -121,6 +129,7 @@
         private System.Windows.Forms.ToolStripMenuItem automóvelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem motocicletaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bicicletaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orçamentoToolStripMenuItem;
     }
 }
 
