@@ -47,7 +47,6 @@
     <Compile Include="FuncionarioController.cs" />
     <Compile Include="MotocicletaController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VeiculoController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
