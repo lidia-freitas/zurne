@@ -10,60 +10,62 @@ using System.Data.Entity;
 namespace Controllers
 {
     public class ClienteController
-    {
-
-        private static List<Cliente> listaClientes = new List<Cliente>();
-              
-        public static Cliente BuscarCliente(int? id)
+    {              
+        public static Cliente BuscarCliente(int id)
         {
-            foreach (Cliente cli in listaClientes)
+            using (Contexto ctx = new Contexto())
             {
-                if(cli.Id == id)
-                {
-                    return cli;
-                }
+                return ctx.Cliente.Find(id);
             }
-
-            //foreach (Cliente cli in listaClientes)
-            //{
-            //    if(cli.ID == id)
-            //    {
-            //        return cli;
-            //    }
-            //}
-
-            //return null;
         }
 
         public static List<Cliente> ListarClientes()
         {
-
-            return contexto.Cliente.ToList();
-
-            //return listaClientes;
+            using (Contexto ctx = new Contexto())
+            {
+                return ctx.Cliente.ToList();
+            }
         }
   
         public static void CadastrarCliente(Cliente cli)
-        {            
-            cli.Id = listaClientes.Count();
-            listaClientes.Add(cli);
+        {
+            using (Contexto ctx = new Contexto())
+            {
+                ctx.Cliente.Add(cli);
+            }
         }
    
         public static void EditarCliente(int id, string nomenclatura, string documento, string email, string endereco)
         {
-            Cliente cli = BuscarCliente(id);
+            using (Contexto ctx = new Contexto())
+            {
+                Cliente cli = BuscarCliente(id);
 
-            cli.Pessoa.Nomenclatura = nomenclatura;
-            cli.Pessoa.Documento = documento;
-            cli.Pessoa.Endereco = endereco;
-            cli.Pessoa.Email = email; 
+                if (cli != null)
+                {
+                    cli.Pessoa.Nomenclatura = nomenclatura;
+                    cli.Pessoa.Documento = documento;
+                    cli.Pessoa.Endereco = endereco;
+                    cli.Pessoa.Email = email;
+                }
+
+                ctx.Entry(cli).State = System.Data.Entity.EntityState.Modified;
+                ctx.SaveChanges();
+            }            
         }
 
         public static void removerCliente(int id)
         {
-            Cliente cli = BuscarCliente(id);
+            using (Contexto ctx = new Contexto())
+            {
+                Cliente cli = BuscarCliente(id);
 
-            listaClientes.Remove(cli);
+                if (cli != null)
+                {
+                    ctx.Entry(cli).State = System.Data.Entity.EntityState.Deleted;
+                    ctx.SaveChanges();
+                }
+            }
         }
     }
 }
