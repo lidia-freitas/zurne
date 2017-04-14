@@ -85,6 +85,7 @@
     <Compile Include="Automovel.cs" />
     <Compile Include="Bicicleta.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Funcionario.cs" />
     <Compile Include="ILicenciamento.cs" />
     <Compile Include="IPessoa.cs" />
@@ -97,7 +98,9 @@
     <Compile Include="Veiculo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
