@@ -27,7 +27,7 @@ namespace Views
         private void listarClientes(object sender, EventArgs e)
         {
             limparSelecao();
-            dataGridClientes.DataSource = null;
+            //dataGridClientes.DataSource = null;
             dataGridClientes.DataSource = serializeClientes(listaClientesGrid);
         }
 

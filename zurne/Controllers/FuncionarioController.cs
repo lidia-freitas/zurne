@@ -4,51 +4,68 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models;
+using Models.DAL;
 
 namespace Controllers
 {
     public class FuncionarioController
     {
-        private static List<Funcionario> listaFuncionarios = new List<Funcionario>();
-
         public static Funcionario BuscarFuncionario(int id)
         {
-            foreach (Funcionario func in listaFuncionarios)
+            using (Contexto ctx = new Contexto())
             {
-                if (func.Id == id)
-                {
-                    return func;
-                }
+                return ctx.Funcionario.Find(id);
             }
-
-            return null;
         }
 
         public static List<Funcionario> ListarFuncionarios()
         {
-            return listaFuncionarios;
+            using (Contexto ctx = new Contexto())
+            {
+                return ctx.Funcionario.ToList();
+            }
         }
 
         public static void CadastrarFuncionario(Funcionario func)
         {
-            func.Id = listaFuncionarios.Count();
-            listaFuncionarios.Add(func);
+            using (Contexto ctx = new Contexto())
+            {
+                ctx.Funcionario.Add(func);
+                ctx.SaveChanges();
+            }
         }
 
         public static void EditarFuncionario(int id, string nomenclatura, string documento, string email, string endereco)
         {
-            Funcionario func = BuscarFuncionario(id);
+            using (Contexto ctx = new Contexto())
+            {
+                Funcionario func = BuscarFuncionario(id);
 
-            func.Pessoa.Nomenclatura = nomenclatura;
-            func.Pessoa.Documento = documento;
-            func.Pessoa.Endereco = endereco;
-            func.Pessoa.Email = email;
+                if (func != null)
+                {
+                    func.Pessoa.Nomenclatura = nomenclatura;
+                    func.Pessoa.Documento = documento;
+                    func.Pessoa.Endereco = endereco;
+                    func.Pessoa.Email = email;
+                }
+
+                ctx.Entry(func).State = System.Data.Entity.EntityState.Modified;
+                ctx.SaveChanges();
+            }
         }
 
         public static void RemoverFuncionario(int id)
         {
-            Funcionario func = BuscarFuncionario(id);
-            listaFuncionarios.Remove(func);
+            using (Contexto ctx = new Contexto())
+            {
+                Funcionario func = BuscarFuncionario(id);
+
+                if (func != null)
+                {
+                    ctx.Entry(func).State = System.Data.Entity.EntityState.Deleted;
+                    ctx.SaveChanges();
+                }
+            }
         }
     }
 }

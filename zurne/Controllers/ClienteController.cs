@@ -32,6 +32,7 @@ namespace Controllers
             using (Contexto ctx = new Contexto())
             {
                 ctx.Cliente.Add(cli);
+                ctx.SaveChanges();
             }
         }
    

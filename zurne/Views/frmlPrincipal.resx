@@ -121,6 +121,42 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="clienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 22</value>
+  </data>
+  <data name="clienteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Cliente</value>
+  </data>
+  <data name="funcionarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 22</value>
+  </data>
+  <data name="funcionarioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Funcionário</value>
+  </data>
+  <data name="automóvelToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 22</value>
+  </data>
+  <data name="automóvelToolStripMenuItem.Text" xml:space="preserve">
+    <value>Automóvel</value>
+  </data>
+  <data name="motocicletaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 22</value>
+  </data>
+  <data name="motocicletaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Motocicleta</value>
+  </data>
+  <data name="bicicletaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 22</value>
+  </data>
+  <data name="bicicletaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Bicicleta</value>
+  </data>
+  <data name="veículoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 22</value>
+  </data>
+  <data name="veículoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Veículo</value>
+  </data>
   <data name="cadastrosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 20</value>
   </data>
@@ -157,42 +193,6 @@
   </data>
   <data name="&gt;&gt;menuPrincipal.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="clienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="clienteToolStripMenuItem.Text" xml:space="preserve">
-    <value>Cliente</value>
-  </data>
-  <data name="funcionarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="funcionarioToolStripMenuItem.Text" xml:space="preserve">
-    <value>Funcionário</value>
-  </data>
-  <data name="veículoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="veículoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Veículo</value>
-  </data>
-  <data name="automóvelToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 22</value>
-  </data>
-  <data name="automóvelToolStripMenuItem.Text" xml:space="preserve">
-    <value>Automóvel</value>
-  </data>
-  <data name="motocicletaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 22</value>
-  </data>
-  <data name="motocicletaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Motocicleta</value>
-  </data>
-  <data name="bicicletaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 22</value>
-  </data>
-  <data name="bicicletaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Bicicleta</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

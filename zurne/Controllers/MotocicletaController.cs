@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,49 +10,65 @@ namespace Controllers
 {
     public class MotocicletaController
     {
-        private static List<Motocicleta> listaMotocicletas = new List<Motocicleta>();
 
         public static Motocicleta BuscarMotocicleta(int id)
         {
-            foreach (Motocicleta moto in listaMotocicletas)
+            using (Contexto ctx = new Contexto())
             {
-                if (moto.Id == id)
-                {
-                    return moto;
-                }
+                return ctx.Motocicleta.Find(id);
             }
-
-            return null;
         }
 
         public static List<Motocicleta> ListarMotocicletas()
         {
-            return listaMotocicletas;
+            using (Contexto ctx = new Contexto())
+            {
+                return ctx.Motocicleta.ToList();   
+            }
         }
 
         public static void cadastrarMotocicleta(int cilindradas, string marca, string modelo, string cor, int ano)
         {
-            Motocicleta moto = new Motocicleta(cilindradas, marca, modelo, cor, ano);
-            moto.Id = listaMotocicletas.Count();
-
-            listaMotocicletas.Add(moto);
+            using (Contexto ctx = new Contexto())
+            {
+                Motocicleta moto = new Motocicleta(cilindradas, marca, modelo, cor, ano);
+                ctx.Motocicleta.Add(moto);
+                ctx.SaveChanges();
+            }
         }
 
         public static void EditarMotocicleta(int id, int cilindradas, string marca, string modelo, string cor, int ano)
         {
-            Motocicleta moto = BuscarMotocicleta(id);
+            using (Contexto ctx = new Contexto())
+            {
 
-            moto.Cilindradas = cilindradas;
-            moto.Marca = marca;
-            moto.Modelo = modelo;
-            moto.Cor = cor;
-            moto.Ano = ano;       
+                Motocicleta moto = BuscarMotocicleta(id);
+
+                if (moto != null)
+                {
+                    moto.Cilindradas = cilindradas;
+                    moto.Marca = marca;
+                    moto.Modelo = modelo;
+                    moto.Cor = cor;
+                    moto.Ano = ano;       
+                }
+                ctx.Entry(moto).State = System.Data.Entity.EntityState.Modified;
+                ctx.SaveChanges();
+            }
         }
 
         public static void RemoverMotocicleta(int id)
         {
-            Motocicleta moto = BuscarMotocicleta(id);
-            listaMotocicletas.Remove(moto);
+            using (Contexto ctx = new Contexto())
+            {
+                Motocicleta moto = BuscarMotocicleta(id);
+
+                if (moto != null)
+                {
+                    ctx.Entry(moto).State = System.Data.Entity.EntityState.Deleted;
+                    ctx.SaveChanges();
+                }
+            }
         }
     }
 }

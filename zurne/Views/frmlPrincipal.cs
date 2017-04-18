@@ -63,7 +63,7 @@ namespace Views
             listaBicicleta.WindowState = FormWindowState.Maximized;
         }
         
-        private void gerarOrcamento(object sender, ToolStripItemClickedEventArgs e)
+        private void gerarOrcamento(object sender, EventArgs e)
         {
             frmOrcamento frmOrcamento = new frmOrcamento();
             frmOrcamento.MdiParent = this;

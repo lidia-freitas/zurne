@@ -48,7 +48,6 @@
             this.orçamentoToolStripMenuItem});
             resources.ApplyResources(this.menuPrincipal, "menuPrincipal");
             this.menuPrincipal.Name = "menuPrincipal";
-            this.menuPrincipal.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.gerarOrcamento);
             // 
             // cadastrosToolStripMenuItem
             // 
@@ -102,6 +101,7 @@
             // 
             this.orçamentoToolStripMenuItem.Name = "orçamentoToolStripMenuItem";
             resources.ApplyResources(this.orçamentoToolStripMenuItem, "orçamentoToolStripMenuItem");
+            this.orçamentoToolStripMenuItem.Click += new System.EventHandler(this.gerarOrcamento);
             // 
             // frmPrincipal
             // 

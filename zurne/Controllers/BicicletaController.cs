@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,50 +10,64 @@ namespace Controllers
 {
     public class BicicletaController
     {
-        private static List<Bicicleta> listaBicicletas = new List<Bicicleta>();
 
         public static Bicicleta BuscarBicicleta(int id)
         {
-            foreach (Bicicleta bike in listaBicicletas)
+            using (Contexto ctx = new Contexto())
             {
-                if (bike.Id == id)
-                {
-                    return bike;
-                }
+                return ctx.Bicicleta.Find(id);
             }
-
-            return null;
         }
 
         public static List<Bicicleta> ListarBicicletas()
         {
-            return listaBicicletas;
+            using(Contexto ctx = new Contexto())
+            {
+                return ctx.Bicicleta.ToList();
+            }
         }
 
         public static void CadastrarBicicleta(int marchas, string marca, string modelo, string cor, int ano)
         {
-            Bicicleta bike = new Bicicleta(marchas, marca, modelo, cor, ano);
-            bike.Id = listaBicicletas.Count();
-
-            listaBicicletas.Add(bike);
+            using (Contexto ctx = new Contexto())
+            {
+                Bicicleta bike = new Bicicleta(marchas, marca, modelo, cor, ano);
+                ctx.Bicicleta.Add(bike);
+                ctx.SaveChanges();
+            }            
         }
 
         public static void EditarBicicleta(int id, int marchas, string marca, string modelo, string cor, int ano)
         {
-            Bicicleta bike = BuscarBicicleta(id);
+            using (Contexto ctx = new Contexto())
+            {
+                Bicicleta bike = BuscarBicicleta(id);
 
-            bike.Marchas = marchas;
-            bike.Marca = marca;
-            bike.Modelo = modelo;
-            bike.Cor = cor;
-            bike.Ano = ano;
+                if (bike != null)
+                {
+                    bike.Marchas = marchas;
+                    bike.Marca = marca;
+                    bike.Modelo = modelo;
+                    bike.Cor = cor;
+                    bike.Ano = ano;
+                }
+                ctx.Entry(bike).State = System.Data.Entity.EntityState.Modified;
+                ctx.SaveChanges();
+            }
         }
 
         public static void RemoverBicicleta(int id)
         {
-            Bicicleta bike = BuscarBicicleta(id);
-            listaBicicletas.Remove(bike);
-        }
-     
+            using (Contexto ctx = new Contexto())
+            {
+                Bicicleta bike = BuscarBicicleta(id);
+
+                if (bike != null)
+                {
+                    ctx.Entry(bike).State = System.Data.Entity.EntityState.Deleted;
+                    ctx.SaveChanges();
+                }
+            }
+        }     
     }
 }
