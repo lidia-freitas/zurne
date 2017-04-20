@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,14 +14,19 @@ namespace Models
         public string Modelo { get; set; }
         public string Cor { get; set; }
         public int Ano { get; set; }
-        
+        public int Autonomia { get; set; }
 
-        public Veiculo (string marca, string modelo, string cor, int ano)
+        public Veiculo(string marca, string modelo, string cor, int ano)
         {
             this.Marca = marca;
             this.Modelo = modelo;
             this.Cor = cor;
             this.Ano = ano;
+        }
+
+        public Veiculo()
+        {
+
         }
 
     }

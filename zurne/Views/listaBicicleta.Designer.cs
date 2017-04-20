@@ -32,6 +32,7 @@
             this.btnCadastrarBicicleta = new System.Windows.Forms.Button();
             this.btnEditarBicicleta = new System.Windows.Forms.Button();
             this.btnRemoverBicicleta = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBicicletas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,12 +40,13 @@
             // 
             this.dataGridBicicletas.AllowUserToAddRows = false;
             this.dataGridBicicletas.AllowUserToDeleteRows = false;
-            this.dataGridBicicletas.AllowUserToOrderColumns = true;
             this.dataGridBicicletas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridBicicletas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridBicicletas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridBicicletas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id});
             this.dataGridBicicletas.Location = new System.Drawing.Point(13, 80);
             this.dataGridBicicletas.MultiSelect = false;
             this.dataGridBicicletas.Name = "dataGridBicicletas";
@@ -83,6 +85,13 @@
             this.btnRemoverBicicleta.UseVisualStyleBackColor = true;
             this.btnRemoverBicicleta.Click += new System.EventHandler(this.removerBicicleta);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
             // listaBicicleta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,5 +115,6 @@
         private System.Windows.Forms.Button btnCadastrarBicicleta;
         private System.Windows.Forms.Button btnEditarBicicleta;
         private System.Windows.Forms.Button btnRemoverBicicleta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

@@ -27,7 +27,36 @@ namespace Views
         {
             limparSelecao();
             dataGridBicicletas.DataSource = null;
-            dataGridBicicletas.DataSource = listaBicicletasGrid;
+            dataGridBicicletas.DataSource = serializeBicicletas(listaBicicletasGrid);
+        }
+
+        private DataTable serializeBicicletas(List<Bicicleta> listaBicicletas)
+        {
+            DataTable customTable = new DataTable("listaBicicletas");
+
+            customTable.Columns.Add(new DataColumn("Id"));
+            customTable.Columns.Add(new DataColumn("Marca"));
+            customTable.Columns.Add(new DataColumn("Modelo"));
+            customTable.Columns.Add(new DataColumn("Cor"));
+            customTable.Columns.Add(new DataColumn("Ano"));
+            customTable.Columns.Add(new DataColumn("Marchas"));
+
+            foreach (Bicicleta bike in listaBicicletas)
+            {
+                customTable.AcceptChanges();
+
+                DataRow row = customTable.NewRow();
+                row[0] = bike.Id;
+                row[1] = bike.Marca;
+                row[2] = bike.Modelo;
+                row[3] = bike.Cor;
+                row[4] = bike.Ano;
+                row[5] = bike.Marchas;
+
+                customTable.Rows.Add(row);
+            }
+
+            return customTable;
         }
 
         private void cadastrarBicicleta(object sender, EventArgs e)
@@ -83,7 +112,8 @@ namespace Views
         private void selecionarBicicleta(object sender, DataGridViewCellMouseEventArgs e)
         {
             idSelecionado = ((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value.ToString();
-            Bicicleta bike = BicicletaController.BuscarBicicleta(Convert.ToInt32(idSelecionado));
+            MessageBox.Show(idSelecionado);
+            //Bicicleta bike = BicicletaController.BuscarBicicleta(Convert.ToInt32(idSelecionado));
         }
 
         

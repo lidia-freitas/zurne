@@ -6,17 +6,22 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class Automovel : Veiculo, ILicenciamento
+    public class Automovel : Veiculo
     {
-        public int Id { get; set; }
         public double Potencia { get; set; }
         public string Placa { get; set; }
         public string Renavam { get; set; }
 
         public Automovel(double potencia, string marca, string modelo, string cor, int ano)
-           : base(marca, modelo, cor, ano)
-        {            
+            : base(marca, modelo, cor, ano)
+        {
             this.Potencia = potencia;
         }
+
+        public Automovel()
+        {
+
+        }
+
     }
 }

@@ -21,8 +21,7 @@ namespace Models.DAL
         public DbSet<Funcionario> Funcionario { get; set; }
         public DbSet<Veiculo> Veiculo { get; set; }
         public DbSet<Bicicleta> Bicicleta { get; set; }
-        public DbSet<Motocicleta> Motocicleta{ get; set; }
-        public DbSet<Automovel> Automovel{ get; set; }
-
+        public DbSet<Automovel> Automovel { get; set; }
+        public DbSet<Motocicleta> Motocicleta { get; set; }       
     }
 }

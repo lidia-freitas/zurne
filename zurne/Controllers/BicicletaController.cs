@@ -11,19 +11,28 @@ namespace Controllers
     public class BicicletaController
     {
 
+        public static Bicicleta BuscarBicicleta(int id, Contexto ctx)
+        {
+            return ctx.Bicicleta.Find(id);            
+        }
+
         public static Bicicleta BuscarBicicleta(int id)
         {
             using (Contexto ctx = new Contexto())
             {
                 return ctx.Bicicleta.Find(id);
+                
             }
         }
 
         public static List<Bicicleta> ListarBicicletas()
         {
+            List<Bicicleta> listaBike = new List<Bicicleta>();
+
             using(Contexto ctx = new Contexto())
             {
-                return ctx.Bicicleta.ToList();
+                listaBike = ctx.Bicicleta.ToList();
+                return listaBike;
             }
         }
 
@@ -41,7 +50,7 @@ namespace Controllers
         {
             using (Contexto ctx = new Contexto())
             {
-                Bicicleta bike = BuscarBicicleta(id);
+                Bicicleta bike = BuscarBicicleta(id, ctx);
 
                 if (bike != null)
                 {
@@ -60,7 +69,7 @@ namespace Controllers
         {
             using (Contexto ctx = new Contexto())
             {
-                Bicicleta bike = BuscarBicicleta(id);
+                Bicicleta bike = BuscarBicicleta(id, ctx);
 
                 if (bike != null)
                 {
