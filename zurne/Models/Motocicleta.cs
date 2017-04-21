@@ -13,8 +13,8 @@ namespace Models
         public string Placa { get; set; }
         public string Renavam { get; set; }
 
-        public Motocicleta(int cilindradas, string marca, string modelo, string cor, int ano)
-            : base(marca, modelo, cor, ano)
+        public Motocicleta(int cilindradas, string marca, string modelo, string cor, int ano, int autonomia)
+            : base(marca, modelo, cor, ano, autonomia)
         {
             this.Cilindradas = cilindradas;
         }

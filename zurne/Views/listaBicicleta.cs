@@ -14,9 +14,7 @@ namespace Views
 {
     public partial class listaBicicleta : Form
     {
-        private string idSelecionado;
-
-        private List<Bicicleta> listaBicicletasGrid = BicicletaController.ListarBicicletas();
+        private string idSelecionado;        
 
         public listaBicicleta()
         {
@@ -27,11 +25,12 @@ namespace Views
         {
             limparSelecao();
             dataGridBicicletas.DataSource = null;
-            dataGridBicicletas.DataSource = serializeBicicletas(listaBicicletasGrid);
+            dataGridBicicletas.DataSource = serializeBicicletas();
         }
 
-        private DataTable serializeBicicletas(List<Bicicleta> listaBicicletas)
+        private DataTable serializeBicicletas()
         {
+            List<Bicicleta> listaBicicletasGrid = BicicletaController.ListarBicicletas();
             DataTable customTable = new DataTable("listaBicicletas");
 
             customTable.Columns.Add(new DataColumn("Id"));
@@ -41,7 +40,7 @@ namespace Views
             customTable.Columns.Add(new DataColumn("Ano"));
             customTable.Columns.Add(new DataColumn("Marchas"));
 
-            foreach (Bicicleta bike in listaBicicletas)
+            foreach (Bicicleta bike in listaBicicletasGrid)
             {
                 customTable.AcceptChanges();
 
@@ -97,7 +96,7 @@ namespace Views
             BicicletaController.RemoverBicicleta(bikeId);
 
             dataGridBicicletas.DataSource = null;
-            dataGridBicicletas.DataSource = listaBicicletasGrid;
+            dataGridBicicletas.DataSource = serializeBicicletas();
 
             MessageBox.Show("A bicicleta foi removida com sucesso!");
 
@@ -112,10 +111,6 @@ namespace Views
         private void selecionarBicicleta(object sender, DataGridViewCellMouseEventArgs e)
         {
             idSelecionado = ((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value.ToString();
-            MessageBox.Show(idSelecionado);
-            //Bicicleta bike = BicicletaController.BuscarBicicleta(Convert.ToInt32(idSelecionado));
-        }
-
-        
+        }        
     }
 }

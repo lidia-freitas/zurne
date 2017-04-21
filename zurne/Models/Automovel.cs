@@ -12,8 +12,8 @@ namespace Models
         public string Placa { get; set; }
         public string Renavam { get; set; }
 
-        public Automovel(double potencia, string marca, string modelo, string cor, int ano)
-            : base(marca, modelo, cor, ano)
+        public Automovel(double potencia, string marca, string modelo, string cor, int ano, int autonomia)
+            : base(marca, modelo, cor, ano, autonomia)
         {
             this.Potencia = potencia;
         }

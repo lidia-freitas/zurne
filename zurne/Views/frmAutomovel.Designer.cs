@@ -41,6 +41,8 @@
             this.lbCor_Auto = new System.Windows.Forms.Label();
             this.lbModelo_Auto = new System.Windows.Forms.Label();
             this.lbMarca_Auto = new System.Windows.Forms.Label();
+            this.textAutonomia_Auto = new System.Windows.Forms.TextBox();
+            this.lbAutonomia_Auto = new System.Windows.Forms.Label();
             this.gbAutomovel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +51,8 @@
             this.gbAutomovel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbAutomovel.Controls.Add(this.lbAutonomia_Auto);
+            this.gbAutomovel.Controls.Add(this.textAutonomia_Auto);
             this.gbAutomovel.Controls.Add(this.btnVoltarFrmAuto);
             this.gbAutomovel.Controls.Add(this.btnSalvarAutomovel);
             this.gbAutomovel.Controls.Add(this.textPotencia_Auto);
@@ -170,6 +174,22 @@
             this.lbMarca_Auto.TabIndex = 0;
             this.lbMarca_Auto.Text = "Marca";
             // 
+            // textAutonomia_Auto
+            // 
+            this.textAutonomia_Auto.Location = new System.Drawing.Point(27, 447);
+            this.textAutonomia_Auto.Name = "textAutonomia_Auto";
+            this.textAutonomia_Auto.Size = new System.Drawing.Size(100, 20);
+            this.textAutonomia_Auto.TabIndex = 12;
+            // 
+            // lbAutonomia_Auto
+            // 
+            this.lbAutonomia_Auto.AutoSize = true;
+            this.lbAutonomia_Auto.Location = new System.Drawing.Point(27, 431);
+            this.lbAutonomia_Auto.Name = "lbAutonomia_Auto";
+            this.lbAutonomia_Auto.Size = new System.Drawing.Size(57, 13);
+            this.lbAutonomia_Auto.TabIndex = 13;
+            this.lbAutonomia_Auto.Text = "Autonomia";
+            // 
             // frmAutomovel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,5 +219,7 @@
         private System.Windows.Forms.Label lbCor_Auto;
         private System.Windows.Forms.Label lbModelo_Auto;
         private System.Windows.Forms.Label lbMarca_Auto;
+        private System.Windows.Forms.Label lbAutonomia_Auto;
+        private System.Windows.Forms.TextBox textAutonomia_Auto;
     }
 }

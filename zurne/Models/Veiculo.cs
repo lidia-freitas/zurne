@@ -16,12 +16,13 @@ namespace Models
         public int Ano { get; set; }
         public int Autonomia { get; set; }
 
-        public Veiculo(string marca, string modelo, string cor, int ano)
+        public Veiculo(string marca, string modelo, string cor, int ano, int autonomia)
         {
             this.Marca = marca;
             this.Modelo = modelo;
             this.Cor = cor;
             this.Ano = ano;
+            this.Autonomia = autonomia;
         }
 
         public Veiculo()

@@ -27,17 +27,17 @@ namespace Controllers
             }
         }
 
-        public static void cadastrarMotocicleta(int cilindradas, string marca, string modelo, string cor, int ano)
+        public static void cadastrarMotocicleta(int cilindradas, string marca, string modelo, string cor, int ano, int autonomia)
         {
             using (Contexto ctx = new Contexto())
             {
-                Motocicleta moto = new Motocicleta(cilindradas, marca, modelo, cor, ano);
+                Motocicleta moto = new Motocicleta(cilindradas, marca, modelo, cor, ano, autonomia);
                 ctx.Motocicleta.Add(moto);
                 ctx.SaveChanges();
             }
         }
 
-        public static void EditarMotocicleta(int id, int cilindradas, string marca, string modelo, string cor, int ano)
+        public static void EditarMotocicleta(int id, int cilindradas, string marca, string modelo, string cor, int ano, int autonomia)
         {
             using (Contexto ctx = new Contexto())
             {
@@ -50,7 +50,8 @@ namespace Controllers
                     moto.Marca = marca;
                     moto.Modelo = modelo;
                     moto.Cor = cor;
-                    moto.Ano = ano;       
+                    moto.Ano = ano;
+                    moto.Autonomia = autonomia;
                 }
                 ctx.Entry(moto).State = System.Data.Entity.EntityState.Modified;
                 ctx.SaveChanges();

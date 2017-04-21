@@ -53,7 +53,8 @@ namespace Views
             if(idSelecionado == null)
             {
                 cadastrarBicicleta();
-            }else
+            }
+            else
             {
                 editarBicicleta();
             }
@@ -70,10 +71,10 @@ namespace Views
 
         private void editarBicicleta()
         {
-            BicicletaController.EditarBicicleta(Convert.ToInt32(idSelecionado), Convert.ToInt32(textMarchas_Bike), textMarca_Bike.Text,
+            BicicletaController.EditarBicicleta(Convert.ToInt32(idSelecionado), Convert.ToInt32(textMarchas_Bike.Text), textMarca_Bike.Text,
                 textModelo_Bike.Text, textCor_Bike.Text, Convert.ToInt32(textAno_Bike.Text));
 
-            MessageBox.Show("Bicicleta cadastrada com sucesso!");
+            MessageBox.Show("Bicicleta editada com sucesso!");
             limparCampos();
         }
 
@@ -94,8 +95,6 @@ namespace Views
             listaBicicleta.Show();
             listaBicicleta.WindowState = FormWindowState.Maximized;
             this.Close();
-        }
-
-        
+        }        
     }
 }

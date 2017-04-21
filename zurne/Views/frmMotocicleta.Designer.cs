@@ -41,6 +41,8 @@
             this.lbCor_Moto = new System.Windows.Forms.Label();
             this.lbModelo_Moto = new System.Windows.Forms.Label();
             this.lbMarca_Moto = new System.Windows.Forms.Label();
+            this.lbAutonomia_Moto = new System.Windows.Forms.Label();
+            this.textAutonomia_Moto = new System.Windows.Forms.TextBox();
             this.gbMotocicleta.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +51,8 @@
             this.gbMotocicleta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbMotocicleta.Controls.Add(this.textAutonomia_Moto);
+            this.gbMotocicleta.Controls.Add(this.lbAutonomia_Moto);
             this.gbMotocicleta.Controls.Add(this.btnVoltarFrmMoto);
             this.gbMotocicleta.Controls.Add(this.btnSalvarMotocicleta);
             this.gbMotocicleta.Controls.Add(this.textCilindradas_Moto);
@@ -92,35 +96,35 @@
             // 
             // textCilindradas_Moto
             // 
-            this.textCilindradas_Moto.Location = new System.Drawing.Point(30, 443);
+            this.textCilindradas_Moto.Location = new System.Drawing.Point(24, 364);
             this.textCilindradas_Moto.Name = "textCilindradas_Moto";
             this.textCilindradas_Moto.Size = new System.Drawing.Size(100, 20);
             this.textCilindradas_Moto.TabIndex = 9;
             // 
             // textAno_Moto
             // 
-            this.textAno_Moto.Location = new System.Drawing.Point(30, 347);
+            this.textAno_Moto.Location = new System.Drawing.Point(24, 285);
             this.textAno_Moto.Name = "textAno_Moto";
             this.textAno_Moto.Size = new System.Drawing.Size(100, 20);
             this.textAno_Moto.TabIndex = 8;
             // 
             // textCor_Moto
             // 
-            this.textCor_Moto.Location = new System.Drawing.Point(27, 237);
+            this.textCor_Moto.Location = new System.Drawing.Point(24, 219);
             this.textCor_Moto.Name = "textCor_Moto";
             this.textCor_Moto.Size = new System.Drawing.Size(100, 20);
             this.textCor_Moto.TabIndex = 7;
             // 
             // textModelo_Moto
             // 
-            this.textModelo_Moto.Location = new System.Drawing.Point(30, 152);
+            this.textModelo_Moto.Location = new System.Drawing.Point(24, 152);
             this.textModelo_Moto.Name = "textModelo_Moto";
             this.textModelo_Moto.Size = new System.Drawing.Size(100, 20);
             this.textModelo_Moto.TabIndex = 6;
             // 
             // textMarca_Moto
             // 
-            this.textMarca_Moto.Location = new System.Drawing.Point(30, 74);
+            this.textMarca_Moto.Location = new System.Drawing.Point(24, 74);
             this.textMarca_Moto.Name = "textMarca_Moto";
             this.textMarca_Moto.Size = new System.Drawing.Size(100, 20);
             this.textMarca_Moto.TabIndex = 5;
@@ -128,7 +132,7 @@
             // lbCilindradas_Moto
             // 
             this.lbCilindradas_Moto.AutoSize = true;
-            this.lbCilindradas_Moto.Location = new System.Drawing.Point(27, 418);
+            this.lbCilindradas_Moto.Location = new System.Drawing.Point(24, 340);
             this.lbCilindradas_Moto.Name = "lbCilindradas_Moto";
             this.lbCilindradas_Moto.Size = new System.Drawing.Size(58, 13);
             this.lbCilindradas_Moto.TabIndex = 4;
@@ -137,7 +141,7 @@
             // lbAno_Moto
             // 
             this.lbAno_Moto.AutoSize = true;
-            this.lbAno_Moto.Location = new System.Drawing.Point(27, 327);
+            this.lbAno_Moto.Location = new System.Drawing.Point(24, 265);
             this.lbAno_Moto.Name = "lbAno_Moto";
             this.lbAno_Moto.Size = new System.Drawing.Size(26, 13);
             this.lbAno_Moto.TabIndex = 3;
@@ -146,7 +150,7 @@
             // lbCor_Moto
             // 
             this.lbCor_Moto.AutoSize = true;
-            this.lbCor_Moto.Location = new System.Drawing.Point(24, 208);
+            this.lbCor_Moto.Location = new System.Drawing.Point(24, 195);
             this.lbCor_Moto.Name = "lbCor_Moto";
             this.lbCor_Moto.Size = new System.Drawing.Size(23, 13);
             this.lbCor_Moto.TabIndex = 2;
@@ -155,7 +159,7 @@
             // lbModelo_Moto
             // 
             this.lbModelo_Moto.AutoSize = true;
-            this.lbModelo_Moto.Location = new System.Drawing.Point(27, 120);
+            this.lbModelo_Moto.Location = new System.Drawing.Point(24, 126);
             this.lbModelo_Moto.Name = "lbModelo_Moto";
             this.lbModelo_Moto.Size = new System.Drawing.Size(42, 13);
             this.lbModelo_Moto.TabIndex = 1;
@@ -164,11 +168,27 @@
             // lbMarca_Moto
             // 
             this.lbMarca_Moto.AutoSize = true;
-            this.lbMarca_Moto.Location = new System.Drawing.Point(24, 46);
+            this.lbMarca_Moto.Location = new System.Drawing.Point(24, 49);
             this.lbMarca_Moto.Name = "lbMarca_Moto";
             this.lbMarca_Moto.Size = new System.Drawing.Size(37, 13);
             this.lbMarca_Moto.TabIndex = 0;
             this.lbMarca_Moto.Text = "Marca";
+            // 
+            // lbAutonomia_Moto
+            // 
+            this.lbAutonomia_Moto.AutoSize = true;
+            this.lbAutonomia_Moto.Location = new System.Drawing.Point(24, 422);
+            this.lbAutonomia_Moto.Name = "lbAutonomia_Moto";
+            this.lbAutonomia_Moto.Size = new System.Drawing.Size(57, 13);
+            this.lbAutonomia_Moto.TabIndex = 12;
+            this.lbAutonomia_Moto.Text = "Autonomia";
+            // 
+            // textAutonomia_Moto
+            // 
+            this.textAutonomia_Moto.Location = new System.Drawing.Point(24, 447);
+            this.textAutonomia_Moto.Name = "textAutonomia_Moto";
+            this.textAutonomia_Moto.Size = new System.Drawing.Size(100, 20);
+            this.textAutonomia_Moto.TabIndex = 13;
             // 
             // frmMotocicleta
             // 
@@ -199,5 +219,7 @@
         private System.Windows.Forms.Label lbCor_Moto;
         private System.Windows.Forms.Label lbModelo_Moto;
         private System.Windows.Forms.Label lbMarca_Moto;
+        private System.Windows.Forms.TextBox textAutonomia_Moto;
+        private System.Windows.Forms.Label lbAutonomia_Moto;
     }
 }

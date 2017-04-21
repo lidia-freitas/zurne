@@ -16,8 +16,6 @@ namespace Views
     {
         private string idSelecionado;
 
-        private List<Automovel> listaAutomoveisGrid = AutomovelController.ListarAutomoveis();
-
         public listaAutomovel()
         {
             InitializeComponent();
@@ -25,9 +23,41 @@ namespace Views
 
         private void listarAutomoveis(object sender, EventArgs e)
         {
-        limparSelecao();
-        dataGridAutomoveis.DataSource = null;
-        dataGridAutomoveis.DataSource = listaAutomoveisGrid;
+            limparSelecao();
+            dataGridAutomoveis.DataSource = null;
+            dataGridAutomoveis.DataSource = serializeAutomoveis();
+        }
+
+        private DataTable serializeAutomoveis()
+        {
+            List<Automovel> listaAutomoveisGrid = AutomovelController.ListarAutomoveis();
+            DataTable customTable = new DataTable("listaBicicletas");
+
+            customTable.Columns.Add(new DataColumn("Id"));
+            customTable.Columns.Add(new DataColumn("Marca"));
+            customTable.Columns.Add(new DataColumn("Modelo"));
+            customTable.Columns.Add(new DataColumn("Cor"));
+            customTable.Columns.Add(new DataColumn("Ano"));
+            customTable.Columns.Add(new DataColumn("Potencia"));
+            customTable.Columns.Add(new DataColumn("Autonomia"));
+
+            foreach (Automovel auto in listaAutomoveisGrid)
+            {
+                customTable.AcceptChanges();
+
+                DataRow row = customTable.NewRow();
+                row[0] = auto.Id;
+                row[1] = auto.Marca;
+                row[2] = auto.Modelo;
+                row[3] = auto.Cor;
+                row[4] = auto.Ano;
+                row[5] = auto.Potencia;
+                row[6] = auto.Autonomia;
+
+                customTable.Rows.Add(row);
+            }
+
+            return customTable;
         }
 
         private void cadastrarAutomovel(object sender, EventArgs e)
@@ -60,7 +90,7 @@ namespace Views
         {
             if (idSelecionado == null)
             {
-                MessageBox.Show("Por favor, selecione um automovel na lista");
+                MessageBox.Show("Por favor, selecione um automóvel na lista");
                 return;
             }
 
@@ -68,7 +98,7 @@ namespace Views
             AutomovelController.RemoverAutomovel(autoId);
 
             dataGridAutomoveis.DataSource = null;
-            dataGridAutomoveis.DataSource = listaAutomoveisGrid;
+            dataGridAutomoveis.DataSource = serializeAutomoveis(); ;
 
             MessageBox.Show("O automóvel foi removido com sucesso!");
 
@@ -82,8 +112,7 @@ namespace Views
 
         private void selecionarAutomovel(object sender, DataGridViewCellMouseEventArgs e)
         {
-            idSelecionado = ((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value.ToString();
-            Automovel auto = AutomovelController.BuscarAutomovel(Convert.ToInt32(idSelecionado));
+            idSelecionado = ((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value.ToString();            
         }
     }
 }

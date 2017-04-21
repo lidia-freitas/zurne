@@ -14,7 +14,7 @@ namespace Models
         public int Marchas { get; set; }
 
         public Bicicleta(int marchas, string marca, string modelo, string cor, int ano) 
-            : base(marca, modelo, cor, ano)
+            : base(marca, modelo, cor, ano, 0)
         {
             this.Marchas = marchas;
         }

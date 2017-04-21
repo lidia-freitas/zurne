@@ -39,12 +39,13 @@ namespace Views
             textCor_Auto.Text = auto.Cor;
             textAno_Auto.Text = auto.Ano.ToString();
             textPotencia_Auto.Text = auto.Potencia.ToString();
+            textAutonomia_Auto.Text = auto.Autonomia.ToString();
         }
 
         private void salvarAutomovel(object sender, EventArgs e)
         {
             if(textMarca_Auto.Text == null || textModelo_Auto.Text == null || textCor_Auto.Text == null || 
-                textAno_Auto.Text == null || textPotencia_Auto.Text == null)
+                textAno_Auto.Text == null || textPotencia_Auto.Text == null || textAutonomia_Auto.Text == null)
             {
                 MessageBox.Show("Todos os campos são obrigatórios");
                 return;
@@ -53,7 +54,8 @@ namespace Views
             if(idSelecionado == null)
             {
                 cadastrarAutomovel();
-            }else
+            }
+            else
             {
                 editarAutomovel();
             }
@@ -62,7 +64,7 @@ namespace Views
         private void cadastrarAutomovel()
         {
             AutomovelController.CadastrarAutomovel(Convert.ToDouble(textPotencia_Auto.Text), textMarca_Auto.Text, textModelo_Auto.Text, 
-                textCor_Auto.Text, Convert.ToInt32(textAno_Auto.Text));
+                textCor_Auto.Text, Convert.ToInt32(textAno_Auto.Text), Convert.ToInt32(textAutonomia_Auto.Text));
 
             MessageBox.Show("Automóvel cadastrado com sucesso!");
             limparCampos();
@@ -70,10 +72,10 @@ namespace Views
 
         private void editarAutomovel()
         {
-            AutomovelController.EditarAuomovel(Convert.ToInt32(idSelecionado), Convert.ToDouble(textPotencia_Auto.Text),
-                textMarca_Auto.Text, textModelo_Auto.Text, textCor_Auto.Text, Convert.ToInt32(textAno_Auto.Text));
+            AutomovelController.EditarAuomovel(Convert.ToInt32(idSelecionado), Convert.ToDouble(textPotencia_Auto.Text), textMarca_Auto.Text, 
+                textModelo_Auto.Text, textCor_Auto.Text, Convert.ToInt32(textAno_Auto.Text), Convert.ToInt32(textAutonomia_Auto.Text));
 
-            MessageBox.Show("Automóvel cadastrado com sucesso!");
+            MessageBox.Show("Automóvel editada com sucesso!");
             limparCampos();
         }
 
@@ -84,7 +86,7 @@ namespace Views
             textAno_Auto.Clear();
             textCor_Auto.Clear();
             textPotencia_Auto.Clear();
-
+            textAutonomia_Auto.Clear();
         }
 
         private void voltar(object sender, EventArgs e)
@@ -95,8 +97,6 @@ namespace Views
             listaAutomovel.Show();
             listaAutomovel.WindowState = FormWindowState.Maximized;
             this.Close();
-        }
-
-        
+        }        
     }
 }

@@ -14,7 +14,6 @@ namespace Views
 {
     public partial class frmMotocicleta : Form
     {
-
         private string idSelecionado;
 
         public frmMotocicleta()
@@ -40,12 +39,13 @@ namespace Views
             textCor_Moto.Text = moto.Cor;
             textAno_Moto.Text = moto.Ano.ToString();
             textCilindradas_Moto.Text = moto.Cilindradas.ToString();
+            textAutonomia_Moto.Text = moto.Autonomia.ToString();
         }
 
         private void salvarMotocicleta(object sender, EventArgs e)
         {
             if (textMarca_Moto.Text == null || textModelo_Moto.Text == null || textCor_Moto.Text == null ||
-                textAno_Moto.Text == null || textCilindradas_Moto.Text == null)
+                textAno_Moto.Text == null || textCilindradas_Moto.Text == null || textAutonomia_Moto.Text == null)
             {
                 MessageBox.Show("Todos os campos são obrigatórios");
                 return;
@@ -59,13 +59,12 @@ namespace Views
             {
                 editarMotocicleta();              
             }
-
         }
 
         private void cadastrarMotocicleta()
         {
             MotocicletaController.cadastrarMotocicleta(Convert.ToInt32(textCilindradas_Moto.Text), textMarca_Moto.Text, textModelo_Moto.Text,
-                textCor_Moto.Text, Convert.ToInt32(textAno_Moto.Text));
+                textCor_Moto.Text, Convert.ToInt32(textAno_Moto.Text), Convert.ToInt32(textAutonomia_Moto.Text));
 
             MessageBox.Show("Motocicleta cadastrada com sucesso!");
             limparCampos();
@@ -73,10 +72,10 @@ namespace Views
 
         private void editarMotocicleta()
         {
-            MotocicletaController.EditarMotocicleta(Convert.ToInt32(idSelecionado), Convert.ToInt32(textCilindradas_Moto.Text), 
-                textMarca_Moto.Text, textModelo_Moto.Text, textCor_Moto.Text, Convert.ToInt32(textAno_Moto.Text));
+            MotocicletaController.EditarMotocicleta(Convert.ToInt32(idSelecionado), Convert.ToInt32(textCilindradas_Moto.Text), textMarca_Moto.Text, 
+                textModelo_Moto.Text, textCor_Moto.Text, Convert.ToInt32(textAno_Moto.Text), Convert.ToInt32(textAutonomia_Moto.Text));
 
-            MessageBox.Show("Motocicleta cadastrada com sucesso!");
+            MessageBox.Show("Motocicleta editada  com sucesso!");
             limparCampos();
         }
 
@@ -87,6 +86,7 @@ namespace Views
             textAno_Moto.Clear();
             textCor_Moto.Clear();
             textCilindradas_Moto.Clear();
+            textAutonomia_Moto.Clear();
         }
 
         private void voltar(object sender, EventArgs e)
@@ -97,8 +97,6 @@ namespace Views
             listaMotocicleta.Show();
             listaMotocicleta.WindowState = FormWindowState.Maximized;
             this.Close();
-        }
-
-       
+        }       
     }
 }

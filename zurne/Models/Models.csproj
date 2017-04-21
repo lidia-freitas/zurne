@@ -105,6 +105,10 @@
     <Compile Include="Migrations\201704200028079_remove_identity.Designer.cs">
       <DependentUpon>201704200028079_remove_identity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704210039252_automovel.cs" />
+    <Compile Include="Migrations\201704210039252_automovel.Designer.cs">
+      <DependentUpon>201704210039252_automovel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Motocicleta.cs" />
     <Compile Include="OrdemServico.cs" />
@@ -157,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704200028079_remove_identity.resx">
       <DependentUpon>201704200028079_remove_identity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704210039252_automovel.resx">
+      <DependentUpon>201704210039252_automovel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

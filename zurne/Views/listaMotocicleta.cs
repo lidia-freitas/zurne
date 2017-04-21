@@ -15,8 +15,6 @@ namespace Views
     public partial class listaMotocicleta : Form
     {
         private string idSelecionado;
-
-        private List<Motocicleta> listaMotocicletasGrid = MotocicletaController.ListarMotocicletas();
         
         public listaMotocicleta()
         {
@@ -27,7 +25,39 @@ namespace Views
         {
             limparSelecao();
             dataGridMotocicletas.DataSource = null;
-            dataGridMotocicletas.DataSource = listaMotocicletasGrid;
+            dataGridMotocicletas.DataSource = serializeAutomoveis();
+        }
+
+        private DataTable serializeAutomoveis()
+        {
+            List<Motocicleta> listaMotocicletasGrid = MotocicletaController.ListarMotocicletas();
+            DataTable customTable = new DataTable("listaMotocicletas");
+
+            customTable.Columns.Add(new DataColumn("Id"));
+            customTable.Columns.Add(new DataColumn("Marca"));
+            customTable.Columns.Add(new DataColumn("Modelo"));
+            customTable.Columns.Add(new DataColumn("Cor"));
+            customTable.Columns.Add(new DataColumn("Ano"));
+            customTable.Columns.Add(new DataColumn("Cilindradas"));
+            customTable.Columns.Add(new DataColumn("Autonomia"));
+
+            foreach (Motocicleta moto in listaMotocicletasGrid)
+            {
+                customTable.AcceptChanges();
+
+                DataRow row = customTable.NewRow();
+                row[0] = moto.Id;
+                row[1] = moto.Marca;
+                row[2] = moto.Modelo;
+                row[3] = moto.Cor;
+                row[4] = moto.Ano;
+                row[5] = moto.Cilindradas;
+                row[6] = moto.Autonomia;
+
+                customTable.Rows.Add(row);
+            }
+
+            return customTable;
         }
 
         private void cadastrarMotocicleta(object sender, EventArgs e)
@@ -65,10 +95,10 @@ namespace Views
             }
 
             int motoID = Convert.ToInt32(idSelecionado);
-            BicicletaController.RemoverBicicleta(motoID);
+            MotocicletaController.RemoverMotocicleta(motoID);
 
             dataGridMotocicletas.DataSource = null;
-            dataGridMotocicletas.DataSource = listaMotocicletasGrid;
+            dataGridMotocicletas.DataSource = serializeAutomoveis();
 
             MessageBox.Show("A motocicleta foi removida com sucesso!");
 
@@ -83,7 +113,6 @@ namespace Views
         private void selecionarMotocicleta(object sender, DataGridViewCellMouseEventArgs e)
         {
             idSelecionado = ((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value.ToString();
-            Motocicleta moto = MotocicletaController.BuscarMotocicleta(Convert.ToInt32(idSelecionado));
         }        
     }
 }

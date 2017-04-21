@@ -27,17 +27,17 @@ namespace Controllers
             }
         }
 
-        public static void CadastrarAutomovel(double potencia, string marca, string modelo, string cor, int ano)
+        public static void CadastrarAutomovel(double potencia, string marca, string modelo, string cor, int ano, int autonomia)
         {
             using (Contexto ctx = new Contexto())
             {
-                Automovel auto = new Automovel(potencia, marca, modelo, cor, ano);
+                Automovel auto = new Automovel(potencia, marca, modelo, cor, ano, autonomia);
                 ctx.Automovel.Add(auto);
                 ctx.SaveChanges();
             }
         }
 
-        public static void EditarAuomovel(int id, double potencia, string marca, string modelo, string cor, int ano)
+        public static void EditarAuomovel(int id, double potencia, string marca, string modelo, string cor, int ano, int autonomia)
         {
             using (Contexto ctx = new Contexto())
             {
@@ -49,7 +49,8 @@ namespace Controllers
                     auto.Modelo = modelo;
                     auto.Cor = cor;
                     auto.Ano = ano;
-                    auto.Potencia = potencia;            
+                    auto.Potencia = potencia;
+                    auto.Autonomia = autonomia;
                 }
                 ctx.Entry(auto).State = System.Data.Entity.EntityState.Modified;
                 ctx.SaveChanges();
