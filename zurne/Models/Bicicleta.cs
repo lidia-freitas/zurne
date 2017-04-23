@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    [Table("Bicicletas")]
     public class Bicicleta : Veiculo
-    {
-        
+    {        
         public int Marchas { get; set; }
 
         public Bicicleta(int marchas, string marca, string modelo, string cor, int ano) 

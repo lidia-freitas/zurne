@@ -9,8 +9,7 @@ namespace Models.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "Models.DAL.Contexto";
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Models.DAL.Contexto context)

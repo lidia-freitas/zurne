@@ -17,9 +17,6 @@ namespace Views
         private string idSelecionado;
         private string tipoSelecionado;
 
-        private List<Funcionario> listaFuncionariosGrid = FuncionarioController.ListarFuncionarios();
-
-
         public listaFuncionario()
         {
             InitializeComponent();
@@ -29,11 +26,12 @@ namespace Views
         {
             limparSelecao();
             dataGridFuncionarios.DataSource = null;
-            dataGridFuncionarios.DataSource = serializeFuncionarios(listaFuncionariosGrid);
+            dataGridFuncionarios.DataSource = serializeFuncionarios();
         }
 
-        private DataTable serializeFuncionarios(List<Funcionario> listaFuncionarios)
+        private DataTable serializeFuncionarios()
         {
+            List<Funcionario> listaFuncionariosGrid = FuncionarioController.ListarFuncionarios();
             DataTable customTable = new DataTable("listaFuncionarios");
 
             customTable.Columns.Add(new DataColumn("Id"));
@@ -42,15 +40,14 @@ namespace Views
             customTable.Columns.Add(new DataColumn("E-mail"));
             customTable.Columns.Add(new DataColumn("Endereço"));
 
-            foreach (Funcionario func in listaFuncionarios)
+            foreach (Funcionario func in listaFuncionariosGrid)
             {
-
                 customTable.AcceptChanges();
 
                 DataRow row = customTable.NewRow();
-                row[0] = func.Id;
-                row[1] = func.Pessoa.Nomenclatura;
-                row[2] = func.Pessoa.Documento;
+                row[0] = func.PessoaId;
+                row[1] = func.Pessoa.getNomenclatura();
+                row[2] = func.Pessoa.getDocumento();
                 row[3] = func.Pessoa.Email;
                 row[4] = func.Pessoa.Endereco;
 
@@ -75,7 +72,7 @@ namespace Views
         {
             if (idSelecionado == null)
             {
-                MessageBox.Show("Por favor, selecione um Funcionario na lista");
+                MessageBox.Show("Por favor, selecione um funcionario na lista");
                 return;
             }
 
@@ -91,7 +88,7 @@ namespace Views
         {
             if (idSelecionado == null)
             {
-                MessageBox.Show("Por favor, selecione um Funcionario na lista");
+                MessageBox.Show("Por favor, selecione um funcionario na lista");
                 return;
             }
 
@@ -99,9 +96,9 @@ namespace Views
             FuncionarioController.RemoverFuncionario(funcId);
 
             dataGridFuncionarios.DataSource = null;
-            dataGridFuncionarios.DataSource = serializeFuncionarios(listaFuncionariosGrid);
+            dataGridFuncionarios.DataSource = serializeFuncionarios();
 
-            MessageBox.Show("O Funcionario foi removido com sucesso!");
+            MessageBox.Show("O funcionario foi removido com sucesso!");
 
             limparSelecao();
         }

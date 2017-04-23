@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Models
 {
+    [Table("Funcionario")]
     public class Funcionario
     {
-        public int Id { get; set; }
-        public readonly IPessoa Pessoa;
-        
-        public Funcionario(IPessoa p)
-        {
-            this.Pessoa = p;
-        }
+        [key, ForeignKey("Pessoa")]        
+        public int PessoaId { get; set; }
+
+        public virtual Pessoa Pessoa { get; set; }
     }
 }

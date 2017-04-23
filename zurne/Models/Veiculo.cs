@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-   public abstract class Veiculo
+    [Table("Veiculos")]
+    public abstract class Veiculo
     {
         public int Id { get; set; }
         public string Marca { get; set; }

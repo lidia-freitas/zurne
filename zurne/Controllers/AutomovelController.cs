@@ -23,7 +23,9 @@ namespace Controllers
         {
             using (Contexto ctx = new Contexto())
             {
-                return ctx.Automovel.ToList();
+                var listaAuto = ctx.Automovel.ToList();
+
+                return listaAuto;
             }
         }
 

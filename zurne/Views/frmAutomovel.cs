@@ -76,7 +76,6 @@ namespace Views
                 textModelo_Auto.Text, textCor_Auto.Text, Convert.ToInt32(textAno_Auto.Text), Convert.ToInt32(textAutonomia_Auto.Text));
 
             MessageBox.Show("Automóvel editada com sucesso!");
-            limparCampos();
         }
 
         private void limparCampos()

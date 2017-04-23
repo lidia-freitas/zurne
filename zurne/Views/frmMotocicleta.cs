@@ -75,8 +75,7 @@ namespace Views
             MotocicletaController.EditarMotocicleta(Convert.ToInt32(idSelecionado), Convert.ToInt32(textCilindradas_Moto.Text), textMarca_Moto.Text, 
                 textModelo_Moto.Text, textCor_Moto.Text, Convert.ToInt32(textAno_Moto.Text), Convert.ToInt32(textAutonomia_Moto.Text));
 
-            MessageBox.Show("Motocicleta editada  com sucesso!");
-            limparCampos();
+            MessageBox.Show("Motocicleta editada com sucesso!");
         }
 
         private void limparCampos()

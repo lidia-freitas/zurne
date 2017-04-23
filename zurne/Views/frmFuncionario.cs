@@ -43,8 +43,8 @@ namespace Views
             switch (tipoSelecionado)
             {
                 case "PF":
-                    textNome_PF.Text = func.Pessoa.Nomenclatura;
-                    textCpf_PF.Text = func.Pessoa.Documento;
+                    textNome_PF.Text = func.Pessoa.getNomenclatura();
+                    textCpf_PF.Text = func.Pessoa.getDocumento();
                     textEmail_PF.Text = func.Pessoa.Email;
                     textEndereco_PF.Text = func.Pessoa.Endereco;
 
@@ -130,8 +130,14 @@ namespace Views
 
         private void cadastrarFuncionario()
         {
-            PessoaFisica pf = new PessoaFisica(textNome_PF.Text, textCpf_PF.Text, textEmail_PF.Text, textEndereco_PF.Text);
-            Funcionario FuncionarioPF = new Funcionario(pf);
+            PessoaFisica pf = new PessoaFisica();
+            pf.Nome = textNome_PF.Text;
+            pf.CPF = textCpf_PF.Text;
+            pf.Email = textEmail_PF.Text;
+            pf.Endereco = textEndereco_PF.Text;
+
+            Funcionario FuncionarioPF = new Funcionario();
+            FuncionarioPF.Pessoa = pf;
 
             FuncionarioController.CadastrarFuncionario(FuncionarioPF);
 

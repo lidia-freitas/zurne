@@ -43,8 +43,8 @@ namespace Views
             switch (tipoSelecionado)
             {
                 case "PF":
-                    textNome_PF.Text = cli.Pessoa.Nomenclatura;
-                    textCpf_PF.Text = cli.Pessoa.Documento;
+                    textNome_PF.Text = cli.Pessoa.getNomenclatura();
+                    textCpf_PF.Text = cli.Pessoa.getDocumento();
                     textEmail_PF.Text = cli.Pessoa.Email;
                     textEndereco_PF.Text = cli.Pessoa.Endereco;
                     
@@ -53,8 +53,8 @@ namespace Views
                     break;
 
                 case "PJ":
-                    textRazaoSocial_PJ.Text = cli.Pessoa.Nomenclatura;
-                    textCnpj_PJ.Text = cli.Pessoa.Documento;                    
+                    textRazaoSocial_PJ.Text = cli.Pessoa.getNomenclatura();
+                    textCnpj_PJ.Text = cli.Pessoa.getDocumento();
                     textEmail_PJ.Text = cli.Pessoa.Email;
                     textEndereco_PJ.Text = cli.Pessoa.Endereco;
                     
@@ -124,15 +124,27 @@ namespace Views
             switch (tipoSelecionado)
             {
                 case "PF":
-                    PessoaFisica pf = new PessoaFisica(textNome_PF.Text, textCpf_PF.Text, textEmail_PF.Text, textEndereco_PF.Text);
-                    Cliente clientePF = new Cliente(pf);
+                    PessoaFisica pf = new PessoaFisica();
+                    pf.Nome = textNome_PF.Text;
+                    pf.CPF = textCpf_PF.Text;
+                    pf.Email = textEmail_PF.Text;
+                    pf.Endereco = textEndereco_PF.Text;  
+                    
+                    Cliente clientePF = new Cliente();
+                    clientePF.Pessoa = pf;                    
 
                     ClienteController.CadastrarCliente(clientePF);
                     break;
 
                 case "PJ":
-                    PessoaJuridica pj = new PessoaJuridica(textRazaoSocial_PJ.Text, textCnpj_PJ.Text, textEmail_PJ.Text, textEndereco_PJ.Text);
-                    Cliente clientePJ = new Cliente(pj);
+                    PessoaJuridica pj = new PessoaJuridica();
+                    pj.RazaoSocial = textRazaoSocial_PJ.Text;
+                    pj.Email = textEmail_PJ.Text;
+                    pj.CNPJ = textCnpj_PJ.Text;
+                    pj.Endereco = textEndereco_PJ.Text;
+
+                    Cliente clientePJ = new Cliente();
+                    clientePJ.Pessoa = pj;
 
                     ClienteController.CadastrarCliente(clientePJ);
                     break;   
@@ -157,7 +169,7 @@ namespace Views
                     break;
             }
 
-            MessageBox.Show("Cliente editado com sucesso!");
+            MessageBox.Show("Cliente editado com sucesso!");            
         }
         
         private void limparCampos()

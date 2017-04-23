@@ -89,25 +89,18 @@
     <Compile Include="Funcionario.cs" />
     <Compile Include="ILicenciamento.cs" />
     <Compile Include="IPessoa.cs" />
-    <Compile Include="Migrations\201704130044451_InitialCreate.cs" />
-    <Compile Include="Migrations\201704130044451_InitialCreate.Designer.cs">
-      <DependentUpon>201704130044451_InitialCreate.cs</DependentUpon>
+    <Compile Include="keyAttribute.cs" />
+    <Compile Include="Migrations\201704221705226_teste.cs" />
+    <Compile Include="Migrations\201704221705226_teste.Designer.cs">
+      <DependentUpon>201704221705226_teste.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704182343474_addVeiculos.cs" />
-    <Compile Include="Migrations\201704182343474_addVeiculos.Designer.cs">
-      <DependentUpon>201704182343474_addVeiculos.cs</DependentUpon>
+    <Compile Include="Migrations\201704222110566_teste1.cs" />
+    <Compile Include="Migrations\201704222110566_teste1.Designer.cs">
+      <DependentUpon>201704222110566_teste1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704192149535_teste.cs" />
-    <Compile Include="Migrations\201704192149535_teste.Designer.cs">
-      <DependentUpon>201704192149535_teste.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704200028079_remove_identity.cs" />
-    <Compile Include="Migrations\201704200028079_remove_identity.Designer.cs">
-      <DependentUpon>201704200028079_remove_identity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704210039252_automovel.cs" />
-    <Compile Include="Migrations\201704210039252_automovel.Designer.cs">
-      <DependentUpon>201704210039252_automovel.cs</DependentUpon>
+    <Compile Include="Migrations\201704231514096_teste2.cs" />
+    <Compile Include="Migrations\201704231514096_teste2.Designer.cs">
+      <DependentUpon>201704231514096_teste2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Motocicleta.cs" />
@@ -122,11 +115,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Veiculo.cs" />
-    <Compile Include="zurneEFDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>zurneEFDataSet.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -137,33 +125,16 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="zurneEFDataSet.xsc">
-      <DependentUpon>zurneEFDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="zurneEFDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>zurneEFDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="zurneEFDataSet.xss">
-      <DependentUpon>zurneEFDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704130044451_InitialCreate.resx">
-      <DependentUpon>201704130044451_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704221705226_teste.resx">
+      <DependentUpon>201704221705226_teste.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704182343474_addVeiculos.resx">
-      <DependentUpon>201704182343474_addVeiculos.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704222110566_teste1.resx">
+      <DependentUpon>201704222110566_teste1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704192149535_teste.resx">
-      <DependentUpon>201704192149535_teste.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704200028079_remove_identity.resx">
-      <DependentUpon>201704200028079_remove_identity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704210039252_automovel.resx">
-      <DependentUpon>201704210039252_automovel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704231514096_teste2.resx">
+      <DependentUpon>201704231514096_teste2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

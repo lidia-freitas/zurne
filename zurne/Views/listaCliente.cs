@@ -17,8 +17,6 @@ namespace Views
         private string idSelecionado;
         private string tipoSelecionado;
 
-        private List<Cliente> listaClientesGrid = ClienteController.ListarClientes();
-
         public listaCliente()
         {
             InitializeComponent();
@@ -27,12 +25,13 @@ namespace Views
         private void listarClientes(object sender, EventArgs e)
         {
             limparSelecao();
-            //dataGridClientes.DataSource = null;
-            dataGridClientes.DataSource = serializeClientes(listaClientesGrid);
+            dataGridClientes.DataSource = null;
+            dataGridClientes.DataSource = serializeClientes();
         }
 
-        private DataTable serializeClientes(List<Cliente> listaClientes)
+        private DataTable serializeClientes()
         {
+            List<Cliente> listaClientesGrid = ClienteController.ListarClientes();
             DataTable customTable = new DataTable("listaClientes");
 
             customTable.Columns.Add(new DataColumn("Id"));
@@ -41,15 +40,14 @@ namespace Views
             customTable.Columns.Add(new DataColumn("E-mail"));
             customTable.Columns.Add(new DataColumn("Endereço"));
 
-            foreach (Cliente cli in listaClientes)
+            foreach (Cliente cli in listaClientesGrid)
             {
-
                 customTable.AcceptChanges();
 
                 DataRow row = customTable.NewRow();
-                row[0] = cli.Id;
-                row[1] = cli.Pessoa.Nomenclatura;
-                row[2] = cli.Pessoa.Documento;
+                row[0] = cli.PessoaId;
+                row[1] = cli.Pessoa.getNomenclatura();
+                row[2] = cli.Pessoa.getDocumento();
                 row[3] = cli.Pessoa.Email;
                 row[4] = cli.Pessoa.Endereco;
 
@@ -97,8 +95,8 @@ namespace Views
             int cliId = Convert.ToInt32(idSelecionado);            
             ClienteController.RemoverCliente(cliId);
 
-            dataGridClientes.DataSource = null;
-            dataGridClientes.DataSource = serializeClientes(listaClientesGrid);
+            dataGridClientes.DataSource = null;            
+            dataGridClientes.DataSource = serializeClientes();
 
             MessageBox.Show("O cliente foi removido com sucesso!");
 

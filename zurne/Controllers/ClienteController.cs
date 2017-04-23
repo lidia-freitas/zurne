@@ -10,20 +10,25 @@ using System.Data.Entity;
 namespace Controllers
 {
     public class ClienteController
-    {              
+    {
         public static Cliente BuscarCliente(int id)
         {
             using (Contexto ctx = new Contexto())
             {
-                return ctx.Cliente.Find(id);
+                return ctx.Cliente.Include(c => c.Pessoa).FirstOrDefault(c => c.PessoaId == id);
             }
+        }
+
+        public static Cliente BuscarCliente(int id, Contexto ctx)
+        {
+             return ctx.Cliente.Include(c => c.Pessoa).FirstOrDefault(c => c.PessoaId == id);
         }
 
         public static List<Cliente> ListarClientes()
         {
             using (Contexto ctx = new Contexto())
             {
-                return ctx.Cliente.ToList();
+                return ctx.Cliente.Include(c => c.Pessoa).ToList();                                
             }
         }
   
@@ -40,17 +45,17 @@ namespace Controllers
         {
             using (Contexto ctx = new Contexto())
             {
-                Cliente cli = BuscarCliente(id);
+                Cliente cli = BuscarCliente(id, ctx);
 
                 if (cli != null)
-                {
-                    cli.Pessoa.Nomenclatura = nomenclatura;
-                    cli.Pessoa.Documento = documento;
+                {                    
+                    cli.Pessoa.setNomenclatura(nomenclatura);
+                    cli.Pessoa.setDocumento(documento);
                     cli.Pessoa.Endereco = endereco;
                     cli.Pessoa.Email = email;
                 }
 
-                ctx.Entry(cli).State = System.Data.Entity.EntityState.Modified;
+                ctx.Entry(cli).State = EntityState.Modified;
                 ctx.SaveChanges();
             }            
         }
@@ -59,11 +64,11 @@ namespace Controllers
         {
             using (Contexto ctx = new Contexto())
             {
-                Cliente cli = BuscarCliente(id);
+                Cliente cli = BuscarCliente(id, ctx);
 
                 if (cli != null)
                 {
-                    ctx.Entry(cli).State = System.Data.Entity.EntityState.Deleted;
+                    ctx.Entry(cli).State = EntityState.Deleted;
                     ctx.SaveChanges();
                 }
             }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Models;
 using Models.DAL;
+using System.Data.Entity;
 
 namespace Controllers
 {
@@ -14,15 +15,20 @@ namespace Controllers
         {
             using (Contexto ctx = new Contexto())
             {
-                return ctx.Funcionario.Find(id);
+                return ctx.Funcionario.Include(f => f.Pessoa).FirstOrDefault(f => f.PessoaId == id);
             }
+        }
+
+        public static Funcionario BuscarFuncionario(int id, Contexto ctx)
+        {
+            return ctx.Funcionario.Include(f => f.Pessoa).FirstOrDefault(f => f.PessoaId == id);
         }
 
         public static List<Funcionario> ListarFuncionarios()
         {
             using (Contexto ctx = new Contexto())
             {
-                return ctx.Funcionario.ToList();
+                return ctx.Funcionario.Include(c => c.Pessoa).ToList();
             }
         }
 
@@ -39,17 +45,17 @@ namespace Controllers
         {
             using (Contexto ctx = new Contexto())
             {
-                Funcionario func = BuscarFuncionario(id);
+                Funcionario func = BuscarFuncionario(id, ctx);
 
                 if (func != null)
                 {
-                    func.Pessoa.Nomenclatura = nomenclatura;
-                    func.Pessoa.Documento = documento;
+                    func.Pessoa.setNomenclatura(nomenclatura);
+                    func.Pessoa.setDocumento(documento);
                     func.Pessoa.Endereco = endereco;
                     func.Pessoa.Email = email;
                 }
 
-                ctx.Entry(func).State = System.Data.Entity.EntityState.Modified;
+                ctx.Entry(func).State = EntityState.Modified;
                 ctx.SaveChanges();
             }
         }
@@ -58,11 +64,11 @@ namespace Controllers
         {
             using (Contexto ctx = new Contexto())
             {
-                Funcionario func = BuscarFuncionario(id);
+                Funcionario func = BuscarFuncionario(id, ctx);
 
                 if (func != null)
                 {
-                    ctx.Entry(func).State = System.Data.Entity.EntityState.Deleted;
+                    ctx.Entry(func).State = EntityState.Deleted;
                     ctx.SaveChanges();
                 }
             }

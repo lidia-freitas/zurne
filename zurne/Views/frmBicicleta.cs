@@ -75,7 +75,6 @@ namespace Views
                 textModelo_Bike.Text, textCor_Bike.Text, Convert.ToInt32(textAno_Bike.Text));
 
             MessageBox.Show("Bicicleta editada com sucesso!");
-            limparCampos();
         }
 
         private void limparCampos()

@@ -1,21 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Models
 {
-    public abstract class Pessoa
+    [Table("Pessoa")]
+    public class Pessoa
     {
-        public int Id { get; set; }
+        [key]
+        public int PessoaId { get; set; }
+
         public string Email { get; set; }
         public string Endereco { get; set; }
 
-        public Pessoa(string email, string endereco)
+        public virtual Cliente Cliente { get; set; }
+        public virtual Funcionario Funcionario { get; set; }
+
+        public string getNomenclatura()
         {
-            this.Email = email;
-            this.Endereco = endereco;
+            return (string)this.GetType().GetProperty("Nomenclatura").GetValue(this, null);
+        }
+
+        public void setNomenclatura(string nomenclatura)
+        {
+            GetType().GetProperty("Nomenclatura").SetValue(this, nomenclatura);
+        }
+
+        public string getDocumento()
+        {
+            return (string)this.GetType().GetProperty("Documento").GetValue(this, null);
+        }
+
+        public void setDocumento(string Documento)
+        {
+            GetType().GetProperty("Documento").SetValue(this, Documento);
         }
     }
 }

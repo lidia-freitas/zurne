@@ -1,25 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Models
 {
+    [Table("Cliente")]
     public class Cliente
     {
-        public int Id { get; set; }
-        public readonly IPessoa Pessoa;        
-
-        public Cliente(IPessoa p) {
-            Pessoa = p;
-        }
-
-        private Cliente()
-        {
-
-        }
-
+        [key, ForeignKey("Pessoa")]
+        public int PessoaId { get; set; }
+        [Required]
+        public virtual Pessoa Pessoa { get; set; }
     }
 }

@@ -91,11 +91,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="zurneEFDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>zurneEFDataSet.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
@@ -108,17 +103,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="zurneEFDataSet.xsc">
-      <DependentUpon>zurneEFDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="zurneEFDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>zurneEFDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="zurneEFDataSet.xss">
-      <DependentUpon>zurneEFDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

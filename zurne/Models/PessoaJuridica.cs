@@ -1,46 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Models
 {
+    [Table("PessoaJuridica")]
     public class PessoaJuridica : Pessoa, IPessoa
     {
         public string RazaoSocial { get; set; }
         public string CNPJ { get; set; }
 
-        public PessoaJuridica(string rasaoSocial, string cnpj, string email, string endereco)
-            : base(email, endereco)
-        {
-            this.RazaoSocial = rasaoSocial;
-            this.CNPJ = cnpj;
-        }
-
         public string Documento
         {
             get
             {
-                return CNPJ;
+                return this.CNPJ;
             }
-            set {
+
+            set
+            {
                 this.CNPJ = value;
             }
-            
         }
 
-        public string Nomenclatura      
+        public string Nomenclatura
         {
             get
             {
-                return RazaoSocial;
+                return this.RazaoSocial;
             }
-            set {
+
+            set
+            {
                 this.RazaoSocial = value;
             }
         }
-                
     }
 }
 
