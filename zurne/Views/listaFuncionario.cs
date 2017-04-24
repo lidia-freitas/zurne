@@ -46,8 +46,8 @@ namespace Views
 
                 DataRow row = customTable.NewRow();
                 row[0] = func.PessoaId;
-                row[1] = func.Pessoa.getNomenclatura();
-                row[2] = func.Pessoa.getDocumento();
+                row[1] = func.Pessoa.Nomenclatura;
+                row[2] = func.Pessoa.Documento;
                 row[3] = func.Pessoa.Email;
                 row[4] = func.Pessoa.Endereco;
 

@@ -38,6 +38,7 @@
             this.lbDistancia = new System.Windows.Forms.Label();
             this.lbValor = new System.Windows.Forms.Label();
             this.btGerarOrdemDeServico = new System.Windows.Forms.Button();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
             // lbOrigem
@@ -133,11 +134,23 @@
             this.btGerarOrdemDeServico.UseVisualStyleBackColor = true;
             this.btGerarOrdemDeServico.Click += new System.EventHandler(this.btGerarOrdemDeServico_Click);
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.webBrowser1.Location = new System.Drawing.Point(13, 150);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(954, 335);
+            this.webBrowser1.TabIndex = 10;
+            // 
             // frmOrcamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 497);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.btGerarOrdemDeServico);
             this.Controls.Add(this.lbValor);
             this.Controls.Add(this.lbDistancia);
@@ -168,5 +181,6 @@
         private System.Windows.Forms.Label lbDistancia;
         private System.Windows.Forms.Label lbValor;
         private System.Windows.Forms.Button btGerarOrdemDeServico;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

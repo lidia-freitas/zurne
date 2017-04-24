@@ -43,8 +43,8 @@ namespace Views
             switch (tipoSelecionado)
             {
                 case "PF":
-                    textNome_PF.Text = func.Pessoa.getNomenclatura();
-                    textCpf_PF.Text = func.Pessoa.getDocumento();
+                    textNome_PF.Text = func.Pessoa.Nomenclatura;
+                    textCpf_PF.Text = func.Pessoa.Documento;
                     textEmail_PF.Text = func.Pessoa.Email;
                     textEndereco_PF.Text = func.Pessoa.Endereco;
 

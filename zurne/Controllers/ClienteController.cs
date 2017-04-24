@@ -49,8 +49,8 @@ namespace Controllers
 
                 if (cli != null)
                 {                    
-                    cli.Pessoa.setNomenclatura(nomenclatura);
-                    cli.Pessoa.setDocumento(documento);
+                    cli.Pessoa.Nomenclatura = nomenclatura;
+                    cli.Pessoa.Documento = documento;
                     cli.Pessoa.Endereco = endereco;
                     cli.Pessoa.Email = email;
                 }

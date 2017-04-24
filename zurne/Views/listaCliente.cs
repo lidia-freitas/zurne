@@ -46,8 +46,8 @@ namespace Views
 
                 DataRow row = customTable.NewRow();
                 row[0] = cli.PessoaId;
-                row[1] = cli.Pessoa.getNomenclatura();
-                row[2] = cli.Pessoa.getDocumento();
+                row[1] = cli.Pessoa.Nomenclatura;
+                row[2] = cli.Pessoa.Documento;
                 row[3] = cli.Pessoa.Email;
                 row[4] = cli.Pessoa.Endereco;
 

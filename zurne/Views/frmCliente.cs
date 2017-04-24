@@ -43,8 +43,8 @@ namespace Views
             switch (tipoSelecionado)
             {
                 case "PF":
-                    textNome_PF.Text = cli.Pessoa.getNomenclatura();
-                    textCpf_PF.Text = cli.Pessoa.getDocumento();
+                    textNome_PF.Text = cli.Pessoa.Nomenclatura;
+                    textCpf_PF.Text = cli.Pessoa.Documento;
                     textEmail_PF.Text = cli.Pessoa.Email;
                     textEndereco_PF.Text = cli.Pessoa.Endereco;
                     
@@ -53,8 +53,8 @@ namespace Views
                     break;
 
                 case "PJ":
-                    textRazaoSocial_PJ.Text = cli.Pessoa.getNomenclatura();
-                    textCnpj_PJ.Text = cli.Pessoa.getDocumento();
+                    textRazaoSocial_PJ.Text = cli.Pessoa.Nomenclatura;
+                    textCnpj_PJ.Text = cli.Pessoa.Documento;
                     textEmail_PJ.Text = cli.Pessoa.Email;
                     textEndereco_PJ.Text = cli.Pessoa.Endereco;
                     

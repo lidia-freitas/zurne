@@ -13,7 +13,7 @@ namespace Models
         public string Nome { get; set; }
         public string CPF { get; set; }             
 
-        public string Documento
+        public override  string Documento
         {
             get
             {
@@ -26,7 +26,7 @@ namespace Models
             }
         }
 
-        public string Nomenclatura
+        public override string Nomenclatura
         {
             get
             {

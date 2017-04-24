@@ -49,8 +49,8 @@ namespace Controllers
 
                 if (func != null)
                 {
-                    func.Pessoa.setNomenclatura(nomenclatura);
-                    func.Pessoa.setDocumento(documento);
+                    func.Pessoa.Nomenclatura = nomenclatura;
+                    func.Pessoa.Documento = documento;
                     func.Pessoa.Endereco = endereco;
                     func.Pessoa.Email = email;
                 }
