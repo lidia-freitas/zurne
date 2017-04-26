@@ -12,6 +12,8 @@ using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GoogleDirections;
+using Models.Enumerators;
+using Models.Utils;
 
 namespace Views
 {
@@ -45,6 +47,22 @@ namespace Views
             gMapControl.MaxZoom = 24;
             gMapControl.Zoom = 9;
             gMapControl.AutoScroll = true;
+
+            trackZoom.Value = (int)gMapControl.Zoom;
+
+            lbDistancia.Text = "0.00KM";
+            lbValor.Text = "R$ 0,00";
+
+            List<KeyValuePair<string, string>> listaMediaConsumoVeiculo = new List<KeyValuePair<string, string>>();
+
+            Array mediaConsumoVeiculo = Enum.GetValues(typeof(MediaConsumo));
+            foreach (MediaConsumo veiculo in mediaConsumoVeiculo)
+            {
+                listaMediaConsumoVeiculo.Add(new KeyValuePair<string, string>(veiculo.ToString(), ((int)veiculo).ToString()));
+            }
+            cbVeiculo.DataSource = listaMediaConsumoVeiculo;
+            cbVeiculo.DisplayMember = "Key";
+            cbVeiculo.ValueMember = "Value";
         }
 
         private void btCalcularOrcamento_Click(object sender, EventArgs e)
@@ -62,14 +80,14 @@ namespace Views
             GMarkerGoogle markerOrigem = new GMarkerGoogle(inicio, GMarkerGoogleType.green);
             markerOrigem.Position = inicio;
             markerOrigem.ToolTipMode = MarkerTooltipMode.Always;
-            markerOrigem.ToolTipText = string.Format("Localização: \n {0}", txtOrigem.Text);
+            markerOrigem.ToolTipText = string.Format("Origem: \n {0}", txtOrigem.Text);
             markerOverlay.Markers.Add(markerOrigem);
 
 
             GMarkerGoogle markerDestino = new GMarkerGoogle(final, GMarkerGoogleType.red);
             markerDestino.Position = final;
             markerDestino.ToolTipMode = MarkerTooltipMode.Always;
-            markerDestino.ToolTipText = string.Format("Localização: \n {0}", txtOrigem.Text);
+            markerDestino.ToolTipText = string.Format("Destino: \n {0}", txtOrigem.Text);
             markerOverlay.Markers.Add(markerDestino);
 
             GDirections direction;
@@ -85,7 +103,11 @@ namespace Views
             gMapControl.Zoom = gMapControl.Zoom + 1;
             gMapControl.Zoom = gMapControl.Zoom - 1;
 
+
+            double valorTotal = CalculoOrcamento.CalcularOrcamento(RotaObtida.Distance, cbVeiculo.SelectedValue);           
+
             lbDistancia.Text = Math.Round(RotaObtida.Distance, 2).ToString() + "KM";
+            lbValor.Text = "R$" + valorTotal.ToString();
         }
 
         private void btnSatelite_Click(object sender, EventArgs e)

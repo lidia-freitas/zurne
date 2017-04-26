@@ -34,7 +34,7 @@
             this.txtOrigem = new System.Windows.Forms.TextBox();
             this.txtDestino = new System.Windows.Forms.TextBox();
             this.lbVeiculo = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbVeiculo = new System.Windows.Forms.ComboBox();
             this.btCalcularOrcamento = new System.Windows.Forms.Button();
             this.lbDistancia = new System.Windows.Forms.Label();
             this.lbValor = new System.Windows.Forms.Label();
@@ -90,13 +90,13 @@
             this.lbVeiculo.TabIndex = 4;
             this.lbVeiculo.Text = "Veículo";
             // 
-            // comboBox1
+            // cbVeiculo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(20, 212);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(117, 21);
-            this.comboBox1.TabIndex = 5;
+            this.cbVeiculo.FormattingEnabled = true;
+            this.cbVeiculo.Location = new System.Drawing.Point(20, 212);
+            this.cbVeiculo.Name = "cbVeiculo";
+            this.cbVeiculo.Size = new System.Drawing.Size(117, 21);
+            this.cbVeiculo.TabIndex = 5;
             // 
             // btCalcularOrcamento
             // 
@@ -242,7 +242,7 @@
             this.Controls.Add(this.txtDestino);
             this.Controls.Add(this.btnSatelite);
             this.Controls.Add(this.btnOriginal);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbVeiculo);
             this.Name = "frmOrcamento";
             this.Text = "Orçamento";
             this.Load += new System.EventHandler(this.frmOrcamento_Load);
@@ -259,7 +259,7 @@
         private System.Windows.Forms.TextBox txtOrigem;
         private System.Windows.Forms.TextBox txtDestino;
         private System.Windows.Forms.Label lbVeiculo;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbVeiculo;
         private System.Windows.Forms.Button btCalcularOrcamento;
         private System.Windows.Forms.Label lbDistancia;
         private System.Windows.Forms.Label lbValor;

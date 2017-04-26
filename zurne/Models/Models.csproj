@@ -83,6 +83,7 @@
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Entities\Funcionario.cs" />
+    <Compile Include="Enumerators\MediaConsumo.cs" />
     <Compile Include="Interfaces\ILicenciamento.cs" />
     <Compile Include="Interfaces\IPessoa.cs" />
     <Compile Include="keyAttribute.cs" />
@@ -111,6 +112,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Entities\Veiculo.cs" />
+    <Compile Include="Utils\CalculoOrcamento.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
