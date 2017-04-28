@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    [Table("Funcionario")]
+    [Table("Funcionarios")]
     public class Funcionario
     {
         [key, ForeignKey("Pessoa")]        

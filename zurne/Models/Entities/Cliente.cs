@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    [Table("Cliente")]
+    [Table("Clientes")]
     public class Cliente
     {
         [key, ForeignKey("Pessoa")]

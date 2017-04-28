@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    [Table("PessoaFisica")]
+    [Table("PessoasFisicas")]
     public class PessoaFisica : Pessoa, IPessoa
     {     
         public string Nome { get; set; }
@@ -40,3 +40,4 @@ namespace Models
         }
     }
 }
+

@@ -134,6 +134,7 @@
             this.btGerarOrdemDeServico.TabIndex = 9;
             this.btGerarOrdemDeServico.Text = "Gerar ordem de serviço";
             this.btGerarOrdemDeServico.UseVisualStyleBackColor = true;
+            this.btGerarOrdemDeServico.Click += new System.EventHandler(this.btGerarOrdemDeServico_Click);
             // 
             // btnSatelite
             // 

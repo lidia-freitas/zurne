@@ -83,7 +83,6 @@ namespace Views
             markerOrigem.ToolTipText = string.Format("Origem: \n {0}", txtOrigem.Text);
             markerOverlay.Markers.Add(markerOrigem);
 
-
             GMarkerGoogle markerDestino = new GMarkerGoogle(final, GMarkerGoogleType.red);
             markerDestino.Position = final;
             markerDestino.ToolTipMode = MarkerTooltipMode.Always;
@@ -107,7 +106,7 @@ namespace Views
             double valorTotal = CalculoOrcamento.CalcularOrcamento(RotaObtida.Distance, cbVeiculo.SelectedValue);           
 
             lbDistancia.Text = Math.Round(RotaObtida.Distance, 2).ToString() + "KM";
-            lbValor.Text = "R$" + valorTotal.ToString();
+            lbValor.Text = valorTotal.ToString();
         }
 
         private void btnSatelite_Click(object sender, EventArgs e)
@@ -133,6 +132,16 @@ namespace Views
         private void timer_Tick(object sender, EventArgs e)
         {
             trackZoom.Value = Convert.ToInt32(gMapControl.Zoom);
+        }
+
+        private void btGerarOrdemDeServico_Click(object sender, EventArgs e)
+        {
+            frmOrdemServico frmOrdemServico = new frmOrdemServico(txtOrigem.Text, txtDestino.Text, lbDistancia.Text, lbValor.Text, cbVeiculo.SelectedItem);
+            frmOrdemServico.MdiParent = this.MdiParent;
+
+            frmOrdemServico.Show();
+            frmOrdemServico.WindowState = FormWindowState.Maximized;
+            this.Close();
         }
     }
 }

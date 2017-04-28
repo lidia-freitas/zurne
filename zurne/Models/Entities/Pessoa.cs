@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    [Table("Pessoa")]
+    [Table("Pessoas")]
     public abstract class Pessoa
     {
         [key]

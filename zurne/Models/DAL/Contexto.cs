@@ -37,7 +37,8 @@ namespace Models.DAL
         public virtual DbSet<Veiculo> Veiculo { get; set; }
         public virtual DbSet<Bicicleta> Bicicleta { get; set; }
         public virtual DbSet<Automovel> Automovel { get; set; }
-        public virtual DbSet<Motocicleta> Motocicleta { get; set; }       
+        public virtual DbSet<Motocicleta> Motocicleta { get; set; }
+        public virtual DbSet<OrdemServico> OrdemServico { get; set; }
     }
 
 }

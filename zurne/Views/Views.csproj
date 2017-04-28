@@ -124,6 +124,12 @@
     <Compile Include="frmOrcamento.Designer.cs">
       <DependentUpon>frmOrcamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOrdemServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrdemServico.Designer.cs">
+      <DependentUpon>frmOrdemServico.cs</DependentUpon>
+    </Compile>
     <Compile Include="listaAutomovel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrcamento.resx">
       <DependentUpon>frmOrcamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrdemServico.resx">
+      <DependentUpon>frmOrdemServico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="listaAutomovel.resx">
       <DependentUpon>listaAutomovel.cs</DependentUpon>
